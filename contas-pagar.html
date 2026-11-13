@@ -1,12 +1,23 @@
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="finora-protegendo">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Finora - Contas a Pagar</title>
+
+    <!-- PROTEÇÃO VISUAL DURANTE A AUTENTICAÇÃO -->
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/configuracoes.css">
@@ -532,10 +543,13 @@
 
         async function iniciarContasPagar() {
             try {
+                // Aguarda a confirmação da autenticação.
                 const usuario = await protegerPagina();
 
+                // Se não houver usuário, mantém a página protegida.
                 if (!usuario) return;
 
+                // Atualiza a saudação com o usuário autenticado.
                 const saudacao = document.querySelector(".henrique");
 
                 if (saudacao) {
@@ -548,9 +562,14 @@
                     saudacao.textContent = `Olá, ${nome || "usuário"}`;
                 }
 
+                // Carrega as funcionalidades de Contas a Pagar.
                 await import("./js/contas-pagar.js");
 
+                // Carrega as configurações do Finora.
                 await carregarScript("js/configuracoes.js");
+
+                // Libera a página somente após a inicialização bem-sucedida.
+                document.documentElement.classList.remove("finora-protegendo");
 
             } catch (erro) {
                 console.error(
@@ -561,6 +580,8 @@
                 alert(
                     "Não foi possível carregar Contas a Pagar. Tente novamente."
                 );
+
+                // Não remove a classe de proteção em caso de erro.
             }
         }
 
