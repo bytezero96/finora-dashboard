@@ -342,7 +342,9 @@
     <!-- FIREBASE E PROTEÇÃO DA PÁGINA -->
     <script type="module">
 
-        import { protegerPagina } from "./js/finora-db.js";
+        import {
+            protegerPagina
+        } from "./js/finora-db.js";
 
         const saudacaoUsuario =
             document.getElementById("saudacaoUsuario");
@@ -487,19 +489,25 @@
                 // 3. Carregar o script principal.
                 await carregarScript("js/script.js", true);
 
-                // 4. Aguardar dados reais do Firestore.
+                // 4. Aguardar a inicialização dos dados.
                 if (!window.finoraInicializado) {
                     throw new Error(
                         "A inicialização dos dados financeiros não foi encontrada."
                     );
                 }
 
-                await window.finoraInicializado;
+                const inicializado = await window.finoraInicializado;
+
+                if (inicializado === false) {
+                    throw new Error(
+                        "Não foi possível inicializar os dados financeiros."
+                    );
+                }
 
                 // 5. Carregar configurações.
                 await carregarScript("js/configuracoes.js");
 
-                // 6. Exibir o dashboard.
+                // 6. Exibir o dashboard somente após tudo carregar.
                 document.documentElement.classList.remove(
                     "finora-protegendo"
                 );
@@ -511,13 +519,14 @@
                     erro
                 );
 
+                // IMPORTANTE:
+                // Não remover finora-protegendo em caso de erro.
+                // O dashboard permanece oculto.
+
                 alert(
-                    "Não foi possível carregar o Finora. Tente novamente."
+                    "Não foi possível carregar o Finora. Atualize a página e tente novamente."
                 );
 
-                document.documentElement.classList.remove(
-                    "finora-protegendo"
-                );
             }
         }
 
