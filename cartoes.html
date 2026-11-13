@@ -1,0 +1,454 @@
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Finora - Cartões</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cartoes.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <button
+            type="button"
+            class="botao-menu-mobile"
+            id="botaoMenuMobile"
+            aria-label="Abrir menu"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1 class="titulo-financeiro">
+
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+
+            Controle de Finanças
+
+        </h1>
+
+        <p class="henrique">
+            Olá Henrique
+        </p>
+
+    </header>
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">
+                    VISÃO GERAL
+                </li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">
+                    MOVIMENTAÇÕES
+                </li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="cartoes.html" aria-current="page">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">
+                    PLANEJAMENTO
+                </li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">
+                    OUTROS
+                </li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- SOBREPOSIÇÃO DO MENU MOBILE -->
+
+        <button
+            type="button"
+            class="menu-overlay"
+            id="menuOverlay"
+            aria-label="Fechar menu"
+            tabindex="-1"
+        ></button>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <main>
+
+            <section class="cartoes">
+
+                <h2>Meus Cartões</h2>
+
+                <button
+                    class="botao-adicionar-cartao"
+                    id="abrirFormulario"
+                    type="button"
+                >
+                    + Adicionar cartão
+                </button>
+
+                <!-- FORMULÁRIO DE CADASTRO -->
+
+                <section
+                    class="formulario-cartao"
+                    id="formularioCartao"
+                    style="display: none;"
+                    aria-labelledby="tituloFormularioCartao"
+                >
+
+                    <h3 id="tituloFormularioCartao">
+                        Adicionar cartão
+                    </h3>
+
+                    <label for="nomeCartao">
+                        Nome do cartão
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nomeCartao"
+                        placeholder="Ex: Nubank"
+                        autocomplete="off"
+                    >
+
+                    <label for="bandeiraCartao">
+                        Bandeira
+                    </label>
+
+                    <select id="bandeiraCartao">
+
+                        <option value="">Selecione</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Elo">Elo</option>
+                        <option value="American Express">American Express</option>
+                        <option value="Hipercard">Hipercard</option>
+                        <option value="Outro">Outro</option>
+
+                    </select>
+
+                    <label for="limiteCartao">
+                        Limite total
+                    </label>
+
+                    <div class="campo-valor">
+
+                        <span>R$</span>
+
+                        <input
+                            type="number"
+                            id="limiteCartao"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="0,00"
+                        >
+
+                    </div>
+
+                    <label for="fechamentoCartao">
+                        Fechamento de fatura
+                    </label>
+
+                    <input
+                        type="number"
+                        id="fechamentoCartao"
+                        min="1"
+                        max="31"
+                        placeholder="Ex: 10"
+                    >
+
+                    <label for="vencimentoCartao">
+                        Dia de vencimento
+                    </label>
+
+                    <input
+                        type="number"
+                        id="vencimentoCartao"
+                        min="1"
+                        max="31"
+                        placeholder="Ex: 17"
+                    >
+
+                    <button
+                        type="button"
+                        id="salvarCartao"
+                    >
+                        Salvar cartão
+                    </button>
+
+                </section>
+
+                <!-- CARTÕES CADASTRADOS -->
+
+                <div class="area-cartoes"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MENU MOBILE -->
+
+    <script>
+        (() => {
+
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const menuOverlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !menuOverlay) return;
+
+            function abrirMenu() {
+
+                document.body.classList.add("menu-mobile-aberto");
+                botaoMenu.classList.add("ativo");
+
+                botaoMenu.setAttribute("aria-expanded", "true");
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+
+            }
+
+            function fecharMenu() {
+
+                document.body.classList.remove("menu-mobile-aberto");
+                botaoMenu.classList.remove("ativo");
+
+                botaoMenu.setAttribute("aria-expanded", "false");
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+            }
+
+            function alternarMenu() {
+
+                const aberto = document.body.classList.contains("menu-mobile-aberto");
+
+                if (aberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+
+            }
+
+            botaoMenu.addEventListener("click", alternarMenu);
+
+            menuOverlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", evento => {
+
+                if (evento.key === "Escape") {
+                    fecharMenu();
+                }
+
+            });
+
+            window.addEventListener("resize", () => {
+
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+
+            });
+
+        })();
+    </script>
+
+    <!-- INICIALIZAÇÃO E AUTENTICAÇÃO FIREBASE -->
+
+    <script type="module">
+
+        import {
+            protegerPagina
+        } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(
+                        new Error(`Erro ao carregar ${arquivo}`)
+                    );
+                };
+
+                document.body.appendChild(script);
+
+            });
+
+        }
+
+        async function iniciarCartoes() {
+
+            try {
+
+                const usuario = await protegerPagina();
+
+                if (!usuario) return;
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent =
+                        `Olá, ${nome || "usuário"}`;
+
+                }
+
+                await import("./js/script.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao inicializar a página de cartões:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar os cartões. Tente novamente."
+                );
+
+            }
+
+        }
+
+        iniciarCartoes();
+
+    </script>
+
+</body>
+</html>

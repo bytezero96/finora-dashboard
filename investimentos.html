@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102D39">
+
+    <title>Finora - Investimentos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/investimentos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <h1 class="titulo-financeiro">
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+            Controle de Finanças
+        </h1>
+
+        <div class="acoes-cabecalho">
+
+            <button
+                type="button"
+                id="botaoMenuMobile"
+                class="botao-menu-mobile"
+                aria-label="Abrir menu"
+                aria-controls="menuLateral"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <p class="henrique">Olá, usuário</p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ESTRUTURA PRINCIPAL -->
+
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">VISÃO GERAL</li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+
+                <li class="menu-grupo">MOVIMENTAÇÕES</li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+
+                <li class="menu-grupo">PLANEJAMENTO</li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="investimentos.html" aria-current="page">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+
+                <li class="menu-grupo">OUTROS</li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <button
+            type="button"
+            id="menuOverlay"
+            class="menu-overlay"
+            aria-label="Fechar menu"
+            tabindex="-1"
+        ></button>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <main class="pagina-investimentos">
+
+            <!-- CABEÇALHO DA PÁGINA -->
+
+            <section class="cabecalho-investimentos">
+
+                <div>
+                    <h2>Investimentos</h2>
+
+                    <p>
+                        Acompanhe sua carteira, aplicações, resgates e rendimentos.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- MENSAGENS -->
+
+            <div
+                id="mensagemInvestimentos"
+                class="mensagem-investimentos"
+                role="status"
+                aria-live="polite">
+            </div>
+
+
+            <!-- RESUMO DA CARTEIRA -->
+
+            <section class="resumo-investimentos">
+
+                <article class="card-investimento">
+
+                    <div class="card-investimento-info">
+                        <span>Total aplicado</span>
+                        <strong id="totalAplicado">R$ 0,00</strong>
+                    </div>
+
+                    <div class="icone-investimento">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                    </div>
+
+                </article>
+
+
+                <article class="card-investimento">
+
+                    <div class="card-investimento-info">
+                        <span>Saldo atual</span>
+                        <strong id="saldoAtualCarteira">—</strong>
+                    </div>
+
+                    <div class="icone-investimento">
+                        <i class="fa-solid fa-coins" aria-hidden="true"></i>
+                    </div>
+
+                </article>
+
+
+                <article class="card-investimento">
+
+                    <div class="card-investimento-info">
+                        <span>Rendimentos</span>
+                        <strong id="totalRendimentos">R$ 0,00</strong>
+                    </div>
+
+                    <div class="icone-investimento">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                    </div>
+
+                </article>
+
+
+                <article class="card-investimento">
+
+                    <div class="card-investimento-info">
+                        <span>Rentabilidade</span>
+                        <strong id="rentabilidadeCarteira">—</strong>
+                    </div>
+
+                    <div class="icone-investimento">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- CADASTRO DE MOVIMENTAÇÕES -->
+
+            <section class="secao-investimentos">
+
+                <div class="titulo-secao-investimentos">
+                    <div>
+                        <h3>Nova movimentação</h3>
+                        <p>Registre aplicações e resgates da sua carteira.</p>
+                    </div>
+                </div>
+
+
+                <form id="formInvestimentos">
+
+                    <div class="campos-investimentos">
+
+                        <div class="campo-investimentos">
+                            <label for="tipoMovimentacao">Tipo de movimentação</label>
+
+                            <select
+                                id="tipoMovimentacao"
+                                name="tipoMovimentacao"
+                                required>
+
+                                <option value="aplicacao">Aplicação</option>
+                                <option value="resgate">Resgate</option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="campo-investimentos">
+                            <label for="investimentoDescricao">Descrição</label>
+
+                            <input
+                                type="text"
+                                id="investimentoDescricao"
+                                name="descricao"
+                                placeholder="Ex.: CDB Banco Inter"
+                                maxlength="100"
+                                required>
+                        </div>
+
+
+                        <div class="campo-investimentos">
+                            <label for="investimentoCategoria">Categoria</label>
+
+                            <select
+                                id="investimentoCategoria"
+                                name="categoria"
+                                required>
+
+                                <option value="">Selecione uma categoria</option>
+                                <option value="Renda fixa">Renda fixa</option>
+                                <option value="Renda variável">Renda variável</option>
+                                <option value="Ações">Ações</option>
+                                <option value="Fundos imobiliários">Fundos imobiliários</option>
+                                <option value="Criptomoedas">Criptomoedas</option>
+                                <option value="Reserva de emergência">Reserva de emergência</option>
+                                <option value="Previdência privada">Previdência privada</option>
+                                <option value="Outros">Outros</option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="campo-investimentos">
+                            <label for="investimentoValor">Valor</label>
+
+                            <input
+                                type="number"
+                                id="investimentoValor"
+                                name="valor"
+                                placeholder="0,00"
+                                min="0.01"
+                                step="0.01"
+                                required>
+                        </div>
+
+
+                        <div class="campo-investimentos">
+                            <label for="investimentoData">Data</label>
+
+                            <input
+                                type="date"
+                                id="investimentoData"
+                                name="data"
+                                required>
+                        </div>
+
+
+                        <div class="campo-investimentos">
+                            <label for="investimentoInstituicao">Instituição financeira</label>
+
+                            <input
+                                type="text"
+                                id="investimentoInstituicao"
+                                name="instituicao"
+                                placeholder="Ex.: Nubank, Inter, Itaú"
+                                maxlength="100">
+                        </div>
+
+
+                        <div class="campo-investimentos campo-investimentos-amplo">
+                            <label for="investimentoObservacao">Observações</label>
+
+                            <textarea
+                                id="investimentoObservacao"
+                                name="observacao"
+                                rows="3"
+                                placeholder="Informações adicionais sobre a movimentação..."
+                                maxlength="500"></textarea>
+                        </div>
+
+                    </div>
+
+
+                    <div class="acoes-formulario-investimentos">
+
+                        <button type="submit" id="btnSalvarInvestimento">
+                            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                            Registrar movimentação
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- COMPOSIÇÃO DA CARTEIRA -->
+
+            <section class="secao-investimentos">
+
+                <div class="titulo-secao-investimentos">
+                    <div>
+                        <h3>Composição da carteira</h3>
+                        <p>Distribuição dos valores investidos por categoria.</p>
+                    </div>
+                </div>
+
+
+                <div
+                    id="listaCategoriasInvestimentos"
+                    class="lista-categorias-investimentos">
+
+                    <p class="investimentos-vazio">
+                        Nenhum investimento cadastrado.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- HISTÓRICO DE MOVIMENTAÇÕES -->
+
+            <section class="secao-investimentos">
+
+                <div class="titulo-secao-investimentos">
+
+                    <div>
+                        <h3>Histórico de movimentações</h3>
+                        <p>Consulte suas aplicações e seus resgates.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="tabela-investimentos-wrapper">
+
+                    <table class="tabela-investimentos">
+
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Tipo</th>
+                                <th>Categoria</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaMovimentacoesInvestimentos">
+
+                            <tr>
+                                <td colspan="6" class="investimentos-vazio">
+                                    Nenhuma movimentação cadastrada.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- MENU MOBILE -->
+
+    <script>
+        (() => {
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const menuOverlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !menuOverlay) return;
+
+            function abrirMenu() {
+                document.body.classList.add("menu-mobile-aberto");
+                botaoMenu.classList.add("ativo");
+                botaoMenu.setAttribute("aria-expanded", "true");
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+                menuOverlay.setAttribute("tabindex", "0");
+            }
+
+            function fecharMenu() {
+                document.body.classList.remove("menu-mobile-aberto");
+                botaoMenu.classList.remove("ativo");
+                botaoMenu.setAttribute("aria-expanded", "false");
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+                menuOverlay.setAttribute("tabindex", "-1");
+            }
+
+            botaoMenu.addEventListener("click", () => {
+                const menuAberto = document.body.classList.contains("menu-mobile-aberto");
+
+                if (menuAberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+            });
+
+            menuOverlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", evento => {
+                if (evento.key === "Escape") {
+                    fecharMenu();
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+            });
+        })();
+    </script>
+
+
+    <!-- INICIALIZAÇÃO FIREBASE -->
+
+    <script type="module">
+
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+
+            });
+        }
+
+        async function iniciarInvestimentos() {
+
+            try {
+
+                const usuario = await protegerPagina();
+
+                if (!usuario) return;
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+
+                }
+
+                await import("./js/investimentos.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao inicializar Investimentos:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar a página de Investimentos. Tente novamente."
+                );
+
+            }
+
+        }
+
+        iniciarInvestimentos();
+
+    </script>
+
+</body>
+</html>

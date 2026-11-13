@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finora - Lançamentos</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+    <link rel="stylesheet" href="css/lancamentos.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <button
+            type="button"
+            class="botao-menu-mobile"
+            id="botaoMenuMobile"
+            aria-label="Abrir menu"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1 class="titulo-financeiro">
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+            Controle de Finanças
+        </h1>
+
+        <p class="henrique">Olá, usuário</p>
+
+    </header>
+
+    <!-- SOBREPOSIÇÃO DO MENU MOBILE -->
+    <button
+        type="button"
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <div class="menu-grupo">VISÃO GERAL</div>
+
+            <div class="menu-item">
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Resumo</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="graficos.html">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Gráficos</span>
+                </a>
+            </div>
+
+            <div class="menu-grupo">MOVIMENTAÇÕES</div>
+
+            <div class="menu-item ativo">
+                <a href="lancamentos.html" aria-current="page">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    <span>Lançamentos</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="entradas.html">
+                    <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                    <span>Entradas</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="despesas.html">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Despesas</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="contas-pagar.html">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Contas a pagar</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="cartoes.html">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Cartões</span>
+                </a>
+            </div>
+
+            <div class="menu-grupo">PLANEJAMENTO</div>
+
+            <div class="menu-item">
+                <a href="planejamento.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Planejamento financeiro</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="metas.html">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Metas financeiras</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="investimentos.html">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span>Investimentos</span>
+                </a>
+            </div>
+
+            <div class="menu-grupo">OUTROS</div>
+
+            <div class="menu-item">
+                <a href="relatorios.html">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Relatórios</span>
+                </a>
+            </div>
+
+            <div class="menu-item">
+                <a href="#config">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="pagina-lancamentos">
+
+            <section class="lancamentos">
+
+                <div class="cabecalho-lancamentos">
+
+                    <div>
+                        <h2>Lançamentos</h2>
+                        <p>Consulte e acompanhe suas movimentações financeiras.</p>
+                    </div>
+
+                    <div class="data-atual">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span id="dataAtualLancamentos"></span>
+                    </div>
+
+                </div>
+
+                <!-- INDICADORES -->
+                <div class="indicadores-lancamentos">
+
+                    <!-- RECEITAS -->
+                    <article class="indicador-lancamento">
+
+                        <div class="indicador-topo">
+
+                            <span>Receitas</span>
+
+                            <div class="indicador-icone receita">
+                                <svg viewBox="0 0 32 32" aria-hidden="true">
+                                    <path d="M5 24 L13 16 L18 20 L28 8"></path>
+                                    <path d="M19 8 H28 V17"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <strong id="totalReceitas">R$ 0,00</strong>
+
+                        <small>Entradas no período</small>
+
+                    </article>
+
+                    <!-- DESPESAS -->
+                    <article class="indicador-lancamento">
+
+                        <div class="indicador-topo">
+
+                            <span>Despesas</span>
+
+                            <div class="indicador-icone despesa">
+                                <svg viewBox="0 0 32 32" aria-hidden="true">
+                                    <path d="M5 8 L13 16 L18 12 L28 24"></path>
+                                    <path d="M19 24 H28 V15"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <strong id="totalDespesas">R$ 0,00</strong>
+
+                        <small>Saídas no período</small>
+
+                    </article>
+
+                    <!-- SALDO -->
+                    <article class="indicador-lancamento">
+
+                        <div class="indicador-topo">
+
+                            <span>Saldo</span>
+
+                            <div class="indicador-icone saldo">
+                                <svg viewBox="0 0 32 32" aria-hidden="true">
+                                    <path d="M4 16 H27"></path>
+                                    <path d="M19 8 L27 16 L19 24"></path>
+                                </svg>
+                            </div>
+
+                        </div>
+
+                        <strong id="saldoLancamentos">R$ 0,00</strong>
+
+                        <small>Resultado do período</small>
+
+                    </article>
+
+                </div>
+
+                <!-- HISTÓRICO -->
+                <section class="painel-historico">
+
+                    <div class="titulo-historico">
+
+                        <div>
+                            <h3>Histórico de movimentações</h3>
+                            <p>Todos os seus lançamentos em um só lugar.</p>
+                        </div>
+
+                        <span id="quantidadeLancamentos">
+                            0 lançamentos
+                        </span>
+
+                    </div>
+
+                    <!-- FILTROS -->
+                    <div class="filtros-lancamentos">
+
+                        <div class="campo-busca-lancamentos">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="search"
+                                id="buscaLancamentos"
+                                placeholder="Buscar por descrição ou categoria..."
+                            >
+
+                        </div>
+
+                        <select id="filtroTipoLancamento">
+                            <option value="todos">Todos os tipos</option>
+                            <option value="receita">Receitas</option>
+                            <option value="despesa">Despesas</option>
+                            <option value="investimento">Investimentos</option>
+                        </select>
+
+                        <select id="filtroCategoriaLancamento">
+                            <option value="todas">Todas as categorias</option>
+                        </select>
+
+                        <select id="filtroPeriodoLancamento">
+                            <option value="todos">Todo o período</option>
+                            <option value="mes">Este mês</option>
+                            <option value="mes-anterior">Mês anterior</option>
+                            <option value="personalizado">Personalizado</option>
+                        </select>
+
+                    </div>
+
+                    <!-- PERÍODO PERSONALIZADO -->
+                    <div
+                        class="periodo-personalizado"
+                        id="periodoPersonalizado"
+                        hidden
+                    >
+
+                        <label>
+                            Data inicial
+                            <input type="date" id="dataInicioLancamento">
+                        </label>
+
+                        <label>
+                            Data final
+                            <input type="date" id="dataFimLancamento">
+                        </label>
+
+                        <button
+                            type="button"
+                            id="aplicarFiltroLancamento"
+                        >
+                            Aplicar período
+                        </button>
+
+                    </div>
+
+                    <!-- TABELA -->
+                    <div class="tabela-lancamentos-container">
+
+                        <table class="tabela-lancamentos">
+
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Tipo</th>
+                                    <th>Forma</th>
+                                    <th>Valor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="listaLancamentos">
+
+                                <tr>
+                                    <td colspan="7" class="carregando-lancamentos">
+                                        Carregando movimentações...
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- ESTADO VAZIO -->
+                    <div
+                        class="estado-vazio-lancamentos"
+                        id="estadoVazioLancamentos"
+                        hidden
+                    >
+
+                        <i class="fa-solid fa-receipt"></i>
+
+                        <h3>Nenhum lançamento encontrado</h3>
+
+                        <p>
+                            Não existem movimentações para os filtros selecionados.
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MENU MOBILE -->
+    <script>
+        (() => {
+
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const menuOverlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !menuOverlay) return;
+
+            function abrirMenu() {
+
+                document.body.classList.add("menu-mobile-aberto");
+
+                botaoMenu.classList.add("ativo");
+                botaoMenu.setAttribute("aria-expanded", "true");
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+
+                menuOverlay.setAttribute("aria-hidden", "false");
+            }
+
+            function fecharMenu() {
+
+                document.body.classList.remove("menu-mobile-aberto");
+
+                botaoMenu.classList.remove("ativo");
+                botaoMenu.setAttribute("aria-expanded", "false");
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+                menuOverlay.setAttribute("aria-hidden", "true");
+            }
+
+            botaoMenu.addEventListener("click", () => {
+
+                const menuAberto =
+                    document.body.classList.contains("menu-mobile-aberto");
+
+                if (menuAberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+
+            });
+
+            menuOverlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", evento => {
+
+                if (evento.key === "Escape") {
+                    fecharMenu();
+                }
+
+            });
+
+            window.addEventListener("resize", () => {
+
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+
+            });
+
+        })();
+    </script>
+
+    <!-- INICIALIZAÇÃO FIREBASE -->
+    <script type="module">
+
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(
+                        new Error(`Erro ao carregar ${arquivo}`)
+                    );
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+
+        async function iniciarLancamentos() {
+
+            try {
+
+                const usuario = await protegerPagina();
+
+                if (!usuario) return;
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent =
+                        `Olá, ${nome || "usuário"}`;
+                }
+
+                await import("./js/lancamentos.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao inicializar Lançamentos:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar a página de Lançamentos. Tente novamente."
+                );
+            }
+        }
+
+        iniciarLancamentos();
+
+    </script>
+
+</body>
+</html>

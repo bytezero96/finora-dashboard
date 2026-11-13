@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finora - Relatórios</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/relatorios.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO GLOBAL -->
+
+    <header>
+
+        <h1 class="titulo-financeiro">
+
+            <img
+                class="logo-financeiro"
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Finora"
+            >
+
+            Controle de Finanças
+
+        </h1>
+
+        <div class="acoes-cabecalho">
+
+            <p class="henrique">Olá Henrique</p>
+
+            <button
+                type="button"
+                id="botaoMenuMobile"
+                class="botao-menu-mobile"
+                aria-label="Abrir menu"
+                aria-controls="menuLateral"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- OVERLAY DO MENU MOBILE -->
+
+    <button
+        type="button"
+        id="menuOverlay"
+        class="menu-overlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+
+    <!-- ESTRUTURA PRINCIPAL -->
+
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">VISÃO GERAL</li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+
+                <li class="menu-grupo">MOVIMENTAÇÕES</li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-arrow-down"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+
+                <li class="menu-grupo">PLANEJAMENTO</li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+
+                <li class="menu-grupo">OUTROS</li>
+
+                <li class="menu-item ativo">
+                    <a href="relatorios.html" aria-current="page">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- CONTEÚDO DOS RELATÓRIOS -->
+
+        <main class="pagina-relatorios">
+
+            <section class="cabecalho-relatorios">
+
+                <div>
+                    <h2>Relatórios financeiros</h2>
+
+                    <p>
+                        Analise suas movimentações, acompanhe seus resultados
+                        e tenha uma visão detalhada da sua vida financeira.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- FILTROS -->
+
+            <section class="filtros-relatorios">
+
+                <div class="filtro-relatorio">
+
+                    <label for="filtroPeriodo">
+                        Período do relatório
+                    </label>
+
+                    <select id="filtroPeriodo">
+                        <option value="mes_atual">Mês atual</option>
+                        <option value="mes_anterior">Mês anterior</option>
+                        <option value="ultimos_3_meses">Últimos 3 meses</option>
+                        <option value="ultimos_6_meses">Últimos 6 meses</option>
+                        <option value="ano_atual">Ano atual</option>
+                        <option value="personalizado">Período personalizado</option>
+                        <option value="todo_periodo">Todo o período</option>
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="filtro-relatorio filtro-data"
+                    id="filtroDataInicialContainer"
+                    hidden
+                >
+
+                    <label for="dataInicial">Data inicial</label>
+
+                    <input type="date" id="dataInicial">
+
+                </div>
+
+
+                <div
+                    class="filtro-relatorio filtro-data"
+                    id="filtroDataFinalContainer"
+                    hidden
+                >
+
+                    <label for="dataFinal">Data final</label>
+
+                    <input type="date" id="dataFinal">
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btnAplicarFiltros"
+                    class="botao-aplicar-filtros"
+                >
+                    <i class="fa-solid fa-filter"></i>
+                    Aplicar filtros
+                </button>
+
+            </section>
+
+
+            <!-- INDICADORES -->
+
+            <section class="secao-relatorio">
+
+                <div class="titulo-secao-relatorio">
+
+                    <div>
+                        <h3>Resumo do período</h3>
+
+                        <p>
+                            Indicadores das suas movimentações financeiras.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="grade-indicadores-relatorios">
+
+                    <article class="indicador-relatorio">
+
+                        <div class="indicador-conteudo">
+                            <span>Total de receitas</span>
+                            <strong id="relatorioTotalReceitas">R$ 0,00</strong>
+                            <small>Entradas registradas</small>
+                        </div>
+
+                        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+
+                    </article>
+
+
+                    <article class="indicador-relatorio">
+
+                        <div class="indicador-conteudo">
+                            <span>Total de despesas</span>
+                            <strong id="relatorioTotalDespesas">R$ 0,00</strong>
+                            <small>Despesas efetivadas</small>
+                        </div>
+
+                        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+
+                    </article>
+
+
+                    <article class="indicador-relatorio">
+
+                        <div class="indicador-conteudo">
+                            <span>Saldo do período</span>
+                            <strong id="relatorioSaldo">R$ 0,00</strong>
+                            <small>Receitas menos despesas</small>
+                        </div>
+
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+
+                    </article>
+
+
+                    <article class="indicador-relatorio">
+
+                        <div class="indicador-conteudo">
+                            <span>Taxa de economia</span>
+                            <strong id="relatorioTaxaEconomia">0%</strong>
+                            <small>Percentual da receita preservado</small>
+                        </div>
+
+                        <i class="fa-solid fa-piggy-bank" aria-hidden="true"></i>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- COMPARATIVO MENSAL -->
+
+            <section class="secao-relatorio">
+
+                <div class="titulo-secao-relatorio">
+
+                    <div>
+                        <h3>Comparativo mensal</h3>
+
+                        <p>
+                            Compare receitas, despesas e saldo ao longo dos meses.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="painel-relatorio">
+
+                    <div
+                        id="graficoComparativoMensal"
+                        class="grafico-relatorio"
+                    >
+                        <p class="estado-vazio-relatorio">
+                            Os dados do comparativo serão apresentados aqui.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DESPESAS POR CATEGORIA -->
+
+            <section class="secao-relatorio">
+
+                <div class="titulo-secao-relatorio">
+
+                    <div>
+                        <h3>Despesas por categoria</h3>
+
+                        <p>
+                            Identifique quais categorias concentram seus gastos.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="painel-relatorio">
+
+                    <div
+                        id="relatorioDespesasCategoria"
+                        class="lista-categorias-relatorio"
+                    >
+                        <p class="estado-vazio-relatorio">
+                            Nenhuma despesa encontrada no período.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DETALHAMENTO -->
+
+            <section class="secao-relatorio">
+
+                <div class="titulo-secao-relatorio">
+
+                    <div>
+                        <h3>Detalhamento financeiro</h3>
+
+                        <p>
+                            Consulte as movimentações consideradas neste relatório.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="painel-relatorio">
+
+                    <div class="tabela-relatorio-container">
+
+                        <table class="tabela-relatorio">
+
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="listaDetalhamentoRelatorio">
+
+                                <tr>
+                                    <td colspan="5" class="estado-vazio-relatorio">
+                                        Nenhuma movimentação encontrada.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EXPORTAÇÃO -->
+
+            <section class="secao-relatorio secao-exportacao">
+
+                <div class="titulo-secao-relatorio">
+
+                    <div>
+                        <h3>Exportar relatório</h3>
+
+                        <p>
+                            Gere uma versão do seu relatório para guardar ou compartilhar.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="acoes-exportacao-relatorio">
+
+                    <button
+                        type="button"
+                        id="btnExportarPDF"
+                        class="botao-exportacao"
+                    >
+                        <i class="fa-solid fa-file-pdf"></i>
+                        Exportar PDF
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="btnExportarExcel"
+                        class="botao-exportacao"
+                    >
+                        <i class="fa-solid fa-file-excel"></i>
+                        Exportar Excel
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- MENSAGEM -->
+
+            <div
+                id="mensagemRelatorios"
+                class="mensagem-relatorios"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+        </main>
+
+    </div>
+
+
+    <!-- BIBLIOTECAS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+
+    <!-- MENU MOBILE -->
+
+    <script>
+        (() => {
+
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const overlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !overlay) return;
+
+            function abrirMenu() {
+
+                document.body.classList.add("menu-mobile-aberto");
+
+                botaoMenu.classList.add("ativo");
+
+                botaoMenu.setAttribute("aria-expanded", "true");
+
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+
+            }
+
+            function fecharMenu() {
+
+                document.body.classList.remove("menu-mobile-aberto");
+
+                botaoMenu.classList.remove("ativo");
+
+                botaoMenu.setAttribute("aria-expanded", "false");
+
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+            }
+
+            botaoMenu.addEventListener("click", () => {
+
+                const menuAberto = document.body.classList.contains("menu-mobile-aberto");
+
+                if (menuAberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+
+            });
+
+            overlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+
+                link.addEventListener("click", fecharMenu);
+
+            });
+
+            document.addEventListener("keydown", evento => {
+
+                if (evento.key === "Escape") {
+                    fecharMenu();
+                }
+
+            });
+
+            window.addEventListener("resize", () => {
+
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+
+            });
+
+        })();
+    </script>
+
+
+    <!-- AUTENTICAÇÃO E CARREGAMENTO DOS SCRIPTS -->
+
+    <script type="module">
+
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => reject(
+                    new Error(`Erro ao carregar ${arquivo}`)
+                );
+
+                document.body.appendChild(script);
+
+            });
+
+        }
+
+        async function iniciarRelatorios() {
+
+            try {
+
+                const usuario = await protegerPagina();
+
+                if (!usuario) return;
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+
+                }
+
+                await import("./js/relatorios.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao inicializar Relatórios:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar a página de Relatórios. Tente novamente."
+                );
+
+            }
+
+        }
+
+        iniciarRelatorios();
+
+    </script>
+
+</body>
+
+</html>

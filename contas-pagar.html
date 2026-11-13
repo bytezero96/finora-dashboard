@@ -1,0 +1,571 @@
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finora - Contas a Pagar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+    <link rel="stylesheet" href="css/contas-pagar.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <button
+            type="button"
+            class="botao-menu-mobile"
+            id="botaoMenuMobile"
+            aria-label="Abrir menu"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1 class="titulo-financeiro">
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+            Controle de Finanças
+        </h1>
+
+        <p class="henrique">Olá Henrique</p>
+
+    </header>
+
+    <!-- SOBREPOSIÇÃO DO MENU MOBILE -->
+    <button
+        type="button"
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">VISÃO GERAL</li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">MOVIMENTAÇÕES</li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="contas-pagar.html" aria-current="page">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">PLANEJAMENTO</li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">OUTROS</li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="pagina-contas">
+
+            <div class="contas-cabecalho">
+
+                <div>
+                    <h2>Contas a pagar</h2>
+                    <p>Organize seus compromissos e acompanhe seus pagamentos.</p>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-nova-conta"
+                    id="btnNovaConta"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Nova conta
+                </button>
+
+            </div>
+
+            <!-- MENSAGEM -->
+            <div
+                id="mensagemContas"
+                class="mensagem-contas"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+
+            <!-- INDICADORES -->
+            <section class="indicadores-contas">
+
+                <article class="indicador-card">
+                    <div class="indicador-topo">
+                        <span>Total em aberto</span>
+                        <span class="indicador-icone icone-pendente">
+                            <i class="fa-solid fa-wallet"></i>
+                        </span>
+                    </div>
+                    <strong id="totalEmAberto">R$ 0,00</strong>
+                    <small>Contas ainda não pagas</small>
+                </article>
+
+                <article class="indicador-card">
+                    <div class="indicador-topo">
+                        <span>Contas vencidas</span>
+                        <span class="indicador-icone icone-vencida">
+                            <i class="fa-solid fa-clock"></i>
+                        </span>
+                    </div>
+                    <strong id="totalVencido">R$ 0,00</strong>
+                    <small>Precisam de atenção</small>
+                </article>
+
+                <article class="indicador-card">
+                    <div class="indicador-topo">
+                        <span>Pagas no mês</span>
+                        <span class="indicador-icone icone-paga">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+                    </div>
+                    <strong id="totalPagoMes">R$ 0,00</strong>
+                    <small>Pagamentos realizados</small>
+                </article>
+
+                <article class="indicador-card">
+                    <div class="indicador-topo">
+                        <span>Próximos 7 dias</span>
+                        <span class="indicador-icone icone-proxima">
+                            <i class="fa-solid fa-calendar"></i>
+                        </span>
+                    </div>
+                    <strong id="totalProximos">0</strong>
+                    <small>Contas a vencer</small>
+                </article>
+
+            </section>
+
+            <!-- FORMULÁRIO -->
+            <section
+                class="formulario-conta-container"
+                id="formularioContaContainer"
+                hidden
+            >
+
+                <div class="formulario-conta-topo">
+
+                    <div>
+                        <h3 id="tituloFormulario">Cadastrar nova conta</h3>
+                        <p>Preencha os dados do compromisso financeiro.</p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="btnFecharFormulario"
+                        class="btn-fechar-formulario"
+                        aria-label="Fechar formulário"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                </div>
+
+                <form id="formularioConta">
+
+                    <input type="hidden" id="contaId">
+
+                    <div class="campos-conta">
+
+                        <div class="campo-conta campo-descricao">
+                            <label for="descricaoConta">Descrição *</label>
+                            <input
+                                type="text"
+                                id="descricaoConta"
+                                maxlength="100"
+                                placeholder="Ex.: Conta de internet"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo-conta">
+                            <label for="categoriaConta">Categoria *</label>
+                            <select id="categoriaConta" required>
+                                <option value="">Selecione</option>
+                                <option value="Moradia">Moradia</option>
+                                <option value="Água">Água</option>
+                                <option value="Energia">Energia</option>
+                                <option value="Internet e telefone">Internet e telefone</option>
+                                <option value="Alimentação">Alimentação</option>
+                                <option value="Transporte">Transporte</option>
+                                <option value="Saúde">Saúde</option>
+                                <option value="Educação">Educação</option>
+                                <option value="Assinaturas">Assinaturas</option>
+                                <option value="Cartão de crédito">Cartão de crédito</option>
+                                <option value="Impostos e taxas">Impostos e taxas</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-conta">
+                            <label for="valorConta">Valor (R$) *</label>
+                            <input
+                                type="number"
+                                id="valorConta"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="0,00"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo-conta">
+                            <label for="vencimentoConta">Vencimento *</label>
+                            <input
+                                type="date"
+                                id="vencimentoConta"
+                                required
+                            >
+                        </div>
+
+                        <div class="campo-conta campo-observacoes">
+                            <label for="observacoesConta">Observações</label>
+                            <textarea
+                                id="observacoesConta"
+                                rows="3"
+                                maxlength="500"
+                                placeholder="Informações adicionais (opcional)"
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="opcao-recorrencia">
+                        <label>
+                            <input
+                                type="checkbox"
+                                id="contaRecorrente"
+                            >
+                            <span>
+                                <strong>Conta recorrente</strong>
+                                <small>
+                                    Identificar esta conta como um compromisso periódico.
+                                    A próxima ocorrência deverá ser cadastrada manualmente.
+                                </small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="acoes-formulario-conta">
+
+                        <button
+                            type="button"
+                            class="btn-cancelar-conta"
+                            id="btnCancelarConta"
+                        >
+                            Cancelar
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn-salvar-conta"
+                            id="btnSalvarConta"
+                        >
+                            <i class="fa-solid fa-check"></i>
+                            Salvar conta
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- LISTAGEM -->
+            <section class="lista-contas-container">
+
+                <div class="lista-contas-topo">
+
+                    <div>
+                        <h3>Suas contas</h3>
+                        <p>Consulte e gerencie seus compromissos.</p>
+                    </div>
+
+                    <span id="quantidadeContas" class="quantidade-contas">
+                        0 contas
+                    </span>
+
+                </div>
+
+                <!-- FILTROS -->
+                <div class="filtros-contas">
+
+                    <div class="campo-busca-contas">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input
+                            type="search"
+                            id="buscaContas"
+                            placeholder="Buscar conta..."
+                            aria-label="Buscar conta"
+                        >
+                    </div>
+
+                    <select id="filtroStatus" aria-label="Filtrar por situação">
+                        <option value="todas">Todas as situações</option>
+                        <option value="pendente">Pendentes</option>
+                        <option value="vencida">Vencidas</option>
+                        <option value="paga">Pagas</option>
+                    </select>
+
+                    <select id="filtroMes" aria-label="Filtrar por mês">
+                        <option value="todos">Todos os meses</option>
+                    </select>
+
+                </div>
+
+                <!-- TABELA -->
+                <div class="tabela-contas-wrapper">
+
+                    <table class="tabela-contas">
+
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Vencimento</th>
+                                <th>Valor</th>
+                                <th>Situação</th>
+                                <th class="coluna-acoes">Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaContas">
+                            <!-- Preenchido pelo JavaScript -->
+                        </tbody>
+
+                    </table>
+
+                    <div
+                        class="estado-vazio-contas"
+                        id="estadoVazioContas"
+                        hidden
+                    >
+                        <i class="fa-regular fa-folder-open"></i>
+                        <strong>Nenhuma conta encontrada</strong>
+                        <span>Cadastre uma nova conta ou altere os filtros.</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- CONTROLE DO MENU MOBILE -->
+    <script>
+        (() => {
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const menuOverlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !menuOverlay) return;
+
+            function abrirMenu() {
+                document.body.classList.add("menu-mobile-aberto");
+                botaoMenu.classList.add("ativo");
+                botaoMenu.setAttribute("aria-expanded", "true");
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+                menuOverlay.setAttribute("aria-hidden", "false");
+            }
+
+            function fecharMenu() {
+                document.body.classList.remove("menu-mobile-aberto");
+                botaoMenu.classList.remove("ativo");
+                botaoMenu.setAttribute("aria-expanded", "false");
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+                menuOverlay.setAttribute("aria-hidden", "true");
+            }
+
+            botaoMenu.addEventListener("click", () => {
+                const aberto = document.body.classList.contains("menu-mobile-aberto");
+                aberto ? fecharMenu() : abrirMenu();
+            });
+
+            menuOverlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", evento => {
+                if (evento.key === "Escape") fecharMenu();
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) fecharMenu();
+            });
+
+            menuOverlay.setAttribute("aria-hidden", "true");
+        })();
+    </script>
+
+    <!-- INICIALIZAÇÃO E AUTENTICAÇÃO -->
+    <script type="module">
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+
+        async function iniciarContasPagar() {
+            try {
+                const usuario = await protegerPagina();
+
+                if (!usuario) return;
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+                }
+
+                await import("./js/contas-pagar.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+                console.error(
+                    "Erro ao inicializar Contas a Pagar:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar Contas a Pagar. Tente novamente."
+                );
+            }
+        }
+
+        iniciarContasPagar();
+    </script>
+
+</body>
+</html>

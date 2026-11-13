@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#0B132B">
+    <meta name="description" content="Acompanhe suas receitas, despesas e resultados financeiros no Finora.">
+
+    <title>Finora - Gráficos</title>
+
+    <!-- ESTILOS PRINCIPAIS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/graficos.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+
+    <!-- ÍCONES -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <button
+            type="button"
+            class="botao-menu-mobile"
+            id="botaoMenuMobile"
+            aria-label="Abrir menu"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1 class="titulo-financeiro">
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+            Controle de Finanças
+        </h1>
+
+        <p class="henrique">Olá Henrique</p>
+
+    </header>
+
+    <!-- SOBREPOSIÇÃO DO MENU MOBILE -->
+    <button
+        type="button"
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">VISÃO GERAL</li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="graficos.html" aria-current="page">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">MOVIMENTAÇÕES</li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">PLANEJAMENTO</li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">OUTROS</li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="pagina-graficos">
+
+            <div class="cabecalho-graficos">
+                <h2>Análise financeira</h2>
+
+                <p class="descricao-graficos">
+                    Acompanhe suas receitas, despesas e resultados financeiros.
+                </p>
+            </div>
+
+            <!-- FILTRO -->
+            <section class="filtro-graficos" aria-label="Filtro de período">
+
+                <div class="filtro-graficos-info">
+                    <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+
+                    <div>
+                        <label for="periodoGraficos">Período de análise</label>
+                        <p>Selecione o intervalo para consultar os gráficos.</p>
+                    </div>
+                </div>
+
+                <select id="periodoGraficos">
+                    <option value="3">Últimos 3 meses</option>
+                    <option value="6">Últimos 6 meses</option>
+                    <option value="12">Últimos 12 meses</option>
+                </select>
+
+            </section>
+
+            <!-- MENSAGEM GERAL -->
+            <p
+                id="mensagemGraficos"
+                class="mensagem-graficos"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></p>
+
+            <!-- SEÇÃO DOS GRÁFICOS -->
+            <section class="secao-graficos">
+
+                <div class="cabecalho-secao-graficos">
+                    <div>
+                        <h3 class="titulo-secao-graficos">
+                            Receitas e resultados
+                        </h3>
+
+                        <p class="subtitulo-secao-graficos">
+                            Indicadores para acompanhar a evolução das suas finanças.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grade-graficos">
+
+                    <!-- GRÁFICO 1 -->
+                    <article class="grafico-card grafico-principal">
+
+                        <div class="grafico-card-cabecalho">
+                            <div>
+                                <h4>Receitas x despesas</h4>
+                                <p class="descricao-card-grafico">
+                                    Comparação dos valores mensais disponíveis.
+                                </p>
+                            </div>
+
+                            <span class="icone-grafico" aria-hidden="true">
+                                <i class="fa-solid fa-chart-column"></i>
+                            </span>
+                        </div>
+
+                        <div class="grafico-canvas">
+
+                            <canvas
+                                id="graficoReceitasDespesas"
+                                role="img"
+                                aria-label="Comparação mensal de receitas e despesas"
+                            ></canvas>
+
+                            <p
+                                class="estado-vazio-grafico"
+                                id="estadoVazioReceitasDespesas"
+                                hidden
+                            >
+                                Não existem dados mensais suficientes para este gráfico.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- GRÁFICO 2 -->
+                    <article class="grafico-card">
+
+                        <div class="grafico-card-cabecalho">
+                            <div>
+                                <h4>Resultado mensal</h4>
+                                <p class="descricao-card-grafico">
+                                    Diferença entre receitas e despesas.
+                                </p>
+                            </div>
+
+                            <span class="icone-grafico" aria-hidden="true">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </span>
+                        </div>
+
+                        <div class="grafico-canvas">
+
+                            <canvas
+                                id="graficoEvolucaoSaldo"
+                                role="img"
+                                aria-label="Evolução do saldo mensal"
+                            ></canvas>
+
+                            <p
+                                class="estado-vazio-grafico"
+                                id="estadoVazioSaldo"
+                                hidden
+                            >
+                                Não existem dados suficientes para calcular o saldo.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- GRÁFICO 3 -->
+                    <article class="grafico-card">
+
+                        <div class="grafico-card-cabecalho">
+                            <div>
+                                <h4>Taxa de economia</h4>
+                                <p class="descricao-card-grafico">
+                                    Percentual da receita que sobra após as despesas.
+                                </p>
+                            </div>
+
+                            <span class="icone-grafico" aria-hidden="true">
+                                <i class="fa-solid fa-piggy-bank"></i>
+                            </span>
+                        </div>
+
+                        <div class="grafico-canvas">
+
+                            <canvas
+                                id="graficoTaxaEconomia"
+                                role="img"
+                                aria-label="Taxa mensal de economia"
+                            ></canvas>
+
+                            <p
+                                class="estado-vazio-grafico"
+                                id="estadoVazioTaxa"
+                                hidden
+                            >
+                                Não existem dados suficientes para calcular a taxa de economia.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- GRÁFICO 4 -->
+                    <article class="grafico-card">
+
+                        <div class="grafico-card-cabecalho">
+                            <div>
+                                <h4>Despesas por categoria</h4>
+                                <p class="descricao-card-grafico">
+                                    Distribuição dos gastos registrados por categoria.
+                                </p>
+                            </div>
+
+                            <span class="icone-grafico" aria-hidden="true">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </span>
+                        </div>
+
+                        <div class="grafico-canvas">
+
+                            <canvas
+                                id="graficoDespesasCategoria"
+                                role="img"
+                                aria-label="Distribuição das despesas por categoria"
+                            ></canvas>
+
+                            <p
+                                class="estado-vazio-grafico"
+                                id="estadoVazioCategoria"
+                                hidden
+                            >
+                                Ainda não existem despesas categorizadas no período selecionado.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- GRÁFICO 5 -->
+                    <article class="grafico-card">
+
+                        <div class="grafico-card-cabecalho">
+                            <div>
+                                <h4>Evolução por categoria</h4>
+                                <p class="descricao-card-grafico">
+                                    Comparação mensal dos gastos por categoria.
+                                </p>
+                            </div>
+
+                            <span class="icone-grafico" aria-hidden="true">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </span>
+                        </div>
+
+                        <div class="grafico-canvas">
+
+                            <canvas
+                                id="graficoEvolucaoCategorias"
+                                role="img"
+                                aria-label="Evolução mensal das despesas por categoria"
+                            ></canvas>
+
+                            <p
+                                class="estado-vazio-grafico"
+                                id="estadoVazioEvolucaoCategorias"
+                                hidden
+                            >
+                                Registre despesas categorizadas em diferentes meses para acompanhar a evolução.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <!-- GRÁFICO 6 -->
+                    <article class="grafico-card grafico-largo">
+
+                        <div class="grafico-card-cabecalho">
+                            <div>
+                                <h4>Despesas por dia</h4>
+                                <p class="descricao-card-grafico">
+                                    Valores dos lançamentos registrados por data.
+                                </p>
+                            </div>
+
+                            <span class="icone-grafico" aria-hidden="true">
+                                <i class="fa-solid fa-calendar-day"></i>
+                            </span>
+                        </div>
+
+                        <div class="grafico-canvas">
+
+                            <canvas
+                                id="graficoDespesasDia"
+                                role="img"
+                                aria-label="Valores das despesas agrupadas por dia"
+                            ></canvas>
+
+                            <p
+                                class="estado-vazio-grafico"
+                                id="estadoVazioDia"
+                                hidden
+                            >
+                                Não há despesas registradas no período selecionado.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <p class="rodape-graficos">
+                Os resultados dependem dos dados financeiros disponíveis no projeto.
+            </p>
+
+        </main>
+
+    </div>
+
+    <!-- BIBLIOTECA CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+    <!-- AUTENTICAÇÃO E INICIALIZAÇÃO -->
+    <script type="module">
+        import { protegerPagina } from "./js/finora-db.js";
+
+        /* ========================================= */
+        /* MENU MOBILE */
+        /* ========================================= */
+
+        const botaoMenu = document.getElementById("botaoMenuMobile");
+        const menuOverlay = document.getElementById("menuOverlay");
+        const menuLateral = document.getElementById("menuLateral");
+
+        function abrirMenuMobile() {
+            document.body.classList.add("menu-mobile-aberto");
+
+            botaoMenu.setAttribute("aria-expanded", "true");
+            botaoMenu.setAttribute("aria-label", "Fechar menu");
+
+            botaoMenu.classList.add("ativo");
+        }
+
+        function fecharMenuMobile() {
+            document.body.classList.remove("menu-mobile-aberto");
+
+            botaoMenu.setAttribute("aria-expanded", "false");
+            botaoMenu.setAttribute("aria-label", "Abrir menu");
+
+            botaoMenu.classList.remove("ativo");
+        }
+
+        function alternarMenuMobile() {
+            const menuAberto = document.body.classList.contains(
+                "menu-mobile-aberto"
+            );
+
+            if (menuAberto) {
+                fecharMenuMobile();
+            } else {
+                abrirMenuMobile();
+            }
+        }
+
+        if (botaoMenu && menuOverlay && menuLateral) {
+
+            botaoMenu.addEventListener(
+                "click",
+                alternarMenuMobile
+            );
+
+            menuOverlay.addEventListener(
+                "click",
+                fecharMenuMobile
+            );
+
+            menuLateral.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    if (window.innerWidth <= 800) {
+                        fecharMenuMobile();
+                    }
+                });
+            });
+
+            document.addEventListener("keydown", (evento) => {
+                if (evento.key === "Escape") {
+                    fecharMenuMobile();
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) {
+                    fecharMenuMobile();
+                }
+            });
+        }
+
+        /* ========================================= */
+        /* CARREGAMENTO DE SCRIPTS */
+        /* ========================================= */
+
+        async function carregarScript(arquivo) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+
+        /* ========================================= */
+        /* INICIALIZAÇÃO DOS GRÁFICOS */
+        /* ========================================= */
+
+        async function iniciarGraficos() {
+            try {
+                const usuario = await protegerPagina();
+
+                if (!usuario) {
+                    return;
+                }
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+                }
+
+                await import("./js/graficos.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+                console.error(
+                    "Erro ao inicializar os Gráficos:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar os gráficos. Tente novamente."
+                );
+            }
+        }
+
+        iniciarGraficos();
+    </script>
+
+</body>
+
+</html>

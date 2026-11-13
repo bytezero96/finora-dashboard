@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finora - Planejamento Financeiro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+    <link rel="stylesheet" href="css/planejamento.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <h1 class="titulo-financeiro">
+
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+
+            Controle de Finanças
+
+        </h1>
+
+        <p class="henrique">
+            Olá Henrique
+        </p>
+
+        <!-- MENU MOBILE -->
+        <button
+            type="button"
+            id="botaoMenuMobile"
+            class="botao-menu-mobile"
+            aria-label="Abrir menu"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <!-- OVERLAY DO MENU MOBILE -->
+    <button
+        type="button"
+        id="menuOverlay"
+        class="menu-overlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <!-- VISÃO GERAL -->
+                <li class="menu-grupo">
+                    <span>VISÃO GERAL</span>
+                </li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+
+                <!-- MOVIMENTAÇÕES -->
+                <li class="menu-grupo">
+                    <span>MOVIMENTAÇÕES</span>
+                </li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+
+                <!-- PLANEJAMENTO -->
+                <li class="menu-grupo">
+                    <span>PLANEJAMENTO</span>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="planejamento.html" aria-current="page">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+
+                <!-- OUTROS -->
+                <li class="menu-grupo">
+                    <span>OUTROS</span>
+                </li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="pagina-planejamento">
+
+            <!-- TÍTULO DA PÁGINA -->
+            <section class="planejamento-cabecalho">
+
+                <div>
+                    <h2>Planejamento Financeiro</h2>
+
+                    <p>
+                        Organize seu orçamento e acompanhe o planejamento
+                        das suas finanças.
+                    </p>
+                </div>
+
+                <div class="planejamento-seletor-mes">
+                    <label for="mesPlanejamento">Período</label>
+
+                    <input
+                        type="month"
+                        id="mesPlanejamento"
+                    >
+                </div>
+
+            </section>
+
+
+            <!-- INDICADORES -->
+            <section class="planejamento-indicadores">
+
+                <article class="planejamento-card">
+
+                    <div class="planejamento-card-icone">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+
+                    <div>
+                        <span>Receitas previstas</span>
+                        <strong id="receitaPrevista">R$ 0,00</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="planejamento-card">
+
+                    <div class="planejamento-card-icone">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+
+                    <div>
+                        <span>Despesas planejadas</span>
+                        <strong id="despesasPlanejadas">R$ 0,00</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="planejamento-card">
+
+                    <div class="planejamento-card-icone">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+
+                    <div>
+                        <span>Saldo planejado</span>
+                        <strong id="saldoPlanejado">R$ 0,00</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="planejamento-card">
+
+                    <div class="planejamento-card-icone">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+
+                    <div>
+                        <span>Orçamento utilizado</span>
+                        <strong id="percentualUtilizado">0%</strong>
+                        <small id="valorUtilizado">R$ 0,00 utilizados</small>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- VISÃO GERAL DO ORÇAMENTO -->
+            <section class="planejamento-secao">
+
+                <div class="planejamento-secao-cabecalho">
+
+                    <div>
+                        <h3>Visão geral do orçamento</h3>
+
+                        <p>
+                            Acompanhe quanto do seu orçamento já foi utilizado.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="planejamento-orcamento-resumo">
+
+                    <div class="planejamento-orcamento-info">
+
+                        <div>
+                            <span>Orçamento disponível</span>
+                            <strong id="orcamentoDisponivel">R$ 0,00</strong>
+                        </div>
+
+                        <div>
+                            <span>Despesas realizadas</span>
+                            <strong id="despesasRealizadas">R$ 0,00</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="planejamento-progresso">
+
+                        <div class="planejamento-progresso-texto">
+                            <span>Utilização do orçamento</span>
+                            <strong id="progressoTexto">0%</strong>
+                        </div>
+
+                        <div class="planejamento-barra-fundo">
+                            <div
+                                class="planejamento-barra"
+                                id="barraOrcamento"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <p
+                        class="planejamento-aviso"
+                        id="avisoOrcamento"
+                    ></p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ORÇAMENTOS POR CATEGORIA -->
+            <section class="planejamento-secao">
+
+                <div class="planejamento-secao-cabecalho">
+
+                    <div>
+                        <h3>Orçamento por categoria</h3>
+
+                        <p>
+                            Defina limites de gastos para cada categoria.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="planejamento-botao-principal"
+                        id="abrirFormularioOrcamento"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        Novo orçamento
+                    </button>
+
+                </div>
+
+
+                <!-- FORMULÁRIO -->
+                <div
+                    class="planejamento-formulario-container"
+                    id="formularioOrcamentoContainer"
+                    hidden
+                >
+
+                    <div class="planejamento-formulario-cabecalho">
+
+                        <h3 id="tituloFormularioOrcamento">
+                            Novo orçamento
+                        </h3>
+
+                        <button
+                            type="button"
+                            id="fecharFormularioOrcamento"
+                            aria-label="Fechar formulário"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+
+                    <form id="formularioOrcamento">
+
+                        <input
+                            type="hidden"
+                            id="orcamentoId"
+                        >
+
+
+                        <div class="planejamento-formulario-campos">
+
+                            <div class="planejamento-campo">
+
+                                <label for="categoriaOrcamento">
+                                    Categoria
+                                </label>
+
+                                <select
+                                    id="categoriaOrcamento"
+                                    required
+                                >
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="Alimentação">Alimentação</option>
+                                    <option value="Moradia">Moradia</option>
+                                    <option value="Transporte">Transporte</option>
+                                    <option value="Saúde">Saúde</option>
+                                    <option value="Educação">Educação</option>
+                                    <option value="Lazer">Lazer</option>
+                                    <option value="Compras">Compras</option>
+                                    <option value="Assinaturas">Assinaturas</option>
+                                    <option value="Contas">Contas</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+
+                            </div>
+
+
+                            <div class="planejamento-campo">
+
+                                <label for="valorOrcamento">
+                                    Valor planejado
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="valorOrcamento"
+                                    min="0.01"
+                                    step="0.01"
+                                    placeholder="0,00"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="planejamento-campo planejamento-campo-descricao">
+
+                                <label for="descricaoOrcamento">
+                                    Descrição (opcional)
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="descricaoOrcamento"
+                                    placeholder="Ex.: Mercado, aluguel, combustível..."
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="planejamento-formulario-acoes">
+
+                            <button
+                                type="button"
+                                class="planejamento-botao-secundario"
+                                id="cancelarFormularioOrcamento"
+                            >
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="planejamento-botao-principal"
+                                id="salvarOrcamento"
+                            >
+                                Salvar orçamento
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- LISTA DE ORÇAMENTOS -->
+                <div
+                    class="planejamento-lista-orcamentos"
+                    id="listaOrcamentos"
+                >
+                    <!-- Preenchido pelo planejamento.js -->
+                </div>
+
+            </section>
+
+
+            <!-- COMPARATIVO -->
+            <section class="planejamento-secao">
+
+                <div class="planejamento-secao-cabecalho">
+
+                    <div>
+                        <h3>Planejado x realizado</h3>
+
+                        <p>
+                            Compare os valores definidos no orçamento
+                            com suas despesas registradas.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="planejamento-tabela-container">
+
+                    <table class="planejamento-tabela">
+
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Planejado</th>
+                                <th>Realizado</th>
+                                <th>Diferença</th>
+                                <th>Percentual</th>
+                                <th>Situação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabelaPlanejamento">
+                            <!-- Preenchido pelo planejamento.js -->
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- DICA -->
+            <section class="planejamento-dica">
+
+                <div class="planejamento-dica-icone">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <div>
+                    <h3>Dica financeira</h3>
+
+                    <p>
+                        Defina limites realistas para suas categorias
+                        e acompanhe seus gastos durante o mês.
+                        Um orçamento bem organizado ajuda a identificar
+                        excessos e direcionar melhor seu dinheiro.
+                    </p>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- SCRIPTS DA PÁGINA -->
+    <script type="module">
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+
+        async function iniciarPlanejamento() {
+            try {
+                const usuario = await protegerPagina();
+
+                if (!usuario) return;
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+                }
+
+                await import("./js/planejamento.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+                console.error(
+                    "Erro ao inicializar o Planejamento:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar o Planejamento Financeiro. Tente novamente."
+                );
+            }
+        }
+
+        iniciarPlanejamento();
+    </script>
+
+
+    <!-- CONTROLE DO MENU MOBILE -->
+    <script>
+        (() => {
+            const botao = document.getElementById("botaoMenuMobile");
+            const menu = document.getElementById("menuLateral");
+            const overlay = document.getElementById("menuOverlay");
+
+            if (!botao || !menu || !overlay) return;
+
+            function abrirMenu() {
+                document.body.classList.add("menu-mobile-aberto");
+
+                botao.classList.add("ativo");
+                botao.setAttribute("aria-expanded", "true");
+                botao.setAttribute("aria-label", "Fechar menu");
+            }
+
+            function fecharMenu() {
+                document.body.classList.remove("menu-mobile-aberto");
+
+                botao.classList.remove("ativo");
+                botao.setAttribute("aria-expanded", "false");
+                botao.setAttribute("aria-label", "Abrir menu");
+            }
+
+            botao.addEventListener("click", () => {
+                const menuAberto = document.body.classList.contains(
+                    "menu-mobile-aberto"
+                );
+
+                if (menuAberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+            });
+
+            overlay.addEventListener("click", fecharMenu);
+
+            menu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape") {
+                    fecharMenu();
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

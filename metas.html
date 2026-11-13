@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102D39">
+
+    <title>Finora - Metas Financeiras</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/metas.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <h1 class="titulo-financeiro">
+
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+
+            Controle de Finanças
+
+        </h1>
+
+        <div class="acoes-cabecalho">
+
+            <button
+                type="button"
+                id="botaoMenuMobile"
+                class="botao-menu-mobile"
+                aria-label="Abrir menu"
+                aria-controls="menuLateral"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <p class="henrique" id="saudacaoUsuario">
+                Olá
+            </p>
+
+        </div>
+
+    </header>
+
+    <!-- OVERLAY DO MENU MOBILE -->
+    <button
+        type="button"
+        id="menuOverlay"
+        class="menu-overlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">VISÃO GERAL</li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">MOVIMENTAÇÕES</li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">PLANEJAMENTO</li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="metas.html" aria-current="page">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">OUTROS</li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="pagina-metas">
+
+            <!-- CABEÇALHO DA PÁGINA -->
+            <section class="cabecalho-metas">
+
+                <div>
+                    <h1>Metas Financeiras</h1>
+
+                    <p>
+                        Organize seus objetivos e acompanhe sua evolução financeira.
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- RESUMO DAS METAS -->
+            <section class="resumo-metas">
+
+                <div class="card-resumo">
+
+                    <div class="icone-resumo">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+
+                    <div class="info-resumo">
+                        <span>Total acumulado</span>
+                        <h2 id="totalAcumuladoMetas">R$ 0,00</h2>
+                    </div>
+
+                </div>
+
+                <div class="card-resumo">
+
+                    <div class="icone-resumo">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+
+                    <div class="info-resumo">
+                        <span>Metas ativas</span>
+                        <h2 id="quantidadeMetasAtivas">0</h2>
+                    </div>
+
+                </div>
+
+                <div class="card-resumo">
+
+                    <div class="icone-resumo">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div class="info-resumo">
+                        <span>Metas concluídas</span>
+                        <h2 id="quantidadeMetasConcluidas">0</h2>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- MENSAGENS DO SISTEMA -->
+            <div
+                id="mensagemMetas"
+                class="mensagem-metas"
+                aria-live="polite"
+            ></div>
+
+            <!-- CONTEÚDO DAS METAS -->
+            <section class="conteudo-metas">
+
+                <!-- FORMULÁRIO -->
+                <div class="card-metas formulario-metas">
+
+                    <div class="titulo-card">
+                        <div>
+                            <h2>Criar uma meta</h2>
+                            <p>
+                                Defina um objetivo e acompanhe seu progresso.
+                            </p>
+                        </div>
+                    </div>
+
+                    <form id="formMetas">
+
+                        <div class="grupo-campo">
+                            <label for="metaNome">Nome da meta</label>
+
+                            <input
+                                type="text"
+                                id="metaNome"
+                                placeholder="Ex.: Viagem, carro, reserva..."
+                                required
+                            >
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="metaCategoria">Categoria</label>
+
+                            <select id="metaCategoria" required>
+                                <option value="">Selecione uma categoria</option>
+                                <option value="Viagem">Viagem</option>
+                                <option value="Veículo">Veículo</option>
+                                <option value="Imóvel">Imóvel</option>
+                                <option value="Reserva de emergência">Reserva de emergência</option>
+                                <option value="Educação">Educação</option>
+                                <option value="Eletrônicos">Eletrônicos</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="metaValorObjetivo">Valor desejado</label>
+
+                            <input
+                                type="number"
+                                id="metaValorObjetivo"
+                                placeholder="0,00"
+                                min="0.01"
+                                step="0.01"
+                                required
+                            >
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="metaValorInicial">Valor inicial</label>
+
+                            <input
+                                type="number"
+                                id="metaValorInicial"
+                                placeholder="0,00"
+                                min="0"
+                                step="0.01"
+                                value="0"
+                            >
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="metaPrazo">Prazo para conclusão</label>
+
+                            <input
+                                type="date"
+                                id="metaPrazo"
+                            >
+                        </div>
+
+                        <div class="grupo-campo">
+                            <label for="metaInstituicao">Instituição financeira</label>
+
+                            <input
+                                type="text"
+                                id="metaInstituicao"
+                                placeholder="Ex.: Nubank, Banco do Brasil..."
+                            >
+                        </div>
+
+                        <div class="grupo-campo campo-observacao">
+                            <label for="metaObservacao">Observações</label>
+
+                            <textarea
+                                id="metaObservacao"
+                                rows="3"
+                                placeholder="Adicione informações sobre sua meta..."
+                            ></textarea>
+                        </div>
+
+                        <div class="acoes-formulario-metas">
+
+                            <button type="submit" id="btnSalvarMeta">
+                                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                Criar meta
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- LISTA DE METAS -->
+                <div class="card-metas area-lista-metas">
+
+                    <div class="titulo-card">
+                        <div>
+                            <h2>Minhas metas</h2>
+                            <p>
+                                Acompanhe seus objetivos financeiros.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="listaMetas" class="lista-metas">
+                        <!-- METAS CARREGADAS PELO JAVASCRIPT -->
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- HISTÓRICO DE MOVIMENTAÇÕES -->
+            <section class="card-metas historico-metas">
+
+                <div class="titulo-card">
+                    <div>
+                        <h2>Histórico de movimentações</h2>
+                        <p>
+                            Consulte seus aportes e retiradas das metas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tabela-metas-wrapper">
+
+                    <table class="tabela-metas">
+
+                        <thead>
+                            <tr>
+                                <th>Meta</th>
+                                <th>Tipo</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaMovimentacoesMetas">
+                            <!-- MOVIMENTAÇÕES CARREGADAS PELO JAVASCRIPT -->
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MENU MOBILE -->
+    <script>
+        (() => {
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const menuOverlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !menuOverlay) return;
+
+            function abrirMenu() {
+                document.body.classList.add("menu-mobile-aberto");
+                botaoMenu.classList.add("ativo");
+                botaoMenu.setAttribute("aria-expanded", "true");
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+            }
+
+            function fecharMenu() {
+                document.body.classList.remove("menu-mobile-aberto");
+                botaoMenu.classList.remove("ativo");
+                botaoMenu.setAttribute("aria-expanded", "false");
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+            }
+
+            botaoMenu.addEventListener("click", () => {
+                const menuAberto = document.body.classList.contains("menu-mobile-aberto");
+
+                if (menuAberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+            });
+
+            menuOverlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", evento => {
+                if (evento.key === "Escape") {
+                    fecharMenu();
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+            });
+        })();
+    </script>
+
+    <!-- FIREBASE E PROTEÇÃO DA PÁGINA -->
+    <script type="module">
+
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+
+            });
+
+        }
+
+        async function iniciarMetas() {
+
+            try {
+
+                const usuario = await protegerPagina();
+
+                if (!usuario) {
+                    return;
+                }
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+
+                }
+
+                await import("./js/metas.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+
+                console.error("Erro ao inicializar Metas:", erro);
+
+                alert(
+                    "Não foi possível carregar a página de Metas Financeiras. Tente novamente."
+                );
+
+            }
+
+        }
+
+        iniciarMetas();
+
+    </script>
+
+</body>
+</html>

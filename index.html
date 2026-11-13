@@ -1,0 +1,529 @@
+
+<!doctype html>
+<html lang="pt-BR" class="finora-protegendo">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#102D39">
+
+    <title>Finora - Resumo</title>
+
+    <!-- PROTEÇÃO CONTRA EXIBIÇÃO ANTES DA AUTENTICAÇÃO -->
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS DAS CONFIGURAÇÕES -->
+    <link rel="stylesheet" href="css/configuracoes.css">
+
+    <!-- BIBLIOTECA DE ÍCONES -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <!-- BOTÃO DO MENU MOBILE -->
+        <button
+            class="botao-menu-mobile"
+            id="botaoMenuMobile"
+            type="button"
+            aria-label="Abrir menu de navegação"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <h1 class="titulo-financeiro">
+
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+
+            Controle de Finanças
+
+        </h1>
+
+        <!-- SAUDAÇÃO DINÂMICA -->
+        <p class="henrique" id="saudacaoUsuario">
+            Olá
+        </p>
+
+    </header>
+
+    <!-- FUNDO DO MENU MOBILE -->
+    <button
+        class="menu-overlay"
+        id="menuOverlay"
+        type="button"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">
+                    VISÃO GERAL
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="index.html" aria-current="page">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">
+                    MOVIMENTAÇÕES
+                </li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="despesas.html">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">
+                    PLANEJAMENTO
+                </li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">
+                    OUTROS
+                </li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+
+            <section class="resumo">
+
+                <h2>Resumo Financeiro</h2>
+
+                <!-- CARD RECEITAS -->
+                <section class="card">
+
+                    <p>Receitas</p>
+
+                    <p class="valor-receitas">
+                        <span class="bolinha receitas"></span>
+                        <span id="valorReceitas">—</span>
+                    </p>
+
+                    <p class="comparacao" id="comparacaoReceitas">
+                        Carregando dados...
+                    </p>
+
+                    <span
+                        class="indicador-tendencia tendencia-receitas"
+                        aria-label="Indicador de subida das receitas"
+                        title="Indicador de subida"
+                    >
+                        <svg viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M5 24 L13 16 L18 20 L28 8"></path>
+                            <path d="M19 8 H28 V17"></path>
+                        </svg>
+                    </span>
+
+                </section>
+
+                <!-- CARD DESPESAS -->
+                <section class="card">
+
+                    <p>Despesas</p>
+
+                    <p class="valor-despesas">
+                        <span class="bolinha despesas"></span>
+                        <span id="valorDespesas">—</span>
+                    </p>
+
+                    <p class="comparacao" id="comparacaoDespesas">
+                        Carregando dados...
+                    </p>
+
+                    <span
+                        class="indicador-tendencia tendencia-despesas"
+                        aria-label="Indicador de descida das despesas"
+                        title="Indicador de descida"
+                    >
+                        <svg viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M5 8 L13 16 L18 12 L28 24"></path>
+                            <path d="M19 24 H28 V15"></path>
+                        </svg>
+                    </span>
+
+                </section>
+
+                <!-- CARD SALDO -->
+                <section class="card">
+
+                    <p>Saldo</p>
+
+                    <p class="valor-saldo">
+                        <span class="bolinha saldo"></span>
+                        <span id="valorSaldo">—</span>
+                    </p>
+
+                    <p class="comparacao" id="comparacaoSaldo">
+                        Carregando dados...
+                    </p>
+
+                    <span
+                        class="indicador-tendencia tendencia-saldo"
+                        aria-label="Indicador horizontal do saldo"
+                        title="Indicador horizontal"
+                    >
+                        <svg viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M4 16 H27"></path>
+                            <path d="M19 8 L27 16 L19 24"></path>
+                        </svg>
+                    </span>
+
+                </section>
+
+                <!-- ANÁLISE FINANCEIRA -->
+                <div class="analise-financeira">
+
+                    <section class="grafico-container">
+
+                        <h2>Evolução financeira</h2>
+
+                        <div class="area-canvas">
+                            <canvas id="graficoFinanceiro"></canvas>
+                        </div>
+
+                    </section>
+
+                    <!-- FILTRO DE PERÍODO -->
+                    <section class="filtro-periodo">
+
+                        <h2>Período</h2>
+
+                        <label for="tipoPeriodo">
+                            Analisar por:
+                        </label>
+
+                        <select id="tipoPeriodo">
+
+                            <option value="mes">Mês</option>
+                            <option value="semana">Semana</option>
+                            <option value="personalizado">Período personalizado</option>
+
+                        </select>
+
+                        <label for="dataInicio">De:</label>
+
+                        <input type="date" id="dataInicio">
+
+                        <label for="dataFim">Até:</label>
+
+                        <input type="date" id="dataFim">
+
+                        <button id="aplicarPeriodo" type="button">
+                            Aplicar período
+                        </button>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- CHART.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- FIREBASE E PROTEÇÃO DA PÁGINA -->
+    <script type="module">
+
+        import { protegerPagina } from "./js/finora-db.js";
+
+        const saudacaoUsuario =
+            document.getElementById("saudacaoUsuario");
+
+        /* ========================================= */
+        /* MENU MOBILE */
+        /* ========================================= */
+
+        const botaoMenuMobile =
+            document.getElementById("botaoMenuMobile");
+
+        const menuLateral =
+            document.getElementById("menuLateral");
+
+        const menuOverlay =
+            document.getElementById("menuOverlay");
+
+        function abrirMenuMobile() {
+
+            document.body.classList.add("menu-mobile-aberto");
+
+            botaoMenuMobile.setAttribute("aria-expanded", "true");
+
+            botaoMenuMobile.setAttribute(
+                "aria-label",
+                "Fechar menu de navegação"
+            );
+
+            botaoMenuMobile.innerHTML =
+                '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+        }
+
+        function fecharMenuMobile() {
+
+            document.body.classList.remove("menu-mobile-aberto");
+
+            botaoMenuMobile.setAttribute("aria-expanded", "false");
+
+            botaoMenuMobile.setAttribute(
+                "aria-label",
+                "Abrir menu de navegação"
+            );
+
+            botaoMenuMobile.innerHTML =
+                '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+        }
+
+        botaoMenuMobile.addEventListener("click", () => {
+
+            const menuAberto =
+                document.body.classList.contains("menu-mobile-aberto");
+
+            if (menuAberto) {
+                fecharMenuMobile();
+            } else {
+                abrirMenuMobile();
+            }
+
+        });
+
+        menuOverlay.addEventListener("click", fecharMenuMobile);
+
+        menuLateral.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                if (window.matchMedia("(max-width: 800px)").matches) {
+                    fecharMenuMobile();
+                }
+
+            });
+
+        });
+
+        document.addEventListener("keydown", evento => {
+
+            if (evento.key === "Escape") {
+                fecharMenuMobile();
+            }
+
+        });
+
+        window.addEventListener("resize", () => {
+
+            if (window.innerWidth > 800) {
+                fecharMenuMobile();
+            }
+
+        });
+
+        /* ========================================= */
+        /* CARREGAMENTO DE SCRIPTS */
+        /* ========================================= */
+
+        function carregarScript(arquivo, modulo = false) {
+
+            return new Promise((resolve, reject) => {
+
+                const script = document.createElement("script");
+
+                if (modulo) {
+                    script.type = "module";
+                }
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+
+        /* ========================================= */
+        /* INICIALIZAÇÃO DO FINORA */
+        /* ========================================= */
+
+        async function iniciarFinora() {
+
+            try {
+
+                // 1. Verificar autenticação.
+                const usuario = await protegerPagina();
+
+                if (!usuario) {
+                    return;
+                }
+
+                // 2. Identificar usuário.
+                let nome = usuario.displayName;
+
+                if (!nome && usuario.email) {
+                    nome = usuario.email.split("@")[0];
+                }
+
+                saudacaoUsuario.textContent =
+                    `Olá, ${nome || "usuário"}`;
+
+                // 3. Carregar o script principal.
+                await carregarScript("js/script.js", true);
+
+                // 4. Aguardar dados reais do Firestore.
+                if (!window.finoraInicializado) {
+                    throw new Error(
+                        "A inicialização dos dados financeiros não foi encontrada."
+                    );
+                }
+
+                await window.finoraInicializado;
+
+                // 5. Carregar configurações.
+                await carregarScript("js/configuracoes.js");
+
+                // 6. Exibir o dashboard.
+                document.documentElement.classList.remove(
+                    "finora-protegendo"
+                );
+
+            } catch (erro) {
+
+                console.error(
+                    "Erro ao inicializar o Finora:",
+                    erro
+                );
+
+                alert(
+                    "Não foi possível carregar o Finora. Tente novamente."
+                );
+
+                document.documentElement.classList.remove(
+                    "finora-protegendo"
+                );
+            }
+        }
+
+        iniciarFinora();
+
+    </script>
+
+</body>
+</html>

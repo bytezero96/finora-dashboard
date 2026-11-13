@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#102D39">
+    <meta name="description" content="Finora — Sua vida financeira, em equilíbrio.">
+
+    <title>Finora — Entrar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <main class="auth-container">
+
+        <!-- ========================================= -->
+        <!-- APRESENTAÇÃO -->
+        <!-- ========================================= -->
+
+        <section class="auth-presentation">
+
+            <div class="presentation-content">
+
+                <div class="presentation-message">
+
+                    <span class="presentation-label">
+                        CONTROLE FINANCEIRO INTELIGENTE
+                    </span>
+
+                    <h1>
+                        Sua vida financeira,
+                        <span>em equilíbrio.</span>
+                    </h1>
+
+                    <p>
+                        Mais clareza para suas escolhas.
+                        Mais controle para organizar seu dinheiro
+                        e conquistar seus objetivos.
+                    </p>
+
+                    <div class="presentation-features">
+
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Organize suas finanças</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Acompanhe seus resultados</span>
+                        </div>
+
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Planeje suas conquistas</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="presentation-footer">
+                    ORGANIZE <span>·</span> PLANEJE <span>·</span> CONQUISTE
+                </div>
+
+            </div>
+
+            <div class="presentation-decoration decoration-one"></div>
+            <div class="presentation-decoration decoration-two"></div>
+
+        </section>
+
+
+        <!-- ========================================= -->
+        <!-- ÁREA DE LOGIN -->
+        <!-- ========================================= -->
+
+        <section class="auth-side">
+
+            <div class="auth-content">
+
+                <section class="auth-card">
+
+                    <!-- IDENTIDADE FINORA -->
+                    <a href="login.html" class="brand" aria-label="Finora">
+
+                        <img
+                            src="https://i.ibb.co/PG1HH81v/9777b8a0a5e87-42d6-9e72-ed4aed67afef-1.png"
+                            alt="Logo Finora"
+                            class="brand-logo"
+                        >
+
+                        <span class="brand-name">Finora</span>
+
+                    </a>
+
+                    <!-- CABEÇALHO -->
+                    <div class="auth-heading">
+                        <h2>Bem-vindo de volta</h2>
+                        <p>Entre na sua conta para continuar.</p>
+                    </div>
+
+                    <!-- LOGIN GOOGLE -->
+                    <button
+                        type="button"
+                        class="google-button"
+                        id="googleLogin"
+                    >
+                        <svg viewBox="0 0 48 48" aria-hidden="true">
+                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.73 7.18l7.27 5.64c4.24-3.91 7.5-9.68 7.5-17.29z"/>
+                            <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 0 1 9.75 24c0-1.59.27-3.13.75-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.88.93 7.55 2.56 10.78l7.97-6.19z"/>
+                            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.78l-7.27-5.64c-2.02 1.35-4.61 2.15-8.64 2.15-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                        </svg>
+
+                        Continuar com Google
+                    </button>
+
+                    <!-- SEPARADOR -->
+                    <div class="separator">
+                        <span></span>
+                        <p>ou entre com seu e-mail</p>
+                        <span></span>
+                    </div>
+
+                    <!-- FORMULÁRIO DE LOGIN -->
+                    <form id="loginForm" novalidate>
+
+                        <div class="form-group">
+                            <label for="loginEmail">E-mail</label>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                name="email"
+                                placeholder="seuemail@exemplo.com"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="label-row">
+                                <label for="loginPassword">Senha</label>
+
+                                <button
+                                    type="button"
+                                    class="text-link"
+                                    id="openRecovery"
+                                >
+                                    Esqueceu a senha?
+                                </button>
+                            </div>
+
+                            <div class="password-field">
+
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    name="password"
+                                    placeholder="Digite sua senha"
+                                    autocomplete="current-password"
+                                    required
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-toggle-password="loginPassword"
+                                    aria-label="Mostrar senha"
+                                    aria-pressed="false"
+                                >
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                        <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <p
+                            class="form-message"
+                            id="loginMessage"
+                            role="status"
+                            aria-live="polite"
+                        ></p>
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                            id="loginSubmit"
+                        >
+                            Entrar na minha conta
+                        </button>
+
+                    </form>
+
+                    <!-- CADASTRO -->
+                    <p class="signup-text">
+                        Ainda não tem uma conta?
+
+                        <button
+                            type="button"
+                            class="text-link"
+                            id="openRegister"
+                        >
+                            Criar conta
+                        </button>
+                    </p>
+
+                </section>
+
+                <!-- RODAPÉ -->
+                <footer class="auth-footer">
+                    <p>
+                        © <span id="currentYear"></span>
+                        Finora. Sua vida financeira em equilíbrio.
+                    </p>
+                </footer>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================= -->
+    <!-- MODAL DE CADASTRO -->
+    <!-- ========================================= -->
+
+    <div
+        class="modal-overlay"
+        id="registerModal"
+        aria-hidden="true"
+    >
+
+        <section
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="registerTitle"
+        >
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close-modal
+                aria-label="Fechar"
+            >
+                &times;
+            </button>
+
+            <div class="modal-heading">
+
+                <span class="modal-icon" aria-hidden="true">+</span>
+
+                <h2 id="registerTitle">Crie sua conta</h2>
+
+                <p>
+                    Comece a organizar sua vida financeira com o Finora.
+                </p>
+
+            </div>
+
+            <form id="registerForm" novalidate>
+
+                <div class="form-group">
+                    <label for="registerName">Nome completo</label>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        name="name"
+                        placeholder="Como podemos te chamar?"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">E-mail</label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+
+                    <label for="registerPassword">Senha</label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            name="password"
+                            placeholder="Crie uma senha"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-toggle-password="registerPassword"
+                            aria-label="Mostrar senha"
+                            aria-pressed="false"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                    <div class="password-strength">
+
+                        <div class="strength-track">
+                            <span id="strengthBar"></span>
+                        </div>
+
+                        <small id="strengthText">
+                            Use pelo menos 8 caracteres.
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="registerConfirmPassword">
+                        Confirmar senha
+                    </label>
+
+                    <div class="password-field">
+
+                        <input
+                            type="password"
+                            id="registerConfirmPassword"
+                            name="confirmPassword"
+                            placeholder="Digite a senha novamente"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-toggle-password="registerConfirmPassword"
+                            aria-label="Mostrar senha"
+                            aria-pressed="false"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                                <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <p
+                    class="form-message"
+                    id="registerMessage"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="registerSubmit"
+                >
+                    Criar minha conta
+                </button>
+
+            </form>
+
+            <p class="modal-bottom-text">
+                Já possui uma conta?
+
+                <button
+                    type="button"
+                    class="text-link"
+                    id="backToLogin"
+                >
+                    Fazer login
+                </button>
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- MODAL DE RECUPERAÇÃO DE SENHA -->
+    <!-- ========================================= -->
+
+    <div
+        class="modal-overlay"
+        id="recoveryModal"
+        aria-hidden="true"
+    >
+
+        <section
+            class="modal-card recovery-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="recoveryTitle"
+        >
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close-modal
+                aria-label="Fechar"
+            >
+                &times;
+            </button>
+
+            <div class="modal-heading">
+
+                <span class="modal-icon recovery-icon" aria-hidden="true">
+                    ↗
+                </span>
+
+                <h2 id="recoveryTitle">Recuperar senha</h2>
+
+                <p>
+                    Informe seu e-mail para receber as instruções de recuperação.
+                </p>
+
+            </div>
+
+            <form id="recoveryForm" novalidate>
+
+                <div class="form-group">
+
+                    <label for="recoveryEmail">
+                        E-mail cadastrado
+                    </label>
+
+                    <input
+                        type="email"
+                        id="recoveryEmail"
+                        name="email"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <p
+                    class="form-message"
+                    id="recoveryMessage"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="recoverySubmit"
+                >
+                    Enviar instruções
+                </button>
+
+            </form>
+
+            <p class="modal-bottom-text">
+                Lembrou sua senha?
+
+                <button
+                    type="button"
+                    class="text-link"
+                    id="backFromRecovery"
+                >
+                    Voltar ao login
+                </button>
+            </p>
+
+        </section>
+
+    </div>
+
+    <script type="module" src="./js/login.js"></script>
+
+</body>
+</html>

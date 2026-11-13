@@ -1,0 +1,710 @@
+
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finora - Despesas</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/despesas.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="css/configuracoes.css">
+
+    <style>
+        .mensagem-despesas {
+            display: none;
+            margin: 12px 0;
+            padding: 11px 13px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .mensagem-despesas.erro {
+            display: block;
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .mensagem-despesas.sucesso {
+            display: block;
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+
+        .tabela-responsiva {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tabela-responsiva table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+        }
+
+        .conteudo-aba[hidden] {
+            display: none !important;
+        }
+
+        .menu-lateral .menu-item.ativo a i {
+            color: #2DD4BF;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+        <button
+            type="button"
+            class="botao-menu-mobile"
+            id="botaoMenuMobile"
+            aria-label="Abrir menu"
+            aria-controls="menuLateral"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1 class="titulo-financeiro">
+            <img
+                src="https://i.ibb.co/PG1HH81v/9777b8a0-5e87-42d6-9e72-ed4aed67afef-1.png"
+                alt="Logo Finora"
+                class="logo-financeiro"
+            >
+            Controle de Finanças
+        </h1>
+
+        <p class="henrique">Olá Henrique</p>
+    </header>
+
+    <!-- SOBREPOSIÇÃO DO MENU MOBILE -->
+
+    <button
+        type="button"
+        class="menu-overlay"
+        id="menuOverlay"
+        aria-label="Fechar menu"
+        tabindex="-1"
+    ></button>
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+        <!-- MENU LATERAL -->
+
+        <nav
+            class="menu-lateral"
+            id="menuLateral"
+            aria-label="Menu principal"
+        >
+            <ul class="menu-lista">
+
+                <li class="menu-grupo">VISÃO GERAL</li>
+
+                <li class="menu-item">
+                    <a href="index.html">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>Resumo</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="graficos.html">
+                        <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+                        <span>Gráficos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">MOVIMENTAÇÕES</li>
+
+                <li class="menu-item">
+                    <a href="lancamentos.html">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                        <span>Lançamentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="entradas.html">
+                        <i class="fa-solid fa-circle-arrow-down" aria-hidden="true"></i>
+                        <span>Entradas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item ativo">
+                    <a href="despesas.html" aria-current="page">
+                        <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                        <span>Despesas</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="contas-pagar.html">
+                        <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+                        <span>Contas a pagar</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="cartoes.html">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>Cartões</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">PLANEJAMENTO</li>
+
+                <li class="menu-item">
+                    <a href="planejamento.html">
+                        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                        <span>Planejamento financeiro</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="metas.html">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                        <span>Metas financeiras</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="investimentos.html">
+                        <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                        <span>Investimentos</span>
+                    </a>
+                </li>
+
+                <li class="menu-grupo">OUTROS</li>
+
+                <li class="menu-item">
+                    <a href="relatorios.html">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#config" aria-label="Abrir configurações">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <main class="pagina-despesas">
+
+            <h2>Controle de despesas</h2>
+
+            <div
+                id="mensagemDespesa"
+                class="mensagem-despesas"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+            <!-- RESUMO -->
+
+            <section class="resumo-despesas">
+
+                <article class="card-resumo-despesas">
+                    <h3>Total de consumo</h3>
+                    <p id="totalConsumo">R$ 0,00</p>
+                </article>
+
+            </section>
+
+            <!-- ABAS -->
+
+            <div
+                class="abas-despesa"
+                role="tablist"
+                aria-label="Forma de pagamento da despesa"
+            >
+
+                <button
+                    type="button"
+                    class="aba-despesa ativa"
+                    data-aba="credito"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="painel-credito"
+                >
+                    <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                    <span>Crédito</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="aba-despesa"
+                    data-aba="debito"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="painel-debito"
+                >
+                    <i class="fa-solid fa-wallet" aria-hidden="true"></i>
+                    <span>Débito</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="aba-despesa"
+                    data-aba="pix"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="painel-pix"
+                >
+                    <i class="fa-solid fa-qrcode" aria-hidden="true"></i>
+                    <span>Pix</span>
+                </button>
+
+            </div>
+
+            <!-- CRÉDITO -->
+
+            <section
+                id="painel-credito"
+                class="conteudo-aba"
+                data-painel="credito"
+                role="tabpanel"
+            >
+
+                <h3>Registrar compra no crédito</h3>
+
+                <form class="formulario-despesa" data-tipo="credito">
+
+                    <div class="campo-despesa">
+                        <label for="creditoDescricao">Descrição da compra</label>
+                        <input
+                            id="creditoDescricao"
+                            name="descricao"
+                            type="text"
+                            placeholder="Ex: Notebook"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="creditoCartao">Cartão utilizado</label>
+                        <select id="creditoCartao" name="cartao" required>
+                            <option value="">Carregando cartões...</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="creditoCategoria">Categoria</label>
+                        <select id="creditoCategoria" name="categoria" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Moradia">Moradia</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Compras">Compras</option>
+                            <option value="Contas">Contas</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Assinaturas">Assinaturas</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="creditoValor">Valor original da compra (R$)</label>
+                        <input
+                            id="creditoValor"
+                            name="valor"
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="0,00"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="creditoData">Data da compra</label>
+                        <input
+                            id="creditoData"
+                            name="data"
+                            type="date"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="creditoParcelas">Quantidade de parcelas</label>
+                        <input
+                            id="creditoParcelas"
+                            name="parcelas"
+                            type="number"
+                            min="1"
+                            max="120"
+                            step="1"
+                            value="1"
+                            placeholder="Digite a quantidade"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="creditoValorParcela">Valor de cada parcela (R$)</label>
+                        <input
+                            id="creditoValorParcela"
+                            name="valorParcela"
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="Calculado automaticamente"
+                            required
+                        >
+                    </div>
+
+                    <p class="nota-calculo">
+                        Digite a quantidade de parcelas desejada, de 1 a 120.
+                        O valor de cada parcela será sugerido automaticamente
+                        com base no valor original da compra e na quantidade
+                        informada. Você poderá ajustar o valor da parcela
+                        manualmente, se necessário.
+                    </p>
+
+                    <button type="submit">Registrar compra</button>
+
+                </form>
+
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Compra</th>
+                                <th>Cartão</th>
+                                <th>Data</th>
+                                <th>Parcelas</th>
+                                <th>Valor da parcela</th>
+                                <th>Valor original</th>
+                                <th>Total parcelado</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaCredito"></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- DÉBITO -->
+
+            <section
+                id="painel-debito"
+                class="conteudo-aba"
+                data-painel="debito"
+                role="tabpanel"
+                hidden
+            >
+
+                <h3>Registrar despesa no débito</h3>
+
+                <form class="formulario-despesa" data-tipo="debito">
+
+                    <div class="campo-despesa">
+                        <label for="debitoDescricao">Descrição</label>
+                        <input
+                            id="debitoDescricao"
+                            name="descricao"
+                            type="text"
+                            placeholder="Ex: Mercado"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="debitoValor">Valor (R$)</label>
+                        <input
+                            id="debitoValor"
+                            name="valor"
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="0,00"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="debitoData">Data</label>
+                        <input
+                            id="debitoData"
+                            name="data"
+                            type="date"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="debitoCategoria">Categoria</label>
+                        <select id="debitoCategoria" name="categoria" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Moradia">Moradia</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Compras">Compras</option>
+                            <option value="Contas">Contas</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Assinaturas">Assinaturas</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Registrar despesa</button>
+
+                </form>
+
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaDebito"></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- PIX -->
+
+            <section
+                id="painel-pix"
+                class="conteudo-aba"
+                data-painel="pix"
+                role="tabpanel"
+                hidden
+            >
+
+                <h3>Registrar Pix</h3>
+
+                <form class="formulario-despesa" data-tipo="pix">
+
+                    <div class="campo-despesa">
+                        <label for="pixDescricao">Descrição</label>
+                        <input
+                            id="pixDescricao"
+                            name="descricao"
+                            type="text"
+                            placeholder="Ex: Conta de luz"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="pixValor">Valor (R$)</label>
+                        <input
+                            id="pixValor"
+                            name="valor"
+                            type="number"
+                            min="0.01"
+                            step="0.01"
+                            placeholder="0,00"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="pixData">Data</label>
+                        <input
+                            id="pixData"
+                            name="data"
+                            type="date"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo-despesa">
+                        <label for="pixCategoria">Categoria</label>
+                        <select id="pixCategoria" name="categoria" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Moradia">Moradia</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Compras">Compras</option>
+                            <option value="Contas">Contas</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Assinaturas">Assinaturas</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Registrar Pix</button>
+
+                </form>
+
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaPix"></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MENU MOBILE -->
+
+    <script>
+        (() => {
+            const botaoMenu = document.getElementById("botaoMenuMobile");
+            const menuLateral = document.getElementById("menuLateral");
+            const overlay = document.getElementById("menuOverlay");
+
+            if (!botaoMenu || !menuLateral || !overlay) return;
+
+            function abrirMenu() {
+                if (window.innerWidth > 800) return;
+
+                document.body.classList.add("menu-mobile-aberto");
+                botaoMenu.classList.add("ativo");
+
+                botaoMenu.setAttribute("aria-expanded", "true");
+                botaoMenu.setAttribute("aria-label", "Fechar menu");
+            }
+
+            function fecharMenu() {
+                document.body.classList.remove("menu-mobile-aberto");
+                botaoMenu.classList.remove("ativo");
+
+                botaoMenu.setAttribute("aria-expanded", "false");
+                botaoMenu.setAttribute("aria-label", "Abrir menu");
+            }
+
+            botaoMenu.addEventListener("click", () => {
+                const aberto = document.body.classList.contains("menu-mobile-aberto");
+
+                if (aberto) {
+                    fecharMenu();
+                } else {
+                    abrirMenu();
+                }
+            });
+
+            overlay.addEventListener("click", fecharMenu);
+
+            menuLateral.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", fecharMenu);
+            });
+
+            document.addEventListener("keydown", evento => {
+                if (evento.key === "Escape") {
+                    fecharMenu();
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 800) {
+                    fecharMenu();
+                }
+            });
+        })();
+    </script>
+
+    <!-- AUTENTICAÇÃO E CARREGAMENTO DOS SCRIPTS -->
+
+    <script type="module">
+        import { protegerPagina } from "./js/finora-db.js";
+
+        async function carregarScript(arquivo) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+
+                script.src = arquivo;
+
+                script.onload = resolve;
+
+                script.onerror = () => {
+                    reject(new Error(`Erro ao carregar ${arquivo}`));
+                };
+
+                document.body.appendChild(script);
+            });
+        }
+
+        async function iniciarDespesas() {
+            try {
+                const usuario = await protegerPagina();
+
+                if (!usuario) {
+                    return;
+                }
+
+                const saudacao = document.querySelector(".henrique");
+
+                if (saudacao) {
+                    let nome = usuario.displayName;
+
+                    if (!nome && usuario.email) {
+                        nome = usuario.email.split("@")[0];
+                    }
+
+                    saudacao.textContent = `Olá, ${nome || "usuário"}`;
+                }
+
+                await import("./js/despesas.js");
+
+                await carregarScript("js/configuracoes.js");
+
+            } catch (erro) {
+                console.error("Erro ao inicializar Despesas:", erro);
+
+                alert(
+                    "Não foi possível carregar a página de Despesas. Tente novamente."
+                );
+            }
+        }
+
+        iniciarDespesas();
+    </script>
+
+</body>
+</html>
