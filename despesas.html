@@ -1,12 +1,23 @@
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="finora-protegendo">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Finora - Despesas</title>
+
+    <!-- PROTEÇÃO VISUAL DURANTE A AUTENTICAÇÃO -->
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/despesas.css">
@@ -690,9 +701,13 @@
                     saudacao.textContent = `Olá, ${nome || "usuário"}`;
                 }
 
+                // A importação deve aguardar a inicialização do módulo.
                 await import("./js/despesas.js");
 
                 await carregarScript("js/configuracoes.js");
+
+                // Libera a página somente após a conclusão do carregamento.
+                document.documentElement.classList.remove("finora-protegendo");
 
             } catch (erro) {
                 console.error("Erro ao inicializar Despesas:", erro);
@@ -700,6 +715,8 @@
                 alert(
                     "Não foi possível carregar a página de Despesas. Tente novamente."
                 );
+
+                // Não remover a proteção em caso de erro.
             }
         }
 
