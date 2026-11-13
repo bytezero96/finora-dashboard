@@ -58,7 +58,10 @@ export function aguardarUsuario() {
                 auth,
 
                 usuario => {
-                    cancelar();
+
+                    if (cancelar) {
+                        cancelar();
+                    }
 
                     promessaUsuario = null;
 
@@ -66,6 +69,7 @@ export function aguardarUsuario() {
                 },
 
                 erro => {
+
                     if (cancelar) {
                         cancelar();
                     }
@@ -114,19 +118,61 @@ export async function protegerPagina() {
 }
 
 /* ========================================= */
-/* IDENTIFICAÇÃO DO USUÁRIO */
+/* VALIDAÇÕES */
 /* ========================================= */
 
 function validarColecao(nomeColecao) {
 
-    if (!COLECOES_FINORA.includes(nomeColecao)) {
+    if (
+        typeof nomeColecao !== "string" ||
+        !COLECOES_FINORA.includes(nomeColecao)
+    ) {
         throw new Error("Coleção não autorizada.");
     }
 }
 
+function validarId(id) {
+
+    if (
+        (typeof id !== "string" && typeof id !== "number") ||
+        !String(id).trim()
+    ) {
+        throw new Error("ID do registro inválido.");
+    }
+
+    const identificador = String(id).trim();
+
+    if (
+        identificador.includes("/") ||
+        identificador === "." ||
+        identificador === ".."
+    ) {
+        throw new Error("ID do registro inválido.");
+    }
+
+    return identificador;
+}
+
+function validarDados(dados) {
+
+    if (
+        !dados ||
+        typeof dados !== "object" ||
+        Array.isArray(dados)
+    ) {
+        throw new Error(
+            "Dados inválidos para salvar o registro."
+        );
+    }
+}
+
+/* ========================================= */
+/* IDENTIFICAÇÃO DO USUÁRIO */
+/* ========================================= */
+
 function obterCaminhoUsuario(usuario, nomeColecao) {
 
-    if (!usuario) {
+    if (!usuario || !usuario.uid) {
         throw new Error("Usuário não autenticado.");
     }
 
@@ -185,35 +231,23 @@ export async function salvarRegistro(
     id = null
 ) {
 
-    if (
-        !dados ||
-        typeof dados !== "object" ||
-        Array.isArray(dados)
-    ) {
-        throw new Error(
-            "Dados inválidos para salvar o registro."
-        );
-    }
+    validarDados(dados);
 
     const { usuario, referencia } =
         await obterCaminhoUsuarioAtual(nomeColecao);
 
-    const identificador = id || dados.id;
-
-    if (!identificador) {
-        throw new Error("O registro precisa ter um ID.");
-    }
+    const identificador = validarId(id || dados.id);
 
     const documento = doc(
         referencia,
-        String(identificador)
+        identificador
     );
 
     await setDoc(
         documento,
         {
             ...dados,
-            id: String(identificador),
+            id: identificador,
             atualizadoEm: serverTimestamp()
         },
         {
@@ -222,7 +256,7 @@ export async function salvarRegistro(
     );
 
     return {
-        id: String(identificador),
+        id: identificador,
         usuarioId: usuario.uid
     };
 }
@@ -236,16 +270,14 @@ export async function excluirRegistro(
     id
 ) {
 
-    if (!id) {
-        throw new Error("ID do registro não informado.");
-    }
+    const identificador = validarId(id);
 
     const { referencia } = await obterCaminhoUsuarioAtual(
         nomeColecao
     );
 
     await deleteDoc(
-        doc(referencia, String(id))
+        doc(referencia, identificador)
     );
 
     return true;
@@ -296,15 +328,11 @@ export async function executarLote(operacoes) {
             id
         } = operacao;
 
-        if (!id) {
-            throw new Error(
-                "Uma operação do lote está sem ID."
-            );
-        }
+        const identificador = validarId(id);
 
         validarColecao(nomeColecao);
 
-        // Reutiliza o usuário autenticado no início do lote.
+        // Utiliza o mesmo usuário autenticado no início do lote.
         const referencia = obterCaminhoUsuario(
             usuario,
             nomeColecao
@@ -312,26 +340,18 @@ export async function executarLote(operacoes) {
 
         const documento = doc(
             referencia,
-            String(id)
+            identificador
         );
 
         if (tipo === "salvar") {
 
-            if (
-                !operacao.dados ||
-                typeof operacao.dados !== "object" ||
-                Array.isArray(operacao.dados)
-            ) {
-                throw new Error(
-                    "Dados inválidos para salvar o registro."
-                );
-            }
+            validarDados(operacao.dados);
 
             lote.set(
                 documento,
                 {
                     ...operacao.dados,
-                    id: String(id),
+                    id: identificador,
                     atualizadoEm: serverTimestamp()
                 },
                 {
