@@ -11,7 +11,7 @@ import {
     executarLote
 } from "./finora-db.js";
 
-(function () {
+await (async function () {
     "use strict";
 
     /* ========================================= */
@@ -222,17 +222,6 @@ import {
         );
     }
 
-    /*
-     * Prepara as operações necessárias para manter
-     * a conta e sua despesa vinculada sincronizadas.
-     *
-     * Conta paga:
-     * cria ou atualiza o débito correspondente.
-     *
-     * Conta pendente:
-     * remove eventual débito vinculado.
-     */
-
     function obterOperacoesSincronizacao(conta, debitos) {
         const vinculados = debitos.filter(debito =>
             pertenceAConta(debito, conta.id)
@@ -268,11 +257,6 @@ import {
                 dados: debitoVinculado
             });
         }
-
-        /*
-         * Remove duplicidades ou vínculos antigos.
-         * O documento principal é mantido quando a conta está paga.
-         */
 
         vinculados.forEach(debito => {
             if (debito.id === idDebito && conta.status === "paga") {
@@ -475,10 +459,6 @@ import {
         operacaoEmAndamento = true;
 
         try {
-            /* ========================================= */
-            /* EDIÇÃO DE CONTA EXISTENTE */
-            /* ========================================= */
-
             if (id) {
                 const contaAnterior = contas.find(item => item.id === id);
 
@@ -518,10 +498,6 @@ import {
 
                 return;
             }
-
-            /* ========================================= */
-            /* CADASTRO DE NOVA CONTA */
-            /* ========================================= */
 
             const novaConta = {
                 id: gerarId(),
@@ -1012,7 +988,6 @@ import {
         await carregarContas();
     }
 
-    // O top-level await faz o import() do HTML aguardar a inicialização.
     await iniciar();
 
 })();
