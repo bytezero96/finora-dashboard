@@ -1,0 +1,1097 @@
+
+/* ========================================= */
+/* FINORA — METAS FINANCEIRAS */
+/* RESPONSIVIDADE DESKTOP, TABLET E MOBILE */
+/* ========================================= */
+
+
+/* ========================================= */
+/* ESTRUTURA PRINCIPAL */
+/* ========================================= */
+
+.pagina-metas {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #0F172A;
+    background: #F8FAFC;
+}
+
+.pagina-metas *,
+.pagina-metas *::before,
+.pagina-metas *::after {
+    box-sizing: border-box;
+}
+
+
+/* ========================================= */
+/* CABEÇALHO DA PÁGINA */
+/* ========================================= */
+
+.cabecalho-metas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
+}
+
+.cabecalho-metas h1 {
+    margin: 0 0 7px;
+    color: #0B132B;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.cabecalho-metas p {
+    margin: 0;
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* MENSAGENS */
+/* ========================================= */
+
+.mensagem-metas {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 13px 16px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.mensagem-metas.sucesso {
+    display: block;
+    color: #166534;
+    background: #F0FDF4;
+    border-color: #BBF7D0;
+}
+
+.mensagem-metas.erro {
+    display: block;
+    color: #B91C1C;
+    background: #FEF2F2;
+    border-color: #FECACA;
+}
+
+.mensagem-metas.aviso {
+    display: block;
+    color: #92400E;
+    background: #FFFBEB;
+    border-color: #FDE68A;
+}
+
+
+/* ========================================= */
+/* RESUMO DAS METAS */
+/* ========================================= */
+
+.resumo-metas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-bottom: 26px;
+}
+
+.resumo-metas .card-resumo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 17px;
+    min-width: 0;
+    min-height: 112px;
+    margin: 0;
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E8EDF3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resumo-metas .card-resumo:hover {
+    border-color: #D5DEE9;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.045);
+}
+
+.icone-resumo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    color: #287D78;
+    background: #EFF8F6;
+    border-radius: 11px;
+    font-size: 18px;
+}
+
+.info-resumo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.info-resumo span {
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.info-resumo h2 {
+    margin: 0;
+    color: #0B132B;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================= */
+/* CONTEÚDO PRINCIPAL DAS METAS */
+/* ========================================= */
+
+.conteudo-metas {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.card-metas {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 25px;
+    background: #FFFFFF;
+    border: 1px solid #E8EDF3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+}
+
+.titulo-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+.titulo-card > div {
+    min-width: 0;
+}
+
+.titulo-card h2 {
+    margin: 0 0 6px;
+    color: #0B132B;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.titulo-card p {
+    margin: 0;
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* FORMULÁRIO */
+/* ========================================= */
+
+#formMetas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px 14px;
+    width: 100%;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 8px;
+}
+
+.grupo-campo label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.grupo-campo input,
+.grupo-campo select,
+.grupo-campo textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 11px 13px;
+    color: #0F172A;
+    background: #FFFFFF;
+    border: 1px solid #DCE3EB;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grupo-campo input::placeholder,
+.grupo-campo textarea::placeholder {
+    color: #94A3B8;
+}
+
+.grupo-campo input:focus,
+.grupo-campo select:focus,
+.grupo-campo textarea:focus {
+    border-color: #287D78;
+    box-shadow: 0 0 0 3px rgba(40, 125, 120, 0.10);
+}
+
+.grupo-campo select {
+    cursor: pointer;
+}
+
+.grupo-campo textarea {
+    min-height: 90px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.campo-observacao {
+    grid-column: 1 / -1;
+}
+
+
+/* ========================================= */
+/* BOTÕES DO FORMULÁRIO */
+/* ========================================= */
+
+.acoes-formulario-metas {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.acoes-formulario-metas button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 0 20px;
+    color: #FFFFFF;
+    background: #123C4A;
+    border: 1px solid #123C4A;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.acoes-formulario-metas button:hover {
+    background: #0B132B;
+    border-color: #0B132B;
+}
+
+.acoes-formulario-metas button:active {
+    transform: translateY(1px);
+}
+
+.acoes-formulario-metas button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.acoes-formulario-metas .btn-cancelar-meta {
+    color: #475569;
+    background: #FFFFFF;
+    border-color: #DCE3EB;
+}
+
+.acoes-formulario-metas .btn-cancelar-meta:hover {
+    color: #0B132B;
+    background: #F8FAFC;
+    border-color: #CBD5E1;
+}
+
+
+/* ========================================= */
+/* LISTA DE METAS */
+/* ========================================= */
+
+.lista-metas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    min-width: 0;
+}
+
+.card-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 19px;
+    background: #FFFFFF;
+    border: 1px solid #E8EDF3;
+    border-radius: 11px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-meta:hover {
+    border-color: #D5DEE9;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.card-meta-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.card-meta-identificacao {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.card-meta-identificacao h3 {
+    margin: 0;
+    color: #0B132B;
+    font-size: 15px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.card-meta-categoria {
+    color: #64748B;
+    font-size: 12px;
+}
+
+.status-meta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-meta.ativa {
+    color: #166534;
+    background: #F0FDF4;
+}
+
+.status-meta.concluida {
+    color: #1D4ED8;
+    background: #EFF6FF;
+}
+
+.status-meta.atrasada {
+    color: #B91C1C;
+    background: #FEF2F2;
+}
+
+
+/* ========================================= */
+/* VALORES E PROGRESSO */
+/* ========================================= */
+
+.card-meta-valores {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 11px;
+}
+
+.meta-valor-acumulado,
+.meta-valor-objetivo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.meta-valor-acumulado strong {
+    color: #0B132B;
+    font-size: 19px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.meta-valor-acumulado span,
+.meta-valor-objetivo span {
+    color: #94A3B8;
+    font-size: 11px;
+}
+
+.meta-valor-objetivo {
+    text-align: right;
+}
+
+.meta-valor-objetivo strong {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.barra-progresso-meta {
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    background: #EDF2F7;
+    border-radius: 20px;
+}
+
+.progresso-meta {
+    height: 100%;
+    min-width: 0;
+    background: #287D78;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.card-meta.pendente .progresso-meta,
+.card-meta.ativa .progresso-meta {
+    background: #287D78;
+}
+
+.card-meta.concluida .progresso-meta {
+    background: #2563EB;
+}
+
+.card-meta.atrasada .progresso-meta {
+    background: #DC2626;
+}
+
+.percentual-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 8px;
+    color: #64748B;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.percentual-meta span:last-child {
+    text-align: right;
+}
+
+
+/* ========================================= */
+/* INFORMAÇÕES COMPLEMENTARES */
+/* ========================================= */
+
+.card-meta-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 17px;
+    padding-top: 14px;
+    border-top: 1px solid #F1F5F9;
+}
+
+.card-meta-detalhes span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #64748B;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.card-meta-detalhes i {
+    color: #94A3B8;
+    flex-shrink: 0;
+}
+
+.observacao-meta {
+    margin: 14px 0 0;
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================= */
+/* AÇÕES DAS METAS */
+/* ========================================= */
+
+.acoes-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.acoes-meta button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 33px;
+    padding: 0 10px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.acoes-meta button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn-adicionar-meta {
+    color: #0F766E;
+}
+
+.btn-adicionar-meta:hover {
+    background: #F0FDFA;
+    border-color: #99F6E4;
+}
+
+.btn-editar-meta {
+    color: #475569;
+}
+
+.btn-editar-meta:hover {
+    color: #1D4ED8;
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+}
+
+.btn-excluir-meta {
+    color: #475569;
+}
+
+.btn-excluir-meta:hover {
+    color: #DC2626;
+    background: #FEF2F2;
+    border-color: #FECACA;
+}
+
+
+/* ========================================= */
+/* ESTADO VAZIO */
+/* ========================================= */
+
+.metas-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 170px;
+    padding: 30px 20px;
+    color: #94A3B8;
+    text-align: center;
+}
+
+.metas-vazio > i {
+    margin-bottom: 13px;
+    color: #CBD5E1;
+    font-size: 30px;
+}
+
+.metas-vazio p {
+    margin: 0 0 7px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.metas-vazio span {
+    max-width: 380px;
+    color: #94A3B8;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* HISTÓRICO DE MOVIMENTAÇÕES */
+/* ========================================= */
+
+.historico-metas {
+    margin-bottom: 24px;
+}
+
+.tabela-metas-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #E8EDF3;
+    border-radius: 9px;
+}
+
+.tabela-metas {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    background: #FFFFFF;
+}
+
+.tabela-metas thead {
+    background: #F8FAFC;
+}
+
+.tabela-metas th {
+    padding: 14px 16px;
+    color: #64748B;
+    border-bottom: 1px solid #E8EDF3;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabela-metas td {
+    padding: 15px 16px;
+    color: #334155;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.tabela-metas tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-metas tbody tr:hover {
+    background: #FAFCFE;
+}
+
+.tabela-metas .metas-historico-vazio {
+    padding: 30px 15px !important;
+    color: #94A3B8;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* ========================================= */
+/* MODAL DE MOVIMENTAÇÃO */
+/* ========================================= */
+
+.modal-meta-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(11, 19, 43, 0.48);
+    backdrop-filter: blur(3px);
+}
+
+.modal-meta {
+    width: 100%;
+    max-width: 440px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E8EDF3;
+    border-radius: 16px;
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.18);
+}
+
+.modal-meta-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.modal-meta-cabecalho h3 {
+    margin: 0 0 6px;
+    color: #0B132B;
+    font-size: 19px;
+}
+
+.modal-meta-cabecalho p {
+    margin: 0;
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.modal-meta-fechar {
+    flex-shrink: 0;
+    border: 0;
+    background: transparent;
+    color: #64748B;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-meta-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 17px;
+}
+
+.modal-meta-campo label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-meta-campo input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #DCE3EC;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    color: #0F172A;
+    background: #FFFFFF;
+    font: inherit;
+}
+
+.modal-meta-campo input:focus {
+    border-color: #0D9488;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.10);
+}
+
+.modal-meta-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.modal-meta-acoes button {
+    min-height: 42px;
+    padding: 0 17px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modal-meta-cancelar {
+    color: #475569;
+    background: #F1F5F9;
+}
+
+.modal-meta-confirmar {
+    color: #FFFFFF;
+    background: #0D9488;
+}
+
+.modal-meta-confirmar.retirada {
+    background: #D97706;
+}
+
+.modal-meta-confirmar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — NOTEBOOKS */
+/* ========================================= */
+
+@media (max-width: 1100px) {
+
+    .resumo-metas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .conteudo-metas {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-metas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — TABLETS */
+/* ========================================= */
+
+@media (max-width: 800px) {
+
+    .pagina-metas {
+        padding: 24px 20px;
+    }
+
+    .resumo-metas {
+        gap: 14px;
+    }
+
+    .conteudo-metas {
+        gap: 16px;
+    }
+
+    .card-metas {
+        padding: 22px;
+    }
+
+    .lista-metas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — CELULARES */
+/* ========================================= */
+
+@media (max-width: 700px) {
+
+    .pagina-metas {
+        padding: 20px 15px;
+    }
+
+    .cabecalho-metas {
+        align-items: flex-start;
+        margin-bottom: 22px;
+    }
+
+    .cabecalho-metas h1 {
+        font-size: 22px;
+    }
+
+    .cabecalho-metas p {
+        font-size: 13px;
+    }
+
+    .resumo-metas {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .resumo-metas .card-resumo {
+        min-height: 95px;
+        padding: 18px;
+    }
+
+    .info-resumo h2 {
+        font-size: 19px;
+    }
+
+    .conteudo-metas {
+        gap: 16px;
+    }
+
+    .card-metas {
+        padding: 18px 15px;
+    }
+
+    .titulo-card {
+        margin-bottom: 19px;
+    }
+
+    .titulo-card h2 {
+        font-size: 16px;
+    }
+
+    #formMetas {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .campo-observacao {
+        grid-column: auto;
+    }
+
+    .acoes-formulario-metas {
+        justify-content: stretch;
+    }
+
+    .acoes-formulario-metas button {
+        flex: 1;
+        width: 100%;
+    }
+
+    .lista-metas {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .card-meta {
+        padding: 17px;
+    }
+
+    .card-meta-valores {
+        gap: 8px;
+    }
+
+    .meta-valor-acumulado strong {
+        font-size: 17px;
+    }
+
+    .meta-valor-objetivo strong {
+        font-size: 12px;
+    }
+
+    .tabela-metas {
+        min-width: 680px;
+    }
+
+    .historico-metas {
+        padding: 18px 15px;
+    }
+
+    .modal-meta {
+        padding: 22px;
+    }
+
+    .modal-meta-acoes {
+        flex-direction: column-reverse;
+    }
+
+    .modal-meta-acoes button {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================= */
+/* TELAS MUITO PEQUENAS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .pagina-metas {
+        padding: 16px 11px;
+    }
+
+    .cabecalho-metas h1 {
+        font-size: 20px;
+    }
+
+    .card-metas {
+        padding: 15px 12px;
+    }
+
+    .resumo-metas .card-resumo {
+        padding: 15px;
+    }
+
+    .icone-resumo {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .card-meta {
+        padding: 15px;
+    }
+
+    .card-meta-cabecalho {
+        flex-wrap: wrap;
+    }
+
+    .card-meta-valores {
+        align-items: flex-start;
+    }
+
+    .status-meta {
+        font-size: 9px;
+    }
+
+    .acoes-meta {
+        gap: 6px;
+    }
+
+    .acoes-meta button {
+        flex: 1 1 auto;
+    }
+
+    .modal-meta-overlay {
+        padding: 12px;
+    }
+
+    .modal-meta {
+        padding: 18px;
+    }
+
+}
+
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .resumo-metas .card-resumo,
+    .card-meta,
+    .progresso-meta,
+    .acoes-formulario-metas button,
+    .acoes-meta button {
+        transition: none;
+    }
+
+}
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    min-width: 0;
+}

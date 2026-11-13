@@ -1,0 +1,1188 @@
+
+/* ========================================= */
+/* FINORA — CONFIGURAÇÕES GERAIS */
+/* ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F8FAFC;
+    color: #111827;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #0B132B, #123C4A);
+}
+
+.titulo-financeiro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.logo-financeiro {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    transform: scale(1.6);
+}
+
+.henrique {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* ========================================= */
+/* BOTÃO DO MENU MOBILE */
+/* ========================================= */
+
+.botao-menu-mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    font-size: 23px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.botao-menu-mobile:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* ÍCONE HAMBÚRGUER */
+
+.botao-menu-mobile span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    flex-shrink: 0;
+    background: #FFFFFF;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* ANIMAÇÃO DO ÍCONE */
+
+.botao-menu-mobile.ativo span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.botao-menu-mobile.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+.botao-menu-mobile.ativo span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================= */
+/* OVERLAY DO MENU MOBILE */
+/* ========================================= */
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: rgba(2, 6, 23, 0.65);
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* ========================================= */
+/* DASHBOARD */
+/* ========================================= */
+
+.dashboard {
+    display: flex;
+    min-height: calc(100vh - 81px);
+}
+
+/* ========================================= */
+/* MENU LATERAL */
+/* ========================================= */
+
+nav {
+    width: 200px;
+    flex-shrink: 0;
+    padding-top: 20px;
+    background-color: #0B132B;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 12px 20px;
+    color: #CBD5E1;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: #FFFFFF;
+}
+
+nav li.ativo a {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* ========================================= */
+/* MENU LATERAL FINORA */
+/* ========================================= */
+
+.dashboard > nav.menu-lateral {
+    align-self: stretch;
+    width: 230px;
+    min-width: 230px;
+    max-width: 230px;
+    flex: 0 0 230px;
+    padding: 18px 12px;
+    background: #0B132B;
+    box-sizing: border-box;
+}
+
+.menu-lateral .menu-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-lateral .menu-grupo {
+    padding: 20px 10px 9px;
+    color: #94A3B8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.menu-lateral .menu-grupo:first-child {
+    padding-top: 6px;
+}
+
+.menu-lateral .menu-item {
+    list-style: none;
+    margin: 3px 0;
+}
+
+.menu-lateral .menu-item a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 10px;
+    border-radius: 8px;
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-lateral .menu-item a i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 18px;
+    width: 18px;
+    min-width: 18px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.menu-lateral .menu-item a span {
+    white-space: nowrap;
+}
+
+.menu-lateral .menu-item a:hover {
+    background: #123C4A;
+    color: #FFFFFF;
+}
+
+.menu-lateral .menu-item.ativo a {
+    background: #123C4A;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.menu-lateral .menu-item.ativo a i {
+    color: #2DD4BF;
+}
+
+/* ========================================= */
+/* CONTEÚDO PRINCIPAL */
+/* ========================================= */
+
+main {
+    flex: 1;
+    min-width: 0;
+    padding: 22px 30px;
+}
+
+/* ========================================= */
+/* RESUMO FINANCEIRO */
+/* ========================================= */
+
+.resumo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+}
+
+.resumo > h2 {
+    flex-basis: 100%;
+    width: 100%;
+    margin: 0 0 8px;
+    color: #0B132B;
+    font-size: 24px;
+}
+
+/* ========================================= */
+/* CARDS DO RESUMO */
+/* ========================================= */
+
+.resumo > .card {
+    position: relative;
+    display: flex;
+    flex: 0 1 240px;
+    flex-direction: column;
+    justify-content: center;
+    width: 240px;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 100px;
+    margin: 0;
+    padding: 15px 18px 15px 22px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+.resumo > .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+.resumo > .card:nth-of-type(1)::before {
+    background-color: #14B8A6;
+}
+
+.resumo > .card:nth-of-type(2)::before {
+    background-color: #E11D48;
+}
+
+.resumo > .card:nth-of-type(3)::before {
+    background-color: #F59E0B;
+}
+
+.card p:first-child {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+.resumo > .card p:first-child {
+    margin: 0 0 10px;
+    padding-right: 20px;
+    line-height: 1.4;
+}
+
+.resumo > .card .valor-receitas,
+.resumo > .card .valor-despesas,
+.resumo > .card .valor-saldo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    color: #0B132B;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.valor-receitas,
+.valor-despesas,
+.valor-saldo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* ========================================= */
+/* COMPARAÇÃO COM MÊS ANTERIOR */
+/* ========================================= */
+
+.comparacao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    color: #64748B !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.4;
+}
+
+.comparacao.positiva {
+    color: #14B8A6 !important;
+}
+
+.comparacao.negativa {
+    color: #E11D48 !important;
+}
+
+.comparacao.neutra {
+    color: #64748B !important;
+}
+
+.comparacao .seta {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.comparacao .percentual {
+    font-weight: 700;
+}
+
+.comparacao .texto-comparacao {
+    color: #94A3B8;
+    font-weight: 400;
+}
+
+/* ========================================= */
+/* BOLINHAS */
+/* ========================================= */
+
+.bolinha {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.bolinha.receitas {
+    background-color: #14B8A6;
+}
+
+.bolinha.despesas {
+    background-color: #E11D48;
+}
+
+.bolinha.saldo {
+    background-color: #F59E0B;
+}
+
+/* ========================================= */
+/* INDICADORES DOS CARDS */
+/* ========================================= */
+
+.resumo .card {
+    position: relative;
+}
+
+.indicador-tendencia {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+.indicador-tendencia svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tendencia-receitas {
+    color: #16A34A;
+}
+
+.tendencia-despesas {
+    color: #DC2626;
+}
+
+.tendencia-saldo {
+    color: #F97316;
+}
+
+/* ========================================= */
+/* ANÁLISE FINANCEIRA */
+/* ========================================= */
+
+.analise-financeira {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ========================================= */
+/* GRÁFICO */
+/* ========================================= */
+
+.grafico-container {
+    flex: 1;
+    min-width: 0;
+    height: 315px;
+    padding: 18px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.grafico-container h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0B132B;
+    font-size: 18px;
+}
+
+.grafico-container canvas {
+    display: block;
+    width: 100% !important;
+    height: 250px !important;
+}
+
+/* ========================================= */
+/* FILTRO DE PERÍODO */
+/* ========================================= */
+
+.filtro-periodo {
+    width: 235px;
+    min-width: 235px;
+    padding: 18px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.filtro-periodo h2 {
+    margin-top: 0;
+    margin-bottom: 13px;
+    color: #0B132B;
+    font-size: 18px;
+}
+
+.filtro-periodo label {
+    display: block;
+    margin-top: 9px;
+    margin-bottom: 5px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filtro-periodo select,
+.filtro-periodo input {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    outline: none;
+    background-color: #FFFFFF;
+    color: #111827;
+    font-size: 13px;
+}
+
+.filtro-periodo select:focus,
+.filtro-periodo input:focus {
+    border-color: #14B8A6;
+}
+
+.filtro-periodo button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 9px;
+    border: none;
+    border-radius: 6px;
+    background-color: #123C4A;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filtro-periodo button:hover {
+    background-color: #0B132B;
+}
+
+/* ========================================= */
+/* LOGIN — FUNDO */
+/* ========================================= */
+
+.pagina-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px;
+    background: linear-gradient(135deg, #0B132B 0%, #123C4A 100%);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.login-container h1 {
+    margin: 0;
+    color: #0B132B;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.login-logo img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.login-subtitulo {
+    margin-top: 8px;
+    margin-bottom: 25px;
+    color: #64748B;
+    font-size: 14px;
+}
+
+#formularioLogin {
+    margin-top: 30px;
+    text-align: left;
+}
+
+#formularioLogin label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#formularioLogin input {
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    outline: none;
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+#formularioLogin input:focus {
+    border-color: #14B8A6;
+}
+
+#botaoLogin {
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0B132B;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#botaoLogin:hover {
+    background-color: #123C4A;
+}
+
+.mensagem-login {
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: #E11D48;
+    font-size: 13px;
+}
+
+.criar-conta {
+    margin-top: 25px;
+    margin-bottom: 0;
+    color: #64748B;
+    font-size: 13px;
+}
+
+.criar-conta a {
+    color: #123C4A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ========================================= */
+/* DESKTOP — ROLAGEM INDEPENDENTE */
+/* ========================================= */
+
+@media (min-width: 801px) {
+
+    body:has(.dashboard > nav.menu-lateral) {
+        height: 100vh;
+        min-height: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) > header {
+        flex-shrink: 0;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .dashboard {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .dashboard > nav.menu-lateral {
+        height: 100%;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: #64748B transparent;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .menu-lateral::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .menu-lateral::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .menu-lateral::-webkit-scrollbar-thumb {
+        background-color: #64748B;
+        border-radius: 10px;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .menu-lateral::-webkit-scrollbar-thumb:hover {
+        background-color: #94A3B8;
+    }
+
+    body:has(.dashboard > nav.menu-lateral) .dashboard > main {
+        min-width: 0;
+        min-height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .botao-menu-mobile {
+        display: none;
+    }
+
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
+/* ========================================= */
+/* TABLETS E TELAS INTERMEDIÁRIAS */
+/* ========================================= */
+
+@media (max-width: 1000px) {
+
+    .analise-financeira {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grafico-container {
+        width: 100%;
+        height: 320px;
+    }
+
+    .filtro-periodo {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* ========================================= */
+/* MENU MOBILE — TABLETS E CELULARES */
+/* ========================================= */
+
+@media (max-width: 800px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+
+    header {
+        position: relative;
+        z-index: 1000;
+        justify-content: flex-start;
+        gap: 13px;
+        min-height: 68px;
+        padding: 12px 18px;
+    }
+
+    .botao-menu-mobile {
+        display: flex;
+        order: 0;
+    }
+
+    .titulo-financeiro {
+        order: 1;
+        gap: 8px;
+        font-size: 20px;
+    }
+
+    .logo-financeiro {
+        width: 38px;
+        height: 38px;
+        transform: scale(1.4);
+    }
+
+    .henrique {
+        margin-left: auto;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    /* ESTRUTURA */
+
+    .dashboard {
+        display: block;
+        width: 100%;
+        min-height: calc(100vh - 68px);
+    }
+
+    /* MENU LATERAL RECOLHÍVEL */
+
+    .dashboard > nav.menu-lateral {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1002;
+        display: block;
+        width: min(290px, 85vw);
+        min-width: 0;
+        max-width: 290px;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100%;
+        padding: 85px 12px 25px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: #0B132B;
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.2);
+        transform: translateX(-105%);
+        visibility: hidden;
+        transition: transform 0.28s ease, visibility 0.28s ease;
+        scrollbar-width: thin;
+        scrollbar-color: #64748B transparent;
+    }
+
+    .dashboard > nav.menu-lateral::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .dashboard > nav.menu-lateral::-webkit-scrollbar-thumb {
+        background: #64748B;
+        border-radius: 10px;
+    }
+
+    body.menu-mobile-aberto .dashboard > nav.menu-lateral {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    /* OVERLAY */
+
+    .menu-overlay {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    body.menu-mobile-aberto .menu-overlay {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    body.menu-mobile-aberto {
+        overflow: hidden;
+    }
+
+    /* ITENS DO MENU */
+
+    .menu-lateral .menu-grupo {
+        padding: 20px 10px 9px;
+    }
+
+    .menu-lateral .menu-grupo:first-child {
+        padding-top: 6px;
+    }
+
+    .menu-lateral .menu-item {
+        margin: 3px 0;
+    }
+
+    .menu-lateral .menu-item a {
+        width: 100%;
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    /* CONTEÚDO */
+
+    .dashboard > main {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        padding: 20px;
+        overflow: visible;
+    }
+
+    /* RESUMO */
+
+    .resumo {
+        gap: 12px;
+    }
+
+    .resumo > h2 {
+        font-size: 23px;
+        margin-bottom: 5px;
+    }
+
+    .resumo > .card {
+        flex: 0 1 240px;
+        width: 240px;
+        max-width: 100%;
+        min-height: 100px;
+    }
+
+    /* ANÁLISE */
+
+    .analise-financeira {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 18px;
+    }
+
+    .grafico-container {
+        width: 100%;
+        height: 310px;
+    }
+
+    .grafico-container canvas {
+        height: 235px !important;
+    }
+
+    .filtro-periodo {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* ========================================= */
+/* CELULARES */
+/* ========================================= */
+
+@media (max-width: 500px) {
+
+    /* HEADER */
+
+    header {
+        min-height: 62px;
+        gap: 10px;
+        padding: 10px 13px;
+    }
+
+    .botao-menu-mobile {
+        width: 39px;
+        height: 39px;
+        font-size: 21px;
+    }
+
+    .titulo-financeiro {
+        gap: 6px;
+        font-size: 17px;
+    }
+
+    .logo-financeiro {
+        width: 34px;
+        height: 34px;
+        transform: scale(1.3);
+    }
+
+    .henrique {
+        display: none;
+    }
+
+    /* CONTEÚDO */
+
+    .dashboard > main {
+        padding: 17px 14px;
+    }
+
+    /* RESUMO */
+
+    .resumo {
+        gap: 10px;
+    }
+
+    .resumo > h2 {
+        font-size: 21px;
+    }
+
+    /* CARDS EM DUAS COLUNAS */
+
+    .resumo > .card {
+        flex: 1 1 calc(50% - 10px);
+        width: calc(50% - 10px);
+        max-width: calc(50% - 5px);
+        min-width: 0;
+        min-height: 105px;
+        padding: 14px 12px 14px 16px;
+    }
+
+    .resumo > .card p:first-child {
+        padding-right: 15px;
+        font-size: 12px;
+    }
+
+    .resumo > .card .valor-receitas,
+    .resumo > .card .valor-despesas,
+    .resumo > .card .valor-saldo {
+        gap: 5px;
+        font-size: 15px;
+    }
+
+    .comparacao {
+        gap: 4px;
+        font-size: 10px !important;
+    }
+
+    .indicador-tendencia {
+        top: 11px;
+        right: 10px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .indicador-tendencia svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* GRÁFICO */
+
+    .analise-financeira {
+        gap: 14px;
+        margin-top: 16px;
+    }
+
+    .grafico-container {
+        height: 280px;
+        padding: 14px;
+    }
+
+    .grafico-container h2 {
+        font-size: 17px;
+    }
+
+    .grafico-container canvas {
+        height: 210px !important;
+    }
+
+    /* FILTRO */
+
+    .filtro-periodo {
+        padding: 15px;
+    }
+
+    .filtro-periodo h2 {
+        font-size: 17px;
+    }
+
+    .filtro-periodo select,
+    .filtro-periodo input {
+        min-height: 38px;
+        font-size: 14px;
+    }
+
+    .filtro-periodo button {
+        min-height: 40px;
+    }
+
+    /* LOGIN */
+
+    .pagina-login {
+        padding: 18px;
+    }
+
+    .login-container {
+        padding: 25px 20px;
+    }
+}
+
+/* ========================================= */
+/* CELULARES MUITO PEQUENOS */
+/* ========================================= */
+
+@media (max-width: 360px) {
+
+    header {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .titulo-financeiro {
+        font-size: 15px;
+    }
+
+    .logo-financeiro {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dashboard > main {
+        padding: 15px 11px;
+    }
+
+    /* Em telas muito estreitas, um card por linha */
+
+    .resumo > .card {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        min-height: 95px;
+        padding: 14px 18px 14px 20px;
+    }
+
+    .resumo > .card .valor-receitas,
+    .resumo > .card .valor-despesas,
+    .resumo > .card .valor-saldo {
+        font-size: 16px;
+    }
+
+    .grafico-container {
+        padding: 12px;
+    }
+}
+
+/* ========================================= */
+/* ACESSIBILIDADE — MOVIMENTO REDUZIDO */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

@@ -1,0 +1,825 @@
+
+/* ========================================= */
+/* FINORA — LANÇAMENTOS */
+/* ESTILIZAÇÃO DA PÁGINA */
+/* ========================================= */
+
+/* ========================================= */
+/* ESTRUTURA PRINCIPAL */
+/* ========================================= */
+
+.pagina-lancamentos {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #0F172A;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.pagina-lancamentos *,
+.pagina-lancamentos *::before,
+.pagina-lancamentos *::after {
+    box-sizing: border-box;
+}
+
+.lancamentos {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* ========================================= */
+/* CABEÇALHO DA PÁGINA */
+/* ========================================= */
+
+.cabecalho-lancamentos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.cabecalho-lancamentos h2 {
+    margin: 0 0 7px;
+    color: #0F172A;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.cabecalho-lancamentos p {
+    margin: 0;
+    color: #64748B;
+    font-size: 14px;
+}
+
+.data-atual {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 14px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 9px;
+    color: #475569;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.data-atual i {
+    color: #0F766E;
+}
+
+/* ========================================= */
+/* INDICADORES FINANCEIROS */
+/* ========================================= */
+
+.indicadores-lancamentos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.indicador-lancamento {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    min-height: 100px;
+    padding: 15px 18px 15px 22px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ========================================= */
+/* FAIXAS LATERAIS */
+/* ========================================= */
+
+.indicador-lancamento::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: #059669;
+}
+
+.indicador-lancamento:nth-child(2)::before {
+    background: #E11D48;
+}
+
+.indicador-lancamento:nth-child(3)::before {
+    background: #F59E0B;
+}
+
+/* ========================================= */
+/* CONTEÚDO DOS INDICADORES */
+/* ========================================= */
+
+.indicador-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.indicador-topo > span {
+    color: #64748B;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ========================================= */
+/* ÍCONES */
+/* ========================================= */
+
+.indicador-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+.indicador-icone.receita {
+    color: #16A34A;
+}
+
+.indicador-icone.despesa {
+    color: #DC2626;
+}
+
+.indicador-icone.saldo {
+    color: #F97316;
+}
+
+.indicador-icone svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ========================================= */
+/* VALORES DOS INDICADORES */
+/* ========================================= */
+
+.indicador-lancamento > strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #0F172A;
+    font-size: 23px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.indicador-lancamento > small {
+    color: #94A3B8;
+    font-size: 11px;
+}
+
+/* ========================================= */
+/* PAINEL DO HISTÓRICO */
+/* ========================================= */
+
+.painel-historico {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 13px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
+    overflow: hidden;
+}
+
+/* ========================================= */
+/* TÍTULO DO HISTÓRICO */
+/* ========================================= */
+
+.titulo-historico {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 23px 24px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.titulo-historico h3 {
+    margin: 0 0 6px;
+    color: #0F172A;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.titulo-historico p {
+    margin: 0;
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+.titulo-historico > span {
+    padding: 7px 11px;
+    background: #F1F5F9;
+    border-radius: 7px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ========================================= */
+/* FILTROS */
+/* ========================================= */
+
+.filtros-lancamentos {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.7fr) repeat(3, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 20px 24px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.campo-busca-lancamentos {
+    position: relative;
+    min-width: 0;
+}
+
+.campo-busca-lancamentos i {
+    position: absolute;
+    top: 50%;
+    left: 13px;
+    transform: translateY(-50%);
+    color: #94A3B8;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.campo-busca-lancamentos input,
+.filtros-lancamentos select {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    padding: 0 12px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    outline: none;
+    color: #334155;
+    font-family: inherit;
+    font-size: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-busca-lancamentos input {
+    padding-left: 36px;
+}
+
+.campo-busca-lancamentos input::placeholder {
+    color: #94A3B8;
+}
+
+.campo-busca-lancamentos input:focus,
+.filtros-lancamentos select:focus {
+    border-color: #0F766E;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.09);
+}
+
+.filtros-lancamentos select {
+    cursor: pointer;
+}
+
+/* ========================================= */
+/* PERÍODO PERSONALIZADO */
+/* ========================================= */
+
+.periodo-personalizado {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 14px;
+    padding: 16px 24px;
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.periodo-personalizado[hidden] {
+    display: none;
+}
+
+.periodo-personalizado label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.periodo-personalizado input {
+    height: 38px;
+    padding: 0 10px;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 7px;
+    color: #334155;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.periodo-personalizado input:focus {
+    border-color: #0F766E;
+}
+
+.periodo-personalizado button {
+    min-height: 38px;
+    padding: 0 17px;
+    background: #0B132B;
+    border: none;
+    border-radius: 7px;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.periodo-personalizado button:hover {
+    background: #123C4A;
+}
+
+/* ========================================= */
+/* TABELA DE LANÇAMENTOS */
+/* ========================================= */
+
+.tabela-lancamentos-container {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabela-lancamentos {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabela-lancamentos thead {
+    background: #F8FAFC;
+}
+
+.tabela-lancamentos th {
+    padding: 14px 17px;
+    color: #64748B;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    white-space: nowrap;
+}
+
+.tabela-lancamentos td {
+    padding: 16px 17px;
+    border-top: 1px solid #F1F5F9;
+    color: #475569;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.tabela-lancamentos tbody tr {
+    transition: background 0.15s ease;
+}
+
+.tabela-lancamentos tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.tabela-lancamentos th:last-child,
+.tabela-lancamentos td:last-child {
+    text-align: center;
+}
+
+.tabela-lancamentos td:nth-child(6) {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ========================================= */
+/* TIPOS DE MOVIMENTAÇÃO */
+/* ========================================= */
+
+.tipo-lancamento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.tipo-lancamento.receita {
+    background: #D1FAE5;
+    color: #059669;
+}
+
+.tipo-lancamento.despesa {
+    background: #FFE4E6;
+    color: #E11D48;
+}
+
+.valor-lancamento.receita {
+    color: #059669;
+}
+
+.valor-lancamento.despesa {
+    color: #E11D48;
+}
+
+/* ========================================= */
+/* AÇÕES */
+/* ========================================= */
+
+.acoes-lancamento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.acao-lancamento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
+    padding: 0;
+    background: #F1F5F9;
+    border: none;
+    border-radius: 7px;
+    color: #64748B;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.acao-lancamento:hover {
+    background: #CCFBF1;
+    color: #0F766E;
+}
+
+.acao-lancamento.excluir:hover {
+    background: #FFE4E6;
+    color: #E11D48;
+}
+
+.acao-lancamento:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.acao-lancamento:disabled:hover {
+    background: #F1F5F9;
+    color: #64748B;
+}
+
+/* ========================================= */
+/* ESTADO VAZIO */
+/* ========================================= */
+
+.estado-vazio-lancamentos {
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.estado-vazio-lancamentos[hidden] {
+    display: none;
+}
+
+.estado-vazio-lancamentos > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 16px;
+    background: #F1F5F9;
+    border-radius: 50%;
+    color: #94A3B8;
+    font-size: 22px;
+}
+
+.estado-vazio-lancamentos h3 {
+    margin: 0 0 8px;
+    color: #334155;
+    font-size: 16px;
+}
+
+.estado-vazio-lancamentos p {
+    margin: 0;
+    color: #94A3B8;
+    font-size: 13px;
+}
+
+.carregando-lancamentos {
+    padding: 35px !important;
+    text-align: center;
+    color: #94A3B8 !important;
+}
+
+/* ========================================= */
+/* TABLETS */
+/* ========================================= */
+
+@media (max-width: 1100px) {
+
+    .filtros-lancamentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .campo-busca-lancamentos {
+        grid-column: 1 / -1;
+    }
+
+}
+
+/* ========================================= */
+/* MENU MOBILE E LAYOUT RESPONSIVO */
+/* ========================================= */
+
+@media (max-width: 800px) {
+
+    .pagina-lancamentos {
+        width: 100%;
+        min-width: 0;
+        padding: 22px;
+        overflow: visible;
+    }
+
+    .lancamentos {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .cabecalho-lancamentos {
+        gap: 16px;
+    }
+
+    .indicadores-lancamentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .indicador-lancamento {
+        min-width: 0;
+        min-height: 100px;
+        padding: 15px 16px 15px 20px;
+    }
+
+    .indicador-lancamento > strong {
+        font-size: 20px;
+    }
+
+    .filtros-lancamentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .campo-busca-lancamentos {
+        grid-column: 1 / -1;
+    }
+
+}
+
+/* ========================================= */
+/* CELULARES */
+/* ========================================= */
+
+@media (max-width: 600px) {
+
+    .pagina-lancamentos {
+        padding: 17px 14px;
+    }
+
+    .cabecalho-lancamentos {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+        margin-bottom: 20px;
+    }
+
+    .cabecalho-lancamentos h2 {
+        font-size: 22px;
+    }
+
+    .cabecalho-lancamentos p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .data-atual {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    /* INDICADORES */
+
+    .indicadores-lancamentos {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .indicador-lancamento {
+        min-height: 95px;
+        padding: 14px 16px 14px 20px;
+    }
+
+    .indicador-topo {
+        margin-bottom: 9px;
+    }
+
+    .indicador-topo > span {
+        font-size: 12px;
+    }
+
+    .indicador-lancamento > strong {
+        font-size: 20px;
+    }
+
+    .indicador-lancamento > small {
+        font-size: 11px;
+    }
+
+    /* HISTÓRICO */
+
+    .titulo-historico {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 19px;
+    }
+
+    .titulo-historico h3 {
+        font-size: 16px;
+    }
+
+    .titulo-historico p {
+        line-height: 1.5;
+    }
+
+    .titulo-historico > span {
+        font-size: 11px;
+    }
+
+    /* FILTROS */
+
+    .filtros-lancamentos {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 17px;
+        gap: 10px;
+    }
+
+    .campo-busca-lancamentos {
+        grid-column: auto;
+    }
+
+    .campo-busca-lancamentos input,
+    .filtros-lancamentos select {
+        height: 44px;
+        font-size: 12px;
+    }
+
+    /* PERÍODO PERSONALIZADO */
+
+    .periodo-personalizado {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+        padding: 17px;
+    }
+
+    .periodo-personalizado label {
+        width: 100%;
+    }
+
+    .periodo-personalizado input,
+    .periodo-personalizado button {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    /* TABELA */
+
+    .tabela-lancamentos-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .tabela-lancamentos {
+        min-width: 800px;
+    }
+
+    .tabela-lancamentos th {
+        padding: 13px 14px;
+        font-size: 10px;
+    }
+
+    .tabela-lancamentos td {
+        padding: 14px;
+        font-size: 11px;
+    }
+
+    /* ESTADO VAZIO */
+
+    .estado-vazio-lancamentos {
+        padding: 40px 18px;
+    }
+
+    .estado-vazio-lancamentos h3 {
+        font-size: 15px;
+    }
+
+    .estado-vazio-lancamentos p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+}
+
+/* ========================================= */
+/* CELULARES PEQUENOS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .pagina-lancamentos {
+        padding: 15px 11px;
+    }
+
+    .cabecalho-lancamentos h2 {
+        font-size: 21px;
+    }
+
+    .indicador-lancamento {
+        min-height: 90px;
+        padding: 13px 14px 13px 18px;
+    }
+
+    .indicador-lancamento > strong {
+        font-size: 18px;
+    }
+
+    .titulo-historico {
+        padding: 16px;
+    }
+
+    .filtros-lancamentos {
+        padding: 14px;
+    }
+
+    .periodo-personalizado {
+        padding: 14px;
+    }
+
+}
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .indicador-lancamento,
+    .acao-lancamento,
+    .periodo-personalizado button {
+        transition: none;
+    }
+
+}

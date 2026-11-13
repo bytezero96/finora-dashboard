@@ -1,0 +1,1074 @@
+
+/* ========================================= */
+/* FINORA — PLANEJAMENTO FINANCEIRO */
+/* RESPONSIVIDADE DESKTOP, TABLET E MOBILE */
+/* ========================================= */
+
+
+/* ========================================= */
+/* ESTRUTURA PRINCIPAL */
+/* ========================================= */
+
+.pagina-planejamento {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #0F172A;
+    background: #F8FAFC;
+}
+
+.pagina-planejamento,
+.pagina-planejamento * {
+    box-sizing: border-box;
+}
+
+
+/* ========================================= */
+/* CABEÇALHO DA PÁGINA */
+/* ========================================= */
+
+.planejamento-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 26px;
+}
+
+.planejamento-cabecalho h2 {
+    margin: 0 0 7px;
+    color: #0B132B;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.planejamento-cabecalho p {
+    margin: 0;
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ========================================= */
+/* SELETOR DE PERÍODO */
+/* ========================================= */
+
+.planejamento-seletor-mes {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 190px;
+    flex-shrink: 0;
+}
+
+.planejamento-seletor-mes label {
+    color: #64748B;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.planejamento-seletor-mes input {
+    width: 100%;
+    min-height: 41px;
+    padding: 9px 12px;
+    border: 1px solid #D8E0E7;
+    border-radius: 7px;
+    outline: none;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.planejamento-seletor-mes input:focus {
+    border-color: #123C4A;
+    box-shadow: 0 0 0 3px rgba(18, 60, 74, 0.08);
+}
+
+
+/* ========================================= */
+/* INDICADORES FINANCEIROS */
+/* ========================================= */
+
+.planejamento-indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 25px;
+}
+
+.planejamento-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+    min-height: 125px;
+    padding: 20px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    background: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.055);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.planejamento-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+.planejamento-card:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.planejamento-card-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    font-size: 15px;
+}
+
+.planejamento-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.planejamento-card span {
+    display: block;
+    margin: 2px 0 10px;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.planejamento-card strong {
+    display: block;
+    color: #0B132B;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.planejamento-card small {
+    display: block;
+    margin-top: 7px;
+    color: #94A3B8;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+/* CORES DOS INDICADORES */
+
+.planejamento-indicadores > .planejamento-card:nth-child(1)::before {
+    background: #14B8A6;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(1) .planejamento-card-icone {
+    color: #0F9488;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(2)::before {
+    background: #3B82F6;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(2) .planejamento-card-icone {
+    color: #2563EB;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(3)::before {
+    background: #0F766E;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(3) .planejamento-card-icone {
+    color: #0F766E;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(4)::before {
+    background: #F59E0B;
+}
+
+.planejamento-indicadores > .planejamento-card:nth-child(4) .planejamento-card-icone {
+    color: #D97706;
+}
+
+
+/* ========================================= */
+/* SEÇÕES E PAINÉIS */
+/* ========================================= */
+
+.planejamento-secao {
+    width: 100%;
+    margin-bottom: 23px;
+    padding: 22px;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    background: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.045);
+}
+
+.planejamento-secao-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.planejamento-secao-cabecalho h3 {
+    margin: 0 0 6px;
+    color: #0B132B;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.planejamento-secao-cabecalho p {
+    margin: 0;
+    color: #64748B;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* VISÃO GERAL DO ORÇAMENTO */
+/* ========================================= */
+
+.planejamento-orcamento-resumo {
+    padding: 20px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background: #F8FAFC;
+}
+
+.planejamento-orcamento-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.planejamento-orcamento-info div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.planejamento-orcamento-info span {
+    color: #64748B;
+    font-size: 12px;
+}
+
+.planejamento-orcamento-info strong {
+    color: #0B132B;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    overflow-wrap: anywhere;
+}
+
+
+/* ========================================= */
+/* PROGRESSO DO ORÇAMENTO */
+/* ========================================= */
+
+.planejamento-progresso {
+    width: 100%;
+}
+
+.planejamento-progresso-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.planejamento-progresso-texto span {
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.planejamento-progresso-texto strong {
+    color: #123C4A;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.planejamento-barra-fundo {
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #E8EEF2;
+}
+
+.planejamento-barra {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #14B8A6;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.planejamento-barra.alerta {
+    background: #F59E0B;
+}
+
+.planejamento-barra.excedido {
+    background: #E11D48;
+}
+
+.planejamento-aviso {
+    margin: 14px 0 0;
+    color: #64748B;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.planejamento-aviso.alerta {
+    color: #B45309;
+}
+
+.planejamento-aviso.excedido {
+    color: #E11D48;
+}
+
+
+/* ========================================= */
+/* BOTÕES */
+/* ========================================= */
+
+.planejamento-botao-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 39px;
+    padding: 10px 15px;
+    border: 1px solid #123C4A;
+    border-radius: 8px;
+    background: #123C4A;
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(18, 60, 74, 0.12);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.planejamento-botao-principal:hover {
+    border-color: #0B132B;
+    background: #0B132B;
+}
+
+.planejamento-botao-principal:active {
+    transform: scale(0.98);
+}
+
+.planejamento-botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 39px;
+    padding: 10px 15px;
+    border: 1px solid #D8E0E7;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #475569;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.planejamento-botao-secundario:hover {
+    border-color: #CBD5E1;
+    background: #F8FAFC;
+}
+
+
+/* ========================================= */
+/* FORMULÁRIO DE ORÇAMENTO */
+/* ========================================= */
+
+.planejamento-formulario-container {
+    margin-bottom: 22px;
+    padding: 20px;
+    border: 1px solid #DCE7EA;
+    border-radius: 9px;
+    background: #FAFCFD;
+}
+
+.planejamento-formulario-container[hidden] {
+    display: none !important;
+}
+
+.planejamento-formulario-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.planejamento-formulario-cabecalho h3 {
+    margin: 0;
+    color: #0B132B;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.planejamento-formulario-cabecalho button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #64748B;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.planejamento-formulario-cabecalho button:hover {
+    background: #F1F5F9;
+    color: #0F172A;
+}
+
+.planejamento-formulario-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.planejamento-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.planejamento-campo label {
+    color: #475569;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.planejamento-campo input,
+.planejamento-campo select {
+    width: 100%;
+    min-width: 0;
+    min-height: 41px;
+    padding: 10px 12px;
+    border: 1px solid #D8E0E7;
+    border-radius: 7px;
+    outline: none;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-family: inherit;
+    font-size: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.planejamento-campo input::placeholder {
+    color: #A0AEC0;
+}
+
+.planejamento-campo input:focus,
+.planejamento-campo select:focus {
+    border-color: #123C4A;
+    box-shadow: 0 0 0 3px rgba(18, 60, 74, 0.08);
+}
+
+.planejamento-campo-descricao {
+    grid-column: 1 / -1;
+}
+
+.planejamento-formulario-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+/* ========================================= */
+/* LISTA DE ORÇAMENTOS */
+/* ========================================= */
+
+.planejamento-lista-orcamentos {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    min-width: 0;
+}
+
+.planejamento-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 175px;
+    padding: 25px;
+    border: 1px dashed #D8E0E7;
+    border-radius: 9px;
+    background: #FCFDFE;
+    text-align: center;
+}
+
+.planejamento-vazio > i {
+    margin-bottom: 13px;
+    color: #94A3B8;
+    font-size: 26px;
+}
+
+.planejamento-vazio h4 {
+    margin: 0 0 7px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.planejamento-vazio p {
+    max-width: 390px;
+    margin: 0;
+    color: #94A3B8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* ========================================= */
+/* ITEM DE ORÇAMENTO */
+/* ========================================= */
+
+.planejamento-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid #E8EDF1;
+    border-radius: 8px;
+    background: #FFFFFF;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.planejamento-item:hover {
+    border-color: #CBD9DE;
+    background: #FCFEFE;
+}
+
+.planejamento-item-principal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.planejamento-item-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: #0F766E;
+    font-size: 14px;
+}
+
+.planejamento-item-texto {
+    min-width: 0;
+}
+
+.planejamento-item-texto strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #0F172A;
+    font-size: 13px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.planejamento-item-texto span {
+    display: block;
+    color: #94A3B8;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.planejamento-item-valores {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.planejamento-item-valor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    min-width: 0;
+}
+
+.planejamento-item-valor span {
+    color: #94A3B8;
+    font-size: 10px;
+}
+
+.planejamento-item-valor strong {
+    color: #0B132B;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.planejamento-item-acoes {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.planejamento-acao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 31px;
+    height: 31px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #64748B;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.planejamento-acao.editar:hover {
+    background: #EFF6FF;
+    color: #2563EB;
+}
+
+.planejamento-acao.excluir:hover {
+    background: #FFF1F2;
+    color: #E11D48;
+}
+
+
+/* ========================================= */
+/* TABELA PLANEJADO X REALIZADO */
+/* ========================================= */
+
+.planejamento-tabela-container {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.planejamento-tabela {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.planejamento-tabela thead {
+    background: #F8FAFC;
+}
+
+.planejamento-tabela th {
+    padding: 13px 12px;
+    border-bottom: 1px solid #E2E8F0;
+    color: #64748B;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.planejamento-tabela td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #EDF0F3;
+    color: #334155;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.planejamento-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.planejamento-tabela tbody tr:hover {
+    background: #FAFCFD;
+}
+
+.planejamento-tabela td:first-child {
+    color: #0F172A;
+    font-weight: 600;
+}
+
+.planejamento-tabela-vazia {
+    padding: 28px 15px !important;
+    color: #94A3B8 !important;
+    text-align: center;
+    font-weight: 400 !important;
+}
+
+.planejamento-valor-positivo {
+    color: #059669 !important;
+    font-weight: 600;
+}
+
+.planejamento-valor-negativo {
+    color: #E11D48 !important;
+    font-weight: 600;
+}
+
+.planejamento-situacao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.planejamento-situacao.normal,
+.planejamento-situacao.dentro {
+    background: #ECFDF5;
+    color: #059669;
+}
+
+.planejamento-situacao.alerta {
+    background: #FFFBEB;
+    color: #B45309;
+}
+
+.planejamento-situacao.excedido {
+    background: #FFF1F2;
+    color: #E11D48;
+}
+
+
+/* ========================================= */
+/* DICA FINANCEIRA */
+/* ========================================= */
+
+.planejamento-dica {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 10px;
+    padding: 19px;
+    border: 1px solid #E2E8F0;
+    border-radius: 9px;
+    background: #FFFFFF;
+}
+
+.planejamento-dica-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+    color: #123C4A;
+    font-size: 15px;
+}
+
+.planejamento-dica h3 {
+    margin: 1px 0 7px;
+    color: #0B132B;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.planejamento-dica p {
+    margin: 0;
+    color: #64748B;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* ========================================= */
+/* TABLETS E TELAS INTERMEDIÁRIAS */
+/* ========================================= */
+
+@media (max-width: 1200px) {
+
+    .planejamento-indicadores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .pagina-planejamento {
+        padding: 25px 20px;
+    }
+
+    .planejamento-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .planejamento-seletor-mes {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .planejamento-item {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* ========================================= */
+/* CELULARES */
+/* ========================================= */
+
+@media (max-width: 800px) {
+
+    .pagina-planejamento {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .pagina-planejamento {
+        padding: 20px 14px;
+    }
+
+    .planejamento-cabecalho {
+        margin-bottom: 21px;
+    }
+
+    .planejamento-cabecalho h2 {
+        font-size: 21px;
+    }
+
+    .planejamento-cabecalho p {
+        font-size: 12px;
+    }
+
+    .planejamento-seletor-mes {
+        max-width: none;
+    }
+
+    .planejamento-indicadores {
+        grid-template-columns: 1fr;
+        gap: 11px;
+        margin-bottom: 19px;
+    }
+
+    .planejamento-card {
+        min-height: 105px;
+        padding: 17px;
+    }
+
+    .planejamento-card strong {
+        font-size: 20px;
+    }
+
+    .planejamento-secao {
+        margin-bottom: 17px;
+        padding: 17px 14px;
+    }
+
+    .planejamento-secao-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .planejamento-secao-cabecalho h3 {
+        font-size: 16px;
+    }
+
+    .planejamento-secao-cabecalho .planejamento-botao-principal {
+        width: 100%;
+    }
+
+    .planejamento-orcamento-resumo {
+        padding: 16px;
+    }
+
+    .planejamento-orcamento-info {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+        margin-bottom: 21px;
+    }
+
+    .planejamento-formulario-container {
+        padding: 16px;
+    }
+
+    .planejamento-formulario-campos {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .planejamento-campo-descricao {
+        grid-column: auto;
+    }
+
+    .planejamento-formulario-acoes {
+        flex-direction: column-reverse;
+        gap: 9px;
+    }
+
+    .planejamento-formulario-acoes button {
+        width: 100%;
+    }
+
+    .planejamento-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .planejamento-item-valores {
+        justify-content: space-between;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .planejamento-item-acoes {
+        align-self: flex-end;
+    }
+
+    .planejamento-dica {
+        gap: 11px;
+        padding: 16px;
+    }
+
+    .planejamento-tabela {
+        min-width: 680px;
+    }
+
+}
+
+
+/* ========================================= */
+/* CELULARES PEQUENOS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .pagina-planejamento {
+        padding: 17px 11px;
+    }
+
+    .planejamento-cabecalho h2 {
+        font-size: 19px;
+    }
+
+    .planejamento-card {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .planejamento-card strong {
+        font-size: 19px;
+    }
+
+    .planejamento-secao {
+        padding: 15px 11px;
+    }
+
+    .planejamento-item {
+        padding: 12px;
+    }
+
+    .planejamento-item-valores {
+        gap: 8px;
+    }
+
+    .planejamento-item-valor strong {
+        font-size: 12px;
+    }
+
+    .planejamento-orcamento-info strong {
+        font-size: 18px;
+    }
+
+    .planejamento-dica {
+        padding: 13px;
+    }
+
+}
+
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .planejamento-card,
+    .planejamento-barra,
+    .planejamento-botao-principal,
+    .planejamento-botao-secundario,
+    .planejamento-acao {
+        transition: none;
+    }
+
+}

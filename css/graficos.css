@@ -1,0 +1,588 @@
+
+/* ========================================= */
+/* FINORA — GRÁFICOS */
+/* VISUAL RESPONSIVO */
+/* ========================================= */
+
+.pagina-graficos {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 28px 30px 36px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #111827;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+.pagina-graficos *,
+.pagina-graficos *::before,
+.pagina-graficos *::after {
+    box-sizing: border-box;
+}
+
+.pagina-graficos::-webkit-scrollbar {
+    width: 7px;
+}
+
+.pagina-graficos::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 8px;
+}
+
+.pagina-graficos::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ========================================= */
+/* ROLAGEM INDEPENDENTE — DESKTOP */
+/* ========================================= */
+
+@media (min-width: 801px) {
+
+    html,
+    body {
+        height: 100%;
+        min-height: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    body > header {
+        flex: 0 0 auto;
+    }
+
+    .dashboard {
+        display: flex;
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .dashboard > nav.menu-lateral {
+        flex: 0 0 200px;
+        min-height: 0;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .menu-lateral .menu-lista {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 100%;
+        overflow: visible;
+    }
+
+    .menu-lateral .menu-lista > .menu-item:last-child {
+        margin-top: auto;
+        flex-shrink: 0;
+    }
+
+    .pagina-graficos {
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 0;
+        height: 100%;
+        align-self: stretch;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+/* ========================================= */
+/* BARRA DE ROLAGEM DO MENU — DESKTOP */
+/* ========================================= */
+
+@media (min-width: 801px) {
+
+    .menu-lateral {
+        scrollbar-width: thin;
+        scrollbar-color: #64748B transparent;
+    }
+
+    .menu-lateral::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .menu-lateral::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .menu-lateral::-webkit-scrollbar-thumb {
+        background-color: #64748B;
+        border-radius: 10px;
+    }
+
+    .menu-lateral::-webkit-scrollbar-thumb:hover {
+        background-color: #94A3B8;
+    }
+}
+
+/* ========================================= */
+/* CABEÇALHO DA PÁGINA */
+/* ========================================= */
+
+.cabecalho-graficos {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.pagina-graficos > .cabecalho-graficos h2 {
+    margin: 0 0 7px;
+    color: #0B132B;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.45px;
+}
+
+.descricao-graficos {
+    margin: 0;
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ========================================= */
+/* FILTRO DE PERÍODO */
+/* ========================================= */
+
+.filtro-graficos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 23px 0 29px;
+    padding: 16px 18px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+}
+
+.filtro-graficos-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.filtro-graficos-info > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    color: #123C4A;
+    background: #F0F7F7;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.filtro-graficos-info label {
+    display: block;
+    margin-bottom: 3px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.filtro-graficos-info p {
+    margin: 0;
+    color: #64748B;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.filtro-graficos select {
+    width: 190px;
+    max-width: 100%;
+    min-height: 40px;
+    padding: 0 12px;
+    color: #1F2937;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filtro-graficos select:hover {
+    border-color: #9CA3AF;
+}
+
+.filtro-graficos select:focus-visible {
+    border-color: #0F766E;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+/* ========================================= */
+/* MENSAGENS */
+/* ========================================= */
+
+.mensagem-graficos {
+    margin: 14px 0 22px;
+    padding: 12px 14px;
+    color: #92400E;
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mensagem-graficos[hidden] {
+    display: none !important;
+}
+
+/* ========================================= */
+/* SEÇÕES */
+/* ========================================= */
+
+.secao-graficos {
+    width: 100%;
+    min-width: 0;
+}
+
+.cabecalho-secao-graficos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.titulo-secao-graficos {
+    margin: 0 0 5px;
+    color: #1F2937;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.subtitulo-secao-graficos {
+    margin: 0;
+    color: #64748B;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ========================================= */
+/* GRADE DOS GRÁFICOS */
+/* ========================================= */
+
+.grade-graficos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+}
+
+/* ========================================= */
+/* PAINÉIS */
+/* ========================================= */
+
+.grafico-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 340px;
+    padding: 19px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: border-color 0.18s ease;
+}
+
+.grafico-card:hover {
+    border-color: #CBD5E1;
+}
+
+.grafico-largo {
+    grid-column: 1 / -1;
+}
+
+/* ========================================= */
+/* CABEÇALHO DOS PAINÉIS */
+/* ========================================= */
+
+.grafico-card-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    margin-bottom: 15px;
+}
+
+.grafico-card-cabecalho > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.grafico-card h4 {
+    margin: 0 0 6px;
+    color: #1F2937;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.descricao-card-grafico {
+    min-height: 34px;
+    margin: 0;
+    color: #6B7280;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.icone-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    color: #123C4A;
+    background: #F0F7F7;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+/* ========================================= */
+/* ÁREA DOS GRÁFICOS */
+/* ========================================= */
+
+.grafico-canvas {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: 260px;
+    min-width: 0;
+    min-height: 220px;
+    margin-top: auto;
+}
+
+.grafico-canvas canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.grafico-canvas canvas[hidden] {
+    display: none !important;
+}
+
+/* ========================================= */
+/* ESTADOS SEM DADOS */
+/* ========================================= */
+
+.estado-vazio-grafico {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    margin: 0;
+    padding: 18px;
+    color: #6B7280;
+    background: #F9FAFB;
+    border: 1px dashed #D1D5DB;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.estado-vazio-grafico[hidden] {
+    display: none !important;
+}
+
+/* ========================================= */
+/* RODAPÉ */
+/* ========================================= */
+
+.rodape-graficos {
+    margin: 25px 0 0;
+    padding-top: 15px;
+    color: #94A3B8;
+    border-top: 1px solid #E5E7EB;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* ========================================= */
+/* TABLETS */
+/* ========================================= */
+
+@media (max-width: 1000px) and (min-width: 651px) {
+
+    .pagina-graficos {
+        padding: 24px;
+    }
+
+    .grade-graficos {
+        gap: 13px;
+    }
+
+    .grafico-card {
+        min-height: 320px;
+        padding: 16px;
+    }
+
+    .grafico-canvas {
+        height: 235px;
+    }
+
+    .filtro-graficos {
+        padding: 14px;
+    }
+}
+
+/* ========================================= */
+/* CELULARES E TELAS MENORES */
+/* ========================================= */
+
+@media (max-width: 800px) {
+
+    .pagina-graficos {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 0;
+        padding: 22px 18px 30px;
+        overflow: visible;
+    }
+
+    .pagina-graficos > .cabecalho-graficos h2 {
+        font-size: 23px;
+    }
+
+    .filtro-graficos {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 13px;
+        margin: 20px 0 24px;
+        padding: 15px;
+    }
+
+    .filtro-graficos select {
+        width: 100%;
+        max-width: none;
+    }
+
+    .grade-graficos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .grafico-largo {
+        grid-column: auto;
+    }
+
+    .grafico-card {
+        min-height: 320px;
+        padding: 17px;
+    }
+
+    .grafico-canvas {
+        height: 245px;
+    }
+
+    .descricao-card-grafico {
+        min-height: 0;
+    }
+
+    .rodape-graficos {
+        margin-top: 22px;
+    }
+}
+
+/* ========================================= */
+/* CELULARES PEQUENOS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .pagina-graficos {
+        padding: 18px 12px 25px;
+    }
+
+    .pagina-graficos > .cabecalho-graficos h2 {
+        font-size: 21px;
+    }
+
+    .descricao-graficos {
+        font-size: 12px;
+    }
+
+    .filtro-graficos {
+        padding: 13px;
+    }
+
+    .filtro-graficos-info {
+        gap: 9px;
+    }
+
+    .filtro-graficos-info > i {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .grafico-card {
+        min-height: 290px;
+        padding: 13px;
+    }
+
+    .grafico-card h4 {
+        font-size: 13px;
+    }
+
+    .descricao-card-grafico {
+        font-size: 11px;
+    }
+
+    .icone-grafico {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .grafico-canvas {
+        height: 220px;
+        min-height: 200px;
+    }
+
+    .estado-vazio-grafico {
+        padding: 12px;
+        font-size: 11px;
+    }
+}
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .grafico-card {
+        transition: none;
+    }
+}

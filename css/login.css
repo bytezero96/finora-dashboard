@@ -1,0 +1,1071 @@
+/* ========================================= */
+/* FINORA — AUTENTICAÇÃO */
+/* LAYOUT DIVIDIDO: APRESENTAÇÃO + LOGIN */
+/* LOGO ACIMA DO NOME FINORA */
+/* SEM ROLAGEM NO DESKTOP */
+/* ========================================= */
+
+:root {
+    --auth-primary: #123C4A;
+    --auth-primary-hover: #0B132B;
+    --auth-accent: #16858A;
+
+    --auth-background: #F5F7FA;
+    --auth-white: #FFFFFF;
+    --auth-text: #172B35;
+    --auth-muted: #71808A;
+    --auth-border: #E1E7EB;
+
+    --auth-success: #16865B;
+    --auth-danger: #D94B4B;
+
+    --auth-shadow: 0 18px 55px rgba(20, 42, 55, 0.08);
+}
+
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    background: var(--auth-background);
+    color: var(--auth-text);
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--auth-accent);
+    outline-offset: 3px;
+}
+
+
+/* ========================================= */
+/* ESTRUTURA PRINCIPAL */
+/* ========================================= */
+
+.auth-container {
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+    overflow: hidden;
+}
+
+.auth-side {
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 45px;
+    background: var(--auth-background);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.auth-content {
+    width: 100%;
+    max-width: 410px;
+    margin: auto;
+}
+
+.auth-card {
+    width: 100%;
+    padding: 22px 32px;
+    background: var(--auth-white);
+    border: 1px solid rgba(225, 231, 235, 0.9);
+    border-radius: 18px;
+    box-shadow: var(--auth-shadow);
+}
+
+
+/* ========================================= */
+/* APRESENTAÇÃO */
+/* ========================================= */
+
+.auth-presentation {
+    position: relative;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 45px 9%;
+    background: linear-gradient(145deg, #0B132B 0%, #102D39 55%, #123C4A 100%);
+    color: #FFFFFF;
+}
+
+.presentation-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 560px;
+    height: 100%;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+}
+
+
+/* ========================================= */
+/* LOGO + NOME FINORA — APRESENTAÇÃO */
+/* ========================================= */
+
+.presentation-brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    gap: 0;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.presentation-brand img {
+    display: block;
+    width: 140px;
+    height: 105px;
+    max-width: none;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.presentation-brand span {
+    display: block;
+    margin-top: -12px;
+    color: #FFFFFF;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+
+/* ========================================= */
+/* MENSAGEM DE APRESENTAÇÃO */
+/* ========================================= */
+
+.presentation-message {
+    margin: 25px 0;
+}
+
+.presentation-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #78C9C8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.presentation-message h1 {
+    max-width: 550px;
+    color: #FFFFFF;
+    font-size: clamp(36px, 3.7vw, 54px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -2px;
+}
+
+.presentation-message h1 span {
+    display: block;
+    color: #70C5C2;
+}
+
+.presentation-message p {
+    max-width: 430px;
+    margin-top: 20px;
+    color: #C1D1D7;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* ========================================= */
+/* DIFERENCIAIS */
+/* ========================================= */
+
+.presentation-features {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 28px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #E0EAED;
+    font-size: 13px;
+}
+
+.feature-icon {
+    width: 21px;
+    height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(112, 197, 194, 0.5);
+    border-radius: 50%;
+    background: rgba(112, 197, 194, 0.12);
+    color: #83D7D0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ========================================= */
+/* RODAPÉ DA APRESENTAÇÃO */
+/* ========================================= */
+
+.presentation-footer {
+    color: #8FAAB3;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.presentation-footer span {
+    padding: 0 5px;
+    color: #70C5C2;
+}
+
+
+/* ========================================= */
+/* ELEMENTOS DECORATIVOS */
+/* ========================================= */
+
+.presentation-decoration {
+    position: absolute;
+    border: 1px solid rgba(112, 197, 194, 0.10);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.decoration-one {
+    width: 470px;
+    height: 470px;
+    right: -220px;
+    top: -130px;
+}
+
+.decoration-two {
+    width: 650px;
+    height: 650px;
+    right: -320px;
+    bottom: -330px;
+}
+
+
+/* ========================================= */
+/* MARCA — LOGO E NOME FINORA NO LOGIN */
+/* ========================================= */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 13px;
+    text-decoration: none;
+}
+
+.brand-logo {
+    display: block;
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.brand-name {
+    margin-top: -5px;
+    color: var(--auth-primary);
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+}
+
+
+/* ========================================= */
+/* TÍTULO */
+/* ========================================= */
+
+.auth-heading {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.auth-heading h2 {
+    color: var(--auth-text);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin-bottom: 6px;
+}
+
+.auth-heading p {
+    color: var(--auth-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* BOTÃO GOOGLE */
+/* ========================================= */
+
+.google-button {
+    width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    border: 1px solid var(--auth-border);
+    border-radius: 9px;
+    background: var(--auth-white);
+    color: #34434C;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.google-button svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+.google-button:hover {
+    background: #F9FBFC;
+    border-color: #B9C9D0;
+}
+
+.google-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ========================================= */
+/* SEPARADOR */
+/* ========================================= */
+
+.separator {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 13px 0;
+}
+
+.separator span {
+    height: 1px;
+    flex: 1;
+    background: var(--auth-border);
+}
+
+.separator p {
+    color: var(--auth-muted);
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+
+/* ========================================= */
+/* FORMULÁRIOS */
+/* ========================================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    color: #344650;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 41px;
+    padding: 0 13px;
+    border: 1px solid var(--auth-border);
+    border-radius: 8px;
+    outline: none;
+    background: var(--auth-white);
+    color: var(--auth-text);
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #A4AFB6;
+}
+
+.form-group input:focus {
+    border-color: var(--auth-accent);
+    box-shadow: 0 0 0 3px rgba(22, 133, 138, 0.10);
+}
+
+.label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+/* ========================================= */
+/* LINKS */
+/* ========================================= */
+
+.text-link {
+    border: none;
+    background: transparent;
+    color: var(--auth-accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.text-link:hover {
+    color: var(--auth-primary);
+    text-decoration: underline;
+}
+
+
+/* ========================================= */
+/* CAMPOS DE SENHA */
+/* ========================================= */
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-field input {
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #81909A;
+}
+
+.password-toggle svg {
+    width: 19px;
+    height: 19px;
+}
+
+.password-toggle:hover {
+    color: var(--auth-primary);
+}
+
+
+/* ========================================= */
+/* BOTÃO PRINCIPAL */
+/* ========================================= */
+
+.primary-button {
+    width: 100%;
+    min-height: 42px;
+    margin-top: 3px;
+    border: none;
+    border-radius: 9px;
+    background: var(--auth-primary);
+    color: var(--auth-white);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-button:hover {
+    background: var(--auth-primary-hover);
+    transform: translateY(-1px);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+.primary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ========================================= */
+/* MENSAGENS */
+/* ========================================= */
+
+.form-message {
+    display: none;
+    margin: 2px 0 8px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.form-message.visible {
+    display: block;
+}
+
+.form-message.error {
+    color: var(--auth-danger);
+}
+
+.form-message.success {
+    color: var(--auth-success);
+}
+
+.form-message.info {
+    color: var(--auth-primary);
+}
+
+
+/* ========================================= */
+/* CADASTRO */
+/* ========================================= */
+
+.signup-text {
+    margin-top: 13px;
+    text-align: center;
+    color: var(--auth-muted);
+    font-size: 12px;
+}
+
+.signup-text .text-link {
+    margin-left: 3px;
+}
+
+
+/* ========================================= */
+/* RODAPÉ */
+/* ========================================= */
+
+.auth-footer {
+    margin-top: 13px;
+    text-align: center;
+}
+
+.auth-footer p {
+    color: #9AA6AD;
+    font-size: 10px;
+}
+
+
+/* ========================================= */
+/* MODAIS */
+/* ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(9, 20, 29, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    padding: 30px;
+    border-radius: 16px;
+    background: var(--auth-white);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
+
+    transform: translateY(12px);
+    transition: transform 0.2s ease;
+}
+
+.modal-overlay.active .modal-card {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: #82909A;
+    font-size: 25px;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: #F1F4F6;
+    color: var(--auth-text);
+}
+
+
+/* ========================================= */
+/* CABEÇALHO DOS MODAIS */
+/* ========================================= */
+
+.modal-heading {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.modal-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    border-radius: 12px;
+    background: #EAF4F4;
+    color: var(--auth-accent);
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.modal-heading h2 {
+    margin-bottom: 8px;
+    color: var(--auth-text);
+    font-size: 21px;
+    letter-spacing: -0.5px;
+}
+
+.modal-heading p {
+    color: var(--auth-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.modal-bottom-text {
+    margin-top: 19px;
+    text-align: center;
+    color: var(--auth-muted);
+    font-size: 12px;
+}
+
+.recovery-card {
+    max-width: 410px;
+}
+
+.recovery-icon {
+    font-size: 22px;
+}
+
+
+/* ========================================= */
+/* INDICADOR DE FORÇA DA SENHA */
+/* ========================================= */
+
+.password-strength {
+    margin-top: 2px;
+}
+
+.strength-track {
+    width: 100%;
+    height: 4px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #EDF0F2;
+}
+
+.strength-track span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #D94B4B;
+    transition: width 0.2s ease, background 0.2s ease;
+}
+
+.password-strength small {
+    display: block;
+    margin-top: 7px;
+    color: var(--auth-muted);
+    font-size: 10px;
+}
+
+
+/* ========================================= */
+/* TELAS COM POUCA ALTURA */
+/* ========================================= */
+
+@media (min-width: 761px) and (max-height: 750px) {
+
+    .auth-side {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .auth-card {
+        padding: 15px 28px;
+    }
+
+    .brand {
+        margin-bottom: 8px;
+    }
+
+    .brand-logo {
+        width: 82px;
+    }
+
+    .brand-name {
+        font-size: 21px;
+    }
+
+    .auth-heading {
+        margin-bottom: 10px;
+    }
+
+    .auth-heading h2 {
+        font-size: 20px;
+    }
+
+    .google-button {
+        min-height: 38px;
+    }
+
+    .separator {
+        margin: 9px 0;
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+        gap: 5px;
+    }
+
+    .form-group input {
+        height: 37px;
+    }
+
+    .primary-button {
+        min-height: 38px;
+    }
+
+    .signup-text {
+        margin-top: 9px;
+    }
+
+    .auth-footer {
+        margin-top: 9px;
+    }
+
+    .presentation-brand img {
+        width: 110px;
+        height: 85px;
+    }
+
+    .presentation-brand span {
+        margin-top: -10px;
+        font-size: 24px;
+    }
+
+    .presentation-message {
+        margin: 18px 0;
+    }
+
+    .presentation-message h1 {
+        font-size: clamp(32px, 3.5vw, 45px);
+    }
+
+    .presentation-message p {
+        margin-top: 13px;
+        font-size: 14px;
+    }
+
+    .presentation-features {
+        gap: 9px;
+        margin-top: 18px;
+    }
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — TABLET */
+/* ========================================= */
+
+@media (max-width: 1000px) and (min-width: 761px) {
+
+    .auth-container {
+        grid-template-columns: minmax(0, 0.9fr) minmax(390px, 1fr);
+    }
+
+    .auth-presentation {
+        padding: 35px 7%;
+    }
+
+    .presentation-brand {
+        font-size: 24px;
+    }
+
+    .presentation-brand img {
+        width: 105px;
+        height: 85px;
+    }
+
+    .presentation-brand span {
+        margin-top: -9px;
+        font-size: 23px;
+    }
+
+    .presentation-message h1 {
+        font-size: 36px;
+    }
+
+    .auth-side {
+        padding: 15px 20px;
+    }
+
+    .auth-card {
+        padding: 20px 22px;
+    }
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — CELULAR */
+/* ========================================= */
+
+@media (max-width: 760px) {
+
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+    }
+
+    body {
+        min-height: 100vh;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .auth-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+    }
+
+    .auth-presentation {
+        height: auto;
+        min-height: auto;
+        padding: 25px 25px 30px;
+    }
+
+    .presentation-content {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+    }
+
+    .presentation-brand {
+        font-size: 23px;
+    }
+
+    .presentation-brand img {
+        width: 95px;
+        height: 75px;
+    }
+
+    .presentation-brand span {
+        margin-top: -8px;
+        font-size: 23px;
+    }
+
+    .presentation-message {
+        margin: 25px 0 0;
+    }
+
+    .presentation-label {
+        margin-bottom: 12px;
+        font-size: 9px;
+    }
+
+    .presentation-message h1 {
+        max-width: 450px;
+        font-size: clamp(27px, 6vw, 36px);
+        letter-spacing: -1.2px;
+    }
+
+    .presentation-message p {
+        margin-top: 12px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .presentation-features {
+        display: none;
+    }
+
+    .presentation-footer {
+        display: none;
+    }
+
+    .presentation-decoration {
+        opacity: 0.5;
+    }
+
+    .auth-side {
+        flex: 1;
+        height: auto;
+        min-height: auto;
+        padding: 25px 18px 20px;
+        overflow: visible;
+    }
+
+    .auth-content {
+        max-width: 430px;
+    }
+
+    .auth-card {
+        padding: 24px 23px;
+    }
+
+    .auth-footer {
+        margin-top: 15px;
+    }
+}
+
+
+/* ========================================= */
+/* TELAS MUITO PEQUENAS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .auth-presentation {
+        padding: 20px 19px 24px;
+    }
+
+    .presentation-brand img {
+        width: 78px;
+        height: 65px;
+    }
+
+    .presentation-brand span {
+        margin-top: -7px;
+        font-size: 21px;
+    }
+
+    .presentation-message h1 {
+        font-size: 27px;
+    }
+
+    .auth-side {
+        padding: 22px 13px 17px;
+    }
+
+    .auth-card {
+        padding: 22px 18px;
+    }
+
+    .separator {
+        gap: 8px;
+    }
+
+    .separator p {
+        font-size: 10px;
+    }
+
+    .label-row {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

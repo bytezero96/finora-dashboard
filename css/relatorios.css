@@ -1,0 +1,686 @@
+
+/* ========================================= */
+/* FINORA — RELATÓRIOS */
+/* VISUAL CLARO, PROFISSIONAL E RESPONSIVO */
+/* ========================================= */
+
+
+/* ========================================= */
+/* CABEÇALHO GLOBAL */
+/* ========================================= */
+
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    min-width: 0;
+}
+
+
+/* ========================================= */
+/* ESTRUTURA PRINCIPAL */
+/* ========================================= */
+
+.pagina-relatorios {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #0F172A;
+    background: #F8FAFC;
+}
+
+.pagina-relatorios * {
+    box-sizing: border-box;
+}
+
+.pagina-relatorios button,
+.pagina-relatorios input,
+.pagina-relatorios select {
+    font: inherit;
+}
+
+
+/* ========================================= */
+/* CABEÇALHO DA PÁGINA */
+/* ========================================= */
+
+.cabecalho-relatorios {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.cabecalho-relatorios h2 {
+    margin: 0 0 8px;
+    color: #0B132B;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.cabecalho-relatorios p {
+    max-width: 650px;
+    margin: 0;
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ========================================= */
+/* FILTROS */
+/* ========================================= */
+
+.filtros-relatorios {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+}
+
+.filtro-relatorio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 190px;
+}
+
+.filtro-relatorio label {
+    color: #334155;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.filtro-relatorio select,
+.filtro-relatorio input {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    color: #334155;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 7px;
+    outline: none;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filtro-relatorio select:focus,
+.filtro-relatorio input:focus {
+    border-color: #0F766E;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.09);
+}
+
+.filtro-relatorio[hidden] {
+    display: none !important;
+}
+
+.botao-aplicar-filtros {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 42px;
+    padding: 0 20px;
+    color: #FFFFFF;
+    background: #0B132B;
+    border: 1px solid #0B132B;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.botao-aplicar-filtros:hover {
+    background: #123C4A;
+    border-color: #123C4A;
+    transform: translateY(-1px);
+}
+
+.botao-aplicar-filtros i {
+    color: #FFFFFF;
+    background: transparent;
+}
+
+
+/* ========================================= */
+/* SEÇÕES */
+/* ========================================= */
+
+.secao-relatorio {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 30px;
+}
+
+.titulo-secao-relatorio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.titulo-secao-relatorio h3 {
+    margin: 0 0 5px;
+    color: #0B132B;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.titulo-secao-relatorio p {
+    margin: 0;
+    color: #64748B;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* INDICADORES FINANCEIROS */
+/* ========================================= */
+
+.grade-indicadores-relatorios {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.indicador-relatorio {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    min-height: 135px;
+    padding: 21px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 11px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.indicador-relatorio:hover {
+    border-color: #CBD5E1;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, 0.04);
+}
+
+.indicador-conteudo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.indicador-conteudo span {
+    margin-bottom: 12px;
+    color: #64748B;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.indicador-conteudo strong {
+    margin-bottom: 9px;
+    color: #0B132B;
+    font-size: clamp(17px, 1.5vw, 23px);
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    overflow-wrap: anywhere;
+}
+
+.indicador-conteudo small {
+    color: #94A3B8;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.indicador-relatorio > i {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #0F766E;
+    background: transparent;
+    font-size: 17px;
+}
+
+
+/* ========================================= */
+/* PAINÉIS */
+/* ========================================= */
+
+.painel-relatorio {
+    width: 100%;
+    min-width: 0;
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 11px;
+}
+
+.grafico-relatorio {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    min-height: 280px;
+}
+
+.grafico-relatorio canvas {
+    display: block;
+    max-width: 100%;
+}
+
+.estado-vazio-relatorio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    margin: 0;
+    color: #94A3B8;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* ========================================= */
+/* DESPESAS POR CATEGORIA */
+/* ========================================= */
+
+.lista-categorias-relatorio {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.item-categoria-relatorio {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.cabecalho-categoria-relatorio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.nome-categoria-relatorio {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.valor-categoria-relatorio {
+    flex-shrink: 0;
+    color: #0B132B;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.detalhes-categoria-relatorio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: #94A3B8;
+    font-size: 11px;
+}
+
+.barra-categoria-relatorio {
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    background: #E9EEF3;
+    border-radius: 10px;
+}
+
+.progresso-categoria-relatorio {
+    display: block;
+    height: 100%;
+    background: #0F766E;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+
+/* ========================================= */
+/* TABELA DE DETALHAMENTO */
+/* ========================================= */
+
+.tabela-relatorio-container {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabela-relatorio {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabela-relatorio thead {
+    background: #F8FAFC;
+}
+
+.tabela-relatorio th {
+    padding: 14px 16px;
+    color: #64748B;
+    border-bottom: 1px solid #E2E8F0;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    white-space: nowrap;
+}
+
+.tabela-relatorio td {
+    padding: 15px 16px;
+    color: #334155;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.tabela-relatorio tbody tr {
+    transition: background 0.15s;
+}
+
+.tabela-relatorio tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.tabela-relatorio tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-relatorio .estado-vazio-relatorio {
+    height: 130px;
+    color: #94A3B8;
+    text-align: center;
+    font-size: 13px;
+}
+
+.tipo-movimentacao-relatorio {
+    display: inline-block;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.valor-positivo-relatorio {
+    color: #0F766E !important;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.valor-negativo-relatorio {
+    color: #DC5757 !important;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* ========================================= */
+/* EXPORTAÇÃO */
+/* ========================================= */
+
+.secao-exportacao {
+    margin-bottom: 20px;
+}
+
+.acoes-exportacao-relatorio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 11px;
+}
+
+.botao-exportacao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 43px;
+    padding: 0 19px;
+    color: #334155;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.botao-exportacao:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
+}
+
+.botao-exportacao i {
+    color: #0F766E;
+    background: transparent;
+    font-size: 15px;
+}
+
+
+/* ========================================= */
+/* MENSAGENS */
+/* ========================================= */
+
+.mensagem-relatorios {
+    display: none;
+    width: 100%;
+    margin-top: 16px;
+    padding: 13px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mensagem-relatorios.sucesso {
+    display: block;
+    color: #166534;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+}
+
+.mensagem-relatorios.erro {
+    display: block;
+    color: #B91C1C;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+}
+
+.mensagem-relatorios.aviso {
+    display: block;
+    color: #92400E;
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+}
+
+
+/* ========================================= */
+/* TABLETS */
+/* ========================================= */
+
+@media (max-width: 1100px) {
+
+    .pagina-relatorios {
+        padding: 24px;
+    }
+
+    .grade-indicadores-relatorios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================= */
+/* TELAS INTERMEDIÁRIAS */
+/* ========================================= */
+
+@media (max-width: 900px) {
+
+    .filtros-relatorios {
+        gap: 12px;
+    }
+
+    .filtro-relatorio {
+        min-width: 160px;
+    }
+
+}
+
+
+/* ========================================= */
+/* CELULARES */
+/* ========================================= */
+
+@media (max-width: 700px) {
+
+    .pagina-relatorios {
+        padding: 18px 14px;
+    }
+
+    .cabecalho-relatorios {
+        margin-bottom: 22px;
+    }
+
+    .cabecalho-relatorios h2 {
+        font-size: 21px;
+    }
+
+    .cabecalho-relatorios p {
+        font-size: 12px;
+    }
+
+    .filtros-relatorios {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 13px;
+        padding: 16px;
+    }
+
+    .filtro-relatorio {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .botao-aplicar-filtros {
+        width: 100%;
+    }
+
+    .grade-indicadores-relatorios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .indicador-relatorio {
+        min-height: 125px;
+        padding: 14px;
+    }
+
+    .indicador-conteudo span {
+        font-size: 11px;
+    }
+
+    .indicador-conteudo strong {
+        font-size: 17px;
+    }
+
+    .indicador-conteudo small {
+        font-size: 10px;
+    }
+
+    .indicador-relatorio > i {
+        font-size: 14px;
+    }
+
+    .titulo-secao-relatorio h3 {
+        font-size: 15px;
+    }
+
+    .titulo-secao-relatorio p {
+        font-size: 11px;
+    }
+
+    .painel-relatorio {
+        padding: 15px;
+    }
+
+    .grafico-relatorio {
+        min-height: 240px;
+    }
+
+    .acoes-exportacao-relatorio {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .botao-exportacao {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================= */
+/* TELAS PEQUENAS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .grade-indicadores-relatorios {
+        grid-template-columns: 1fr;
+    }
+
+    .indicador-relatorio {
+        min-height: 105px;
+    }
+
+    .indicador-conteudo strong {
+        font-size: 20px;
+    }
+
+}
+
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pagina-relatorios *,
+    .pagina-relatorios *::before,
+    .pagina-relatorios *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}

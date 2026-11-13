@@ -1,0 +1,735 @@
+
+/* ========================================= */
+/* FINORA — INVESTIMENTOS */
+/* CSS RESPONSIVO */
+/* ========================================= */
+
+
+/* ========================================= */
+/* ESTRUTURA PRINCIPAL */
+/* ========================================= */
+
+.pagina-investimentos {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #0F172A;
+    background: #F8FAFC;
+}
+
+.pagina-investimentos *,
+.pagina-investimentos *::before,
+.pagina-investimentos *::after {
+    box-sizing: border-box;
+}
+
+
+/* ========================================= */
+/* CABEÇALHO */
+/* ========================================= */
+
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    min-width: 0;
+}
+
+.cabecalho-investimentos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.cabecalho-investimentos h2 {
+    margin: 0 0 7px;
+    color: #0B132B;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.cabecalho-investimentos p {
+    margin: 0;
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* MENSAGENS */
+/* ========================================= */
+
+.mensagem-investimentos {
+    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 13px 16px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.mensagem-investimentos.sucesso {
+    display: block;
+    color: #166534;
+    background: #F0FDF4;
+    border-color: #BBF7D0;
+}
+
+.mensagem-investimentos.erro {
+    display: block;
+    color: #B91C1C;
+    background: #FEF2F2;
+    border-color: #FECACA;
+}
+
+.mensagem-investimentos.aviso {
+    display: block;
+    color: #92400E;
+    background: #FFFBEB;
+    border-color: #FDE68A;
+}
+
+
+/* ========================================= */
+/* RESUMO DA CARTEIRA */
+/* ========================================= */
+
+.resumo-investimentos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin-bottom: 26px;
+}
+
+.card-investimento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    min-height: 112px;
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E8EDF3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-investimento:hover {
+    border-color: #D5DEE9;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.045);
+}
+
+.card-investimento-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.card-investimento-info span {
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.card-investimento-info strong {
+    color: #0B132B;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    overflow-wrap: anywhere;
+}
+
+.icone-investimento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    color: #287D78;
+    background: transparent;
+    border-radius: 0;
+    font-size: 17px;
+}
+
+
+/* ========================================= */
+/* SEÇÕES */
+/* ========================================= */
+
+.secao-investimentos {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 24px;
+    padding: 25px;
+    background: #FFFFFF;
+    border: 1px solid #E8EDF3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.025);
+}
+
+.titulo-secao-investimentos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+.titulo-secao-investimentos > div {
+    min-width: 0;
+}
+
+.titulo-secao-investimentos h3 {
+    margin: 0 0 6px;
+    color: #0B132B;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.titulo-secao-investimentos p {
+    margin: 0;
+    color: #64748B;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ========================================= */
+/* FORMULÁRIO */
+/* ========================================= */
+
+#formInvestimentos {
+    width: 100%;
+    min-width: 0;
+}
+
+.campos-investimentos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.campo-investimentos {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 8px;
+}
+
+.campo-investimentos label {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-investimentos input,
+.campo-investimentos select,
+.campo-investimentos textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 11px 13px;
+    color: #0F172A;
+    background: #FFFFFF;
+    border: 1px solid #DCE3EB;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo-investimentos input::placeholder,
+.campo-investimentos textarea::placeholder {
+    color: #94A3B8;
+}
+
+.campo-investimentos input:focus,
+.campo-investimentos select:focus,
+.campo-investimentos textarea:focus {
+    border-color: #287D78;
+    box-shadow: 0 0 0 3px rgba(40, 125, 120, 0.10);
+}
+
+.campo-investimentos select {
+    cursor: pointer;
+}
+
+.campo-investimentos textarea {
+    min-height: 90px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.campo-investimentos-amplo {
+    grid-column: 1 / -1;
+}
+
+
+/* ========================================= */
+/* BOTÕES DO FORMULÁRIO */
+/* ========================================= */
+
+.acoes-formulario-investimentos {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.acoes-formulario-investimentos button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 0 20px;
+    color: #FFFFFF;
+    background: #123C4A;
+    border: 1px solid #123C4A;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.acoes-formulario-investimentos button:hover {
+    background: #0B132B;
+    border-color: #0B132B;
+}
+
+.acoes-formulario-investimentos button:active {
+    transform: translateY(1px);
+}
+
+.acoes-formulario-investimentos button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ========================================= */
+/* COMPOSIÇÃO DA CARTEIRA */
+/* ========================================= */
+
+.lista-categorias-investimentos {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+}
+
+.categoria-investimento {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 100%;
+    min-width: 0;
+}
+
+.categoria-investimento-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+}
+
+.categoria-investimento-nome {
+    color: #334155;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.categoria-investimento-valor {
+    color: #0B132B;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.categoria-investimento-barra {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    background: #EDF2F7;
+    border-radius: 20px;
+}
+
+.categoria-investimento-progresso {
+    height: 100%;
+    min-width: 0;
+    background: #287D78;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+.categoria-investimento-percentual {
+    color: #94A3B8;
+    font-size: 11px;
+    text-align: right;
+}
+
+.investimentos-vazio {
+    color: #94A3B8;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* ========================================= */
+/* TABELA DE MOVIMENTAÇÕES */
+/* ========================================= */
+
+.tabela-investimentos-wrapper {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid #E8EDF3;
+    border-radius: 9px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+
+.tabela-investimentos {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    background: #FFFFFF;
+}
+
+.tabela-investimentos thead {
+    background: #F8FAFC;
+}
+
+.tabela-investimentos th {
+    padding: 14px 16px;
+    color: #64748B;
+    border-bottom: 1px solid #E8EDF3;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabela-investimentos td {
+    padding: 15px 16px;
+    color: #334155;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.tabela-investimentos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-investimentos tbody tr:hover {
+    background: #FAFCFE;
+}
+
+.tabela-investimentos .investimentos-vazio {
+    padding: 30px 15px;
+    color: #94A3B8;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* ========================================= */
+/* IDENTIFICAÇÃO DA MOVIMENTAÇÃO */
+/* ========================================= */
+
+.tipo-movimentacao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tipo-movimentacao.aplicacao {
+    color: #166534;
+    background: #F0FDF4;
+}
+
+.tipo-movimentacao.resgate {
+    color: #1D4ED8;
+    background: #EFF6FF;
+}
+
+.valor-aplicacao {
+    color: #15803D !important;
+    font-weight: 600;
+}
+
+.valor-resgate {
+    color: #2563EB !important;
+    font-weight: 600;
+}
+
+
+/* ========================================= */
+/* AÇÕES DA TABELA */
+/* ========================================= */
+
+.acoes-investimento {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-editar-investimento,
+.btn-excluir-investimento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-editar-investimento {
+    color: #64748B;
+}
+
+.btn-editar-investimento:hover {
+    color: #1D4ED8;
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+}
+
+.btn-excluir-investimento {
+    color: #64748B;
+}
+
+.btn-excluir-investimento:hover {
+    color: #DC2626;
+    background: #FEF2F2;
+    border-color: #FECACA;
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — TELAS MÉDIAS */
+/* ========================================= */
+
+@media (max-width: 1100px) {
+
+    .resumo-investimentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .campos-investimentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — TABLETS */
+/* ========================================= */
+
+@media (max-width: 900px) {
+
+    .pagina-investimentos {
+        padding: 25px 20px;
+    }
+
+    .secao-investimentos {
+        padding: 22px;
+    }
+
+}
+
+
+/* ========================================= */
+/* RESPONSIVIDADE — CELULARES */
+/* ========================================= */
+
+@media (max-width: 800px) {
+
+    .acoes-cabecalho {
+        gap: 10px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .pagina-investimentos {
+        padding: 20px 15px;
+    }
+
+    .cabecalho-investimentos {
+        margin-bottom: 22px;
+    }
+
+    .cabecalho-investimentos h2 {
+        font-size: 22px;
+    }
+
+    .cabecalho-investimentos p {
+        font-size: 13px;
+    }
+
+    .resumo-investimentos {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .card-investimento {
+        min-height: 95px;
+        padding: 18px;
+    }
+
+    .card-investimento-info {
+        gap: 7px;
+    }
+
+    .card-investimento-info strong {
+        font-size: 19px;
+    }
+
+    .secao-investimentos {
+        padding: 18px 15px;
+        margin-bottom: 18px;
+    }
+
+    .titulo-secao-investimentos {
+        margin-bottom: 19px;
+    }
+
+    .titulo-secao-investimentos h3 {
+        font-size: 16px;
+    }
+
+    .titulo-secao-investimentos p {
+        font-size: 12px;
+    }
+
+    .campos-investimentos {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .campo-investimentos-amplo {
+        grid-column: auto;
+    }
+
+    .acoes-formulario-investimentos {
+        justify-content: stretch;
+    }
+
+    .acoes-formulario-investimentos button {
+        width: 100%;
+        min-height: 45px;
+    }
+
+    .lista-categorias-investimentos {
+        gap: 16px;
+    }
+
+    .tabela-investimentos {
+        min-width: 760px;
+    }
+
+}
+
+
+/* ========================================= */
+/* TELAS MUITO PEQUENAS */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .pagina-investimentos {
+        padding: 16px 11px;
+    }
+
+    .cabecalho-investimentos h2 {
+        font-size: 20px;
+    }
+
+    .secao-investimentos {
+        padding: 15px 12px;
+    }
+
+    .card-investimento {
+        padding: 15px;
+    }
+
+    .card-investimento-info span {
+        font-size: 12px;
+    }
+
+    .card-investimento-info strong {
+        font-size: 17px;
+    }
+
+    .icone-investimento {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .categoria-investimento-nome,
+    .categoria-investimento-valor {
+        font-size: 12px;
+    }
+
+}
+
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .card-investimento,
+    .acoes-formulario-investimentos button,
+    .categoria-investimento-progresso,
+    .btn-editar-investimento,
+    .btn-excluir-investimento {
+        transition: none;
+    }
+
+}

@@ -1,0 +1,734 @@
+
+/* ========================================= */
+/* FINORA — DESPESAS */
+/* ESTILIZAÇÃO COMPLETA E RESPONSIVA */
+/* ========================================= */
+
+.pagina-despesas {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #0F172A;
+}
+
+.pagina-despesas *,
+.pagina-despesas *::before,
+.pagina-despesas *::after {
+    box-sizing: border-box;
+}
+
+/* ========================================= */
+/* TÍTULO DA PÁGINA */
+/* ========================================= */
+
+.pagina-despesas > h2 {
+    margin: 0 0 8px;
+    color: #0B132B;
+    font-size: 26px;
+    line-height: 1.3;
+}
+
+.pagina-despesas > h2::after {
+    content: "Organize seus gastos e acompanhe seus lançamentos.";
+    display: block;
+    margin-top: 8px;
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ========================================= */
+/* MENSAGENS */
+/* ========================================= */
+
+.mensagem-despesas {
+    display: none;
+    margin: 16px 0;
+    padding: 12px 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.mensagem-despesas.erro {
+    display: block;
+    color: #991B1B;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+}
+
+.mensagem-despesas.sucesso {
+    display: block;
+    color: #166534;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+}
+
+/* ========================================= */
+/* RESUMO FINANCEIRO */
+/* ========================================= */
+
+.resumo-despesas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    margin: 25px 0;
+}
+
+.card-resumo-despesas {
+    position: relative;
+    display: flex;
+    flex: 0 1 240px;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    min-height: 100px;
+    padding: 15px 18px 15px 22px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+.card-resumo-despesas::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: #14B8A6;
+}
+
+.card-resumo-despesas h3 {
+    margin: 0 0 8px;
+    color: #64748B;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.card-resumo-despesas p {
+    margin: 0;
+    color: #0B132B;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ========================================= */
+/* ABAS — CRÉDITO, DÉBITO E PIX */
+/* ========================================= */
+
+.abas-despesa {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+    margin: 28px 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+.pagina-despesas .abas-despesa .aba-despesa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 0;
+    min-height: 105px;
+    padding: 16px 10px;
+    color: #334155;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pagina-despesas .abas-despesa .aba-despesa i {
+    color: #0F766E;
+    font-size: 25px;
+}
+
+.pagina-despesas .abas-despesa .aba-despesa:hover {
+    color: #0B132B;
+    background: #F0FDFA;
+    border-color: #0F766E;
+}
+
+.pagina-despesas .abas-despesa .aba-despesa.ativa {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #0B132B, #123C4A);
+    border-color: #123C4A;
+    box-shadow: 0 3px 8px rgba(11, 19, 43, 0.15);
+}
+
+.pagina-despesas .abas-despesa .aba-despesa.ativa i {
+    color: #FFFFFF;
+}
+
+.pagina-despesas .abas-despesa .aba-despesa:focus-visible {
+    outline: 3px solid #5EEAD4;
+    outline-offset: 3px;
+}
+
+/* ========================================= */
+/* CONTEÚDO DAS ABAS */
+/* ========================================= */
+
+.conteudo-aba {
+    width: 100%;
+    min-width: 0;
+}
+
+.conteudo-aba[hidden] {
+    display: none !important;
+}
+
+.conteudo-aba > h3 {
+    margin: 0 0 15px;
+    color: #0B132B;
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+/* ========================================= */
+/* FORMULÁRIOS */
+/* ========================================= */
+
+.formulario-despesa {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 280px));
+    align-items: start;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 25px;
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 13px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.formulario-despesa .campo-despesa {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.formulario-despesa .campo-despesa label,
+.formulario-despesa > label {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #0B132B;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ========================================= */
+/* INPUTS E LISTAS DE SELEÇÃO */
+/* ========================================= */
+
+.formulario-despesa input,
+.formulario-despesa select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    min-height: 40px;
+    margin: 0;
+    padding: 0 10px;
+    color: #0F172A;
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    outline: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagina-despesas .formulario-despesa input::placeholder {
+    color: #94A3B8;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 1;
+}
+
+.pagina-despesas .formulario-despesa input::-webkit-input-placeholder {
+    color: #94A3B8;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 1;
+}
+
+.formulario-despesa input[type="text"] {
+    text-transform: uppercase;
+}
+
+.formulario-despesa input:focus,
+.formulario-despesa select:focus {
+    border-color: #0F766E;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.formulario-despesa input:disabled,
+.formulario-despesa select:disabled {
+    color: #64748B;
+    background: #F1F5F9;
+    cursor: not-allowed;
+}
+
+.formulario-despesa small {
+    margin: 0;
+    color: #64748B;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ========================================= */
+/* OBSERVAÇÃO SOBRE CÁLCULOS */
+/* ========================================= */
+
+.nota-calculo {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 12px 14px;
+    color: #475569;
+    background: #F1F5F9;
+    border-left: 3px solid #14B8A6;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ========================================= */
+/* BOTÃO DE CADASTRO */
+/* ========================================= */
+
+.formulario-despesa > button[type="submit"] {
+    justify-self: start;
+    min-height: 40px;
+    padding: 11px 17px;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #0B132B, #123C4A);
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.formulario-despesa > button[type="submit"]:hover {
+    opacity: 0.94;
+    transform: translateY(-1px);
+}
+
+.formulario-despesa > button[type="submit"]:focus-visible {
+    outline: 3px solid #5EEAD4;
+    outline-offset: 3px;
+}
+
+/* ========================================= */
+/* TABELAS */
+/* ========================================= */
+
+.tabela-responsiva {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+}
+
+.tabela-responsiva table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabela-responsiva thead {
+    background: #F1F5F9;
+}
+
+.tabela-responsiva th {
+    padding: 14px;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.tabela-responsiva td {
+    padding: 14px;
+    color: #334155;
+    border-top: 1px solid #E2E8F0;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.tabela-responsiva tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.tabela-responsiva tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.tabela-responsiva td:first-child {
+    color: #0F172A;
+    font-weight: 600;
+}
+
+.tabela-responsiva .valor-tabela {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.tabela-responsiva .tabela-vazia {
+    padding: 28px 16px;
+    color: #64748B;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* ========================================= */
+/* BOTÕES DE AÇÃO DAS TABELAS */
+/* ========================================= */
+
+.acoes-despesa {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    min-width: 150px;
+}
+
+.botao-editar-despesa,
+.botao-excluir-despesa {
+    min-height: 34px;
+    padding: 8px 11px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.botao-editar-despesa {
+    color: #0F766E;
+    background: #F0FDFA;
+    border: 1px solid #99F6E4;
+}
+
+.botao-editar-despesa:hover {
+    background: #CCFBF1;
+    border-color: #5EEAD4;
+}
+
+.botao-excluir-despesa {
+    color: #B91C1C;
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+}
+
+.botao-excluir-despesa:hover {
+    background: #FEE2E2;
+    border-color: #FCA5A5;
+}
+
+.botao-editar-despesa:focus-visible,
+.botao-excluir-despesa:focus-visible {
+    outline: 2px solid #0F766E;
+    outline-offset: 2px;
+}
+
+/* ========================================= */
+/* TABLETS E NOTEBOOKS MENORES */
+/* ========================================= */
+
+@media (max-width: 1100px) {
+    .pagina-despesas {
+        padding: 25px;
+    }
+
+    .formulario-despesa {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .resumo-despesas {
+        gap: 12px;
+    }
+
+    .card-resumo-despesas {
+        flex-basis: 220px;
+        padding: 16px 16px 16px 21px;
+    }
+
+    .formulario-despesa {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ========================================= */
+/* CELULARES E TABLETS */
+/* ========================================= */
+
+@media (max-width: 800px) {
+    .pagina-despesas {
+        width: 100%;
+        min-width: 0;
+        padding: 22px 18px;
+    }
+
+    .pagina-despesas > h2 {
+        font-size: 24px;
+    }
+
+    .resumo-despesas {
+        margin: 20px 0;
+    }
+
+    .formulario-despesa {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 20px;
+    }
+
+    .tabela-responsiva {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ========================================= */
+/* CELULARES */
+/* ========================================= */
+
+@media (max-width: 650px) {
+    .pagina-despesas {
+        padding: 20px 15px;
+    }
+
+    .pagina-despesas > h2 {
+        font-size: 23px;
+    }
+
+    .pagina-despesas > h2::after {
+        font-size: 13px;
+    }
+
+    .resumo-despesas {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .card-resumo-despesas {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        min-height: 90px;
+        padding: 14px 16px 14px 21px;
+    }
+
+    .card-resumo-despesas h3 {
+        margin-bottom: 8px;
+    }
+
+    .card-resumo-despesas p {
+        font-size: 15px;
+    }
+
+    /* ABAS */
+
+    .abas-despesa {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin: 22px 0;
+    }
+
+    .pagina-despesas .abas-despesa .aba-despesa {
+        min-height: 82px;
+        gap: 7px;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    .pagina-despesas .abas-despesa .aba-despesa i {
+        font-size: 21px;
+    }
+
+    /* FORMULÁRIOS */
+
+    .formulario-despesa {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding: 17px;
+    }
+
+    .formulario-despesa .campo-despesa {
+        gap: 6px;
+        max-width: 100%;
+    }
+
+    .formulario-despesa input,
+    .formulario-despesa select {
+        height: 43px;
+        min-height: 43px;
+        font-size: 14px;
+    }
+
+    .formulario-despesa .campo-despesa label {
+        font-size: 13px;
+    }
+
+    .nota-calculo {
+        grid-column: auto;
+        padding: 11px 12px;
+        font-size: 12px;
+    }
+
+    .formulario-despesa > button[type="submit"] {
+        width: 100%;
+        min-height: 43px;
+        justify-self: stretch;
+    }
+
+    /* TÍTULOS DAS ABAS */
+
+    .conteudo-aba > h3 {
+        font-size: 17px;
+    }
+
+    /* TABELAS */
+
+    .tabela-responsiva {
+        border-radius: 9px;
+        margin-bottom: 24px;
+    }
+
+    .tabela-responsiva th,
+    .tabela-responsiva td {
+        padding: 12px;
+    }
+
+    .acoes-despesa {
+        min-width: 150px;
+    }
+}
+
+/* ========================================= */
+/* TELAS MUITO PEQUENAS */
+/* ========================================= */
+
+@media (max-width: 400px) {
+    .pagina-despesas {
+        padding: 17px 12px;
+    }
+
+    .pagina-despesas > h2 {
+        font-size: 21px;
+    }
+
+    .abas-despesa {
+        gap: 6px;
+    }
+
+    .pagina-despesas .abas-despesa .aba-despesa {
+        min-height: 76px;
+        padding: 9px 4px;
+        font-size: 11px;
+    }
+
+    .pagina-despesas .abas-despesa .aba-despesa i {
+        font-size: 19px;
+    }
+
+    .formulario-despesa {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .card-resumo-despesas {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .pagina-despesas {
+        padding: 14px 9px;
+    }
+
+    .pagina-despesas .abas-despesa .aba-despesa {
+        font-size: 10px;
+    }
+
+    .formulario-despesa {
+        padding: 12px;
+    }
+}
+
+/* ========================================= */
+/* ACESSIBILIDADE */
+/* ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina-despesas *,
+    .pagina-despesas *::before,
+    .pagina-despesas *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
