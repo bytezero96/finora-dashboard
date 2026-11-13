@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="finora-protegendo">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,17 @@
     >
 
     <title>Finora - Cartões</title>
+
+    <!-- PROTEÇÃO VISUAL INICIAL -->
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cartoes.css">
@@ -408,9 +419,13 @@
 
             try {
 
+                // 1. Verifica a autenticação antes de liberar a página.
+
                 const usuario = await protegerPagina();
 
                 if (!usuario) return;
+
+                // 2. Atualiza a saudação.
 
                 const saudacao = document.querySelector(".henrique");
 
@@ -427,9 +442,33 @@
 
                 }
 
+                // 3. Inicializa o script principal do Finora.
+
                 await import("./js/script.js");
 
+                // 4. Aguarda o carregamento dos dados.
+
+                if (window.finoraInicializado) {
+
+                    const inicializado = await window.finoraInicializado;
+
+                    if (inicializado === false) {
+                        throw new Error(
+                            "Não foi possível inicializar os dados do Finora."
+                        );
+                    }
+
+                }
+
+                // 5. Carrega as configurações.
+
                 await carregarScript("js/configuracoes.js");
+
+                // 6. Libera a página somente após a inicialização.
+
+                document.documentElement.classList.remove(
+                    "finora-protegendo"
+                );
 
             } catch (erro) {
 
@@ -438,8 +477,11 @@
                     erro
                 );
 
+                // Não remover a proteção em caso de erro.
+                // A página permanece oculta.
+
                 alert(
-                    "Não foi possível carregar os cartões. Tente novamente."
+                    "Não foi possível carregar os cartões. Atualize a página e tente novamente."
                 );
 
             }
