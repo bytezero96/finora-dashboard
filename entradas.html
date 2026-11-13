@@ -1,12 +1,22 @@
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="finora-protegendo">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Finora - Entradas</title>
+
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
 
     <!-- CSS PRINCIPAL -->
     <link rel="stylesheet" href="css/style.css">
@@ -76,9 +86,7 @@
 
     <div class="dashboard">
 
-        <!-- ========================================= -->
         <!-- MENU LATERAL -->
-        <!-- ========================================= -->
 
         <nav
             class="menu-lateral"
@@ -103,8 +111,6 @@
                         <span>Gráficos</span>
                     </a>
                 </li>
-
-                <!-- MOVIMENTAÇÕES -->
 
                 <li class="menu-grupo">MOVIMENTAÇÕES</li>
 
@@ -143,8 +149,6 @@
                     </a>
                 </li>
 
-                <!-- PLANEJAMENTO -->
-
                 <li class="menu-grupo">PLANEJAMENTO</li>
 
                 <li class="menu-item">
@@ -167,8 +171,6 @@
                         <span>Investimentos</span>
                     </a>
                 </li>
-
-                <!-- OUTROS -->
 
                 <li class="menu-grupo">OUTROS</li>
 
@@ -195,8 +197,6 @@
 
         <main class="pagina-entradas">
 
-            <!-- CABEÇALHO DA PÁGINA -->
-
             <section class="cabecalho-pagina-entradas">
 
                 <div>
@@ -209,9 +209,7 @@
 
             </section>
 
-            <!-- ========================================= -->
             <!-- INDICADORES -->
-            <!-- ========================================= -->
 
             <section class="indicadores-entradas">
 
@@ -274,9 +272,7 @@
 
             </section>
 
-            <!-- ========================================= -->
             <!-- CADASTRO DE ENTRADAS -->
-            <!-- ========================================= -->
 
             <section class="painel-entradas">
 
@@ -416,8 +412,6 @@
 
                     </div>
 
-                    <!-- AÇÕES DO FORMULÁRIO -->
-
                     <div class="acoes-formulario-entrada">
 
                         <button
@@ -454,9 +448,7 @@
 
             </section>
 
-            <!-- ========================================= -->
             <!-- HISTÓRICO DE ENTRADAS -->
-            <!-- ========================================= -->
 
             <section class="painel-entradas painel-historico-entradas">
 
@@ -561,8 +553,6 @@
 
                     </table>
 
-                    <!-- ESTADO VAZIO -->
-
                     <div
                         id="estadoVazioEntradas"
                         class="estado-vazio-entradas"
@@ -616,7 +606,8 @@
             }
 
             function alternarMenu() {
-                const menuAberto = document.body.classList.contains("menu-mobile-aberto");
+                const menuAberto =
+                    document.body.classList.contains("menu-mobile-aberto");
 
                 if (menuAberto) {
                     fecharMenu();
@@ -692,12 +683,17 @@
 
                 await carregarScript("js/configuracoes.js");
 
+                // Libera a página somente após a inicialização bem-sucedida.
+                document.documentElement.classList.remove("finora-protegendo");
+
             } catch (erro) {
                 console.error("Erro ao inicializar Entradas:", erro);
 
                 alert(
                     "Não foi possível carregar a página de Entradas. Tente novamente."
                 );
+
+                // Não remover a proteção em caso de erro.
             }
         }
 
