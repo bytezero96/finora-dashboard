@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="finora-protegendo">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,17 @@
     <meta name="theme-color" content="#102D39">
 
     <title>Finora - Investimentos</title>
+
+    <!-- PROTEÇÃO VISUAL DURANTE A AUTENTICAÇÃO -->
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/investimentos.css">
@@ -82,7 +93,6 @@
                     </a>
                 </li>
 
-
                 <li class="menu-grupo">MOVIMENTAÇÕES</li>
 
                 <li class="menu-item">
@@ -120,7 +130,6 @@
                     </a>
                 </li>
 
-
                 <li class="menu-grupo">PLANEJAMENTO</li>
 
                 <li class="menu-item">
@@ -143,7 +152,6 @@
                         <span>Investimentos</span>
                     </a>
                 </li>
-
 
                 <li class="menu-grupo">OUTROS</li>
 
@@ -578,6 +586,11 @@
 
                 await carregarScript("js/configuracoes.js");
 
+                // Libera a página somente após a inicialização bem-sucedida.
+                document.documentElement.classList.remove(
+                    "finora-protegendo"
+                );
+
             } catch (erro) {
 
                 console.error(
@@ -588,6 +601,8 @@
                 alert(
                     "Não foi possível carregar a página de Investimentos. Tente novamente."
                 );
+
+                // A proteção permanece ativa em caso de erro.
 
             }
 
