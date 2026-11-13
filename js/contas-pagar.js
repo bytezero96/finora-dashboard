@@ -149,6 +149,12 @@ import {
         try {
             const registros = await listarRegistros(COLECAO_CONTAS);
 
+            if (!Array.isArray(registros)) {
+                throw new Error(
+                    "O Firestore retornou um resultado inválido para as contas."
+                );
+            }
+
             contas = registros.filter(conta => {
                 return (
                     conta &&
@@ -163,21 +169,38 @@ import {
             atualizarInterface();
 
         } catch (erro) {
-            console.error("Erro ao carregar contas do Firestore:", erro);
+            console.error(
+                "Erro ao carregar contas do Firestore:",
+                erro
+            );
 
             mostrarMensagem(
                 "Não foi possível carregar as contas. Verifique sua conexão e tente novamente.",
                 "erro"
             );
+
+            // Propaga o erro para impedir a liberação da página.
+            throw erro;
         }
     }
 
     async function carregarDebitos() {
         try {
-            return await listarRegistros(COLECAO_DEBITOS);
+            const registros = await listarRegistros(COLECAO_DEBITOS);
+
+            if (!Array.isArray(registros)) {
+                throw new Error(
+                    "O Firestore retornou um resultado inválido para os débitos."
+                );
+            }
+
+            return registros;
 
         } catch (erro) {
-            console.error("Erro ao carregar débitos do Firestore:", erro);
+            console.error(
+                "Erro ao carregar débitos do Firestore:",
+                erro
+            );
 
             mostrarMensagem(
                 "Não foi possível acessar os lançamentos de despesas.",
@@ -805,8 +828,8 @@ import {
                     correspondeMes;
             })
             .sort((a, b) => {
-                if (a.status === "paga" && b.status !== "paga") return 1;
-                if (a.status !== "paga" && b.status === "paga") return -1;
+                if (obterSituacao(a) === "paga" && obterSituacao(b) !== "paga") return 1;
+                if (obterSituacao(a) !== "paga" && obterSituacao(b) === "paga") return -1;
 
                 return a.vencimento.localeCompare(b.vencimento);
             });
@@ -984,9 +1007,12 @@ import {
 
     async function iniciar() {
         configurarEventos();
+
+        // A inicialização só termina depois que o Firestore responder.
         await carregarContas();
     }
 
-    iniciar();
+    // O top-level await faz o import() do HTML aguardar a inicialização.
+    await iniciar();
 
 })();
