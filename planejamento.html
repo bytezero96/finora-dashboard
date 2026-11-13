@@ -1,12 +1,22 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="finora-protegendo">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Finora - Planejamento Financeiro</title>
+
+    <style>
+        html.finora-protegendo body {
+            visibility: hidden;
+        }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("finora-protegendo");
+    </script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/configuracoes.css">
@@ -605,6 +615,9 @@
 
                 await carregarScript("js/configuracoes.js");
 
+                // Libera a página somente após a inicialização bem-sucedida.
+                document.documentElement.classList.remove("finora-protegendo");
+
             } catch (erro) {
                 console.error(
                     "Erro ao inicializar o Planejamento:",
@@ -614,6 +627,8 @@
                 alert(
                     "Não foi possível carregar o Planejamento Financeiro. Tente novamente."
                 );
+
+                // A página permanece protegida em caso de erro.
             }
         }
 
